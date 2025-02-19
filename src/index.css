@@ -4,8 +4,13 @@
 
 /* Apply Baloo font to the whole app */
 body {
-  font-family: "Baloo 2", cursive;
+  font-family: "Baloo 2", serif;
 }
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -16,7 +21,7 @@ body {
 }
 body {
   background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Baloo 2", serif;
   font-size: 14px;
   color: #000;
   margin: 0;
@@ -38,4 +43,103 @@ body {
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+.partner-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.partner-image {
+  width: 100%;  /* Adjust size if needed */
+}
+
+.company-loop {
+  position: absolute;
+  left: 0;
+  display: flex;
+  animation: companyAnimation 20s linear infinite;
+}
+
+.company-image {
+  height: 100px;  /* Adjust the size as needed */
+  margin-right: 30px;  /* Adjust the spacing between logos */
+}
+
+@keyframes companyAnimation {
+  0% {
+      transform: translateX(100%);
+  }
+  
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+
+
+@keyframes scroll {
+  from {
+      transform: translateX(0%);
+  }
+  to {
+      transform: translateX(100%);
+  }
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  .min-h-screen {
+      min-height: auto;
+  }
+}
+@media (max-width: 1024px) {
+  .nav-menu {
+    display: flex !important;
+  };
+}
+/* Default padding */
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .px-20 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .px-20 {
+      padding-left: 2rem;
+      padding-right: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .px-20 {
+      padding-left: 2rem;
+      padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .px-20 {
+      padding-left: 5rem;
+      padding-right: 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .px-20 {
+      padding-left: 6rem;
+      padding-right: 6rem;
+  }
 }

@@ -31,5 +31,7 @@ import BlogImage3 from './blog-image3.svg';
 import BlogImage4 from './blog-image4.svg';
 import BlogImage5 from './blog-image5.svg';
 import VideoImage from './video.svg';
+import GrayLabel from './gray-label.svg';
+import Company from './companies.svg';
 
-export {VideoImage,BlogImage1,BlogImage2,BlogImage3,BlogImage4,BlogImage5, starImage,Assessment,Planning,Collabration,OfficeWork,Discussion,CodingTeam,Team,Research, Partner,Design, Develop, Test,About, Help,Hero,Hubspot,Web,Migration,Marketing,UX,App,Quote,Companylogo,React,Python,Wordpress };
+export {Company,GrayLabel,VideoImage,BlogImage1,BlogImage2,BlogImage3,BlogImage4,BlogImage5, starImage,Assessment,Planning,Collabration,OfficeWork,Discussion,CodingTeam,Team,Research, Partner,Design, Develop, Test,About, Help,Hero,Hubspot,Web,Migration,Marketing,UX,App,Quote,Companylogo,React,Python,Wordpress };

@@ -1,11 +1,20 @@
 import React from "react";
-import { Partner } from '../assets';
+import { Partner, GrayLabel } from '../assets';
 
 const Partners = () => {
     return (
-        <section className="text-center">
-            <div className="bg-white rounded-lg flex items-center justify-center">
-                <img src={Partner} className="" alt="partnerImage"/>
+        <section className="relative text-center bg-white overflow-hidden">
+            {/* Background Label (Gray) */}
+            <div className="absolute">
+                <img src={GrayLabel} alt="Gray Background Label"/>
+            </div>
+
+            {/* Scrolling Partner Logos (Gold) */}
+            <div className="relative">
+                <div className="">
+                    <img src={Partner} alt="Partner Logos"/>
+                </div>
+                
             </div>
         </section>
     );

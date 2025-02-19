@@ -6,6 +6,15 @@ export default {
       fontFamily: {
         baloo: ["Baloo 2", "cursive"], // Add Baloo font
       },
+      animation: {
+        "move-up-down": "moveUpDown 4.5s infinite ease-in-out",
+      },
+      keyframes: {
+        moveUpDown: {
+          "0%, 100%": { transform: "translateY(-4px)" },
+          "50%": { transform: "translateY(50px)" },
+        },
+      },
     },
   },
   plugins: [
