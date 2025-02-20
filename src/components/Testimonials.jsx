@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import { Quote } from "../assets";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -12,7 +13,7 @@ const testimonials = [
     role: "CEO",
     image: "https://randomuser.me/api/portraits/men/45.jpg",
     quote:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...",
   },
   {
     id: 2,
@@ -20,7 +21,7 @@ const testimonials = [
     role: "CEO",
     image: "https://randomuser.me/api/portraits/women/45.jpg",
     quote:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...",
   },
   {
     id: 3,
@@ -28,68 +29,75 @@ const testimonials = [
     role: "Manager",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     quote:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...",
   },
 ];
 
 const Testimonials = () => {
-  const [swiperKey, setSwiperKey] = useState(0);
-
-  // Fix issue where Swiper doesn't update breakpoints
-  useEffect(() => {
-    const handleResize = () => setSwiperKey((prevKey) => prevKey + 1);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <section className="py-16 text-black bg-white">
-      <h2 className="text-3xl font-bold mb-8 text-center font-baloo">Testimonials</h2>
+    <section className="py-16 bg-white text-black">
+      <h2 className="text-3xl font-bold mb-8 text-center">Testimonials</h2>
 
       <Swiper
-        key={swiperKey} // Forces Swiper to update on resize
         effect="coverflow"
         grabCursor={true}
-        spaceBetween={30}
         pagination={{ clickable: true }}
         centeredSlides={true}
+        initialSlide={1} // Center the middle slide
+        slidesPerView={1} // Default to 1 slide per view for small screens
         coverflowEffect={{
-          rotate: 30,
+          rotate: 0,
           stretch: 0,
           depth: 100,
           modifier: 1,
-          slideShadows: true,
+          slideShadows: false,
         }}
-        modules={[EffectCoverflow, Pagination]}
         breakpoints={{
-          1280: { slidesPerView: 3, spaceBetween: 30, centeredSlides: true },
-          1024: { slidesPerView: 2, spaceBetween: 20, centeredSlides: true },
-          768: { slidesPerView: 3, spaceBetween: 20, centeredSlides: true },
-          640: { slidesPerView: 1, spaceBetween: 5, centeredSlides: false },
+          640: { slidesPerView: 2, spaceBetween: 0 },
+          768: { slidesPerView: 3, spaceBetween: 0 },
+          1024: { slidesPerView: 3, spaceBetween: 0 },
+          1280: { slidesPerView: 3, spaceBetween: 0 },
         }}
-        className="w-full px-4"
+        className="w-full px-6"
       >
         {testimonials.map((testimonial) => (
-          <SwiperSlide key={testimonial.id}>
-            <div className="bg-gray-100 rounded-lg p-6 relative mx-4 transition-transform duration-500 ease-in-out">
-              {/* Profile Image */}
-              <div className="w-14 h-14 rounded-full overflow-hidden mb-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <SwiperSlide key={testimonial.id} className="flex justify-center">
+            {({ isActive }) => (
+              <div
+                className={`relative bg-gray-100 rounded-xl p-4 sm:p-4 md:p-6 w-full
+                 max-w-[800px] sm:max-w-[500px] md:max-w-[550px] lg:max-w-[650px] xl:max-w-[800px]
+                 transition-all duration-500 ease-in-out text-left 
+                 ${isActive ? "scale-100 opacity-100" : "scale-90 opacity-80 blur-[1px]"}`}
+              >
+                {/* Profile & Text Container */}
+                <div className="flex items-start gap-4">
+                  {/* Profile Image */}
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
 
-              {/* Quote Text */}
-              <p className="text-gray-700">{testimonial.quote}</p>
+                {/* Quote Text */}
+                <p className="text-gray-700 leading-relaxed mt-4 text-sm md:text-base lg:text-lg">
+                  {testimonial.quote}
+                </p>
 
-              {/* Name & Role */}
-              <div className="mt-4">
-                <p className="font-semibold text-[#AD954F]">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
+                {/* Name & Role */}
+                <div className="mt-4">
+                  <p className="font-semibold text-[#AD954F] text-base sm:text-lg">{testimonial.name}</p>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                </div>
+
+                {/* Quote Icon */}
+                <div className="absolute top-6 right-6">
+                  <img src={Quote} alt="Quote Icon" className="h-8" />
+                </div>
               </div>
-            </div>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

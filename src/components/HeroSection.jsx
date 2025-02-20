@@ -34,19 +34,20 @@ const HeroSection = () => {
                 </button>
 
                 {/* Image Grid */}
-                <div className="mt-12 grid grid-cols-4 place-items-center">
-                    {/* Row 1 */}
-                    <img src={Team} alt="Team Work" className="" />
+                <div className="mt-12 grid grid-cols-4 gap-x-6 place-items-center">
+                    <img src={Team} alt="Team Work" className="w-full max-w-[400px]" />
                     <div></div>
-                    <img src={Planning} alt="Coding Team" className="mr-[10%]"/>
-                    <img src={CodingTeam} alt="Coding Team" className="" />
+                    <img src={Planning} alt="Planning" className="w-full max-w-[400px]" />
+                    <img src={CodingTeam} alt="Coding Team" className="w-full max-w-[400px]" />
                 </div>
-                <div className="grid grid-cols-4 gap-2 place-items-center">
-                    <img src={Discussion} alt="Discussion" className="mr-[13%]" />
-                    <img src={OfficeWork} alt="Office Work" />
-                    <img src={Assessment} alt="Project Planning" />
-                    <img src={Collabration} alt="Collaboration" className="ml-[13%]" />
+                <div className="grid grid-cols-4 gap-x-6 place-items-center">
+                    <img src={Discussion} alt="Discussion" className="w-full max-w-[400px]" />
+                    <img src={OfficeWork} alt="Office Work" className="w-full max-w-[400px]" />
+                    <img src={Assessment} alt="Assessment" className="w-full max-w-[400px]" />
+                    <img src={Collabration} alt="Collaboration" className="w-full max-w-[400px]" />
                 </div>
+
+
             </div>
 
             {/* Rotating Stars - Hide under 1020px and when menu is open */}
