@@ -46,7 +46,7 @@ const Blog = () => {
         {statsData.map((item, index) => (
           <div key={index} className="flex flex-col items-center px-4 sm:px-8">
             <h3 className="text-[#AD954F] text-2xl sm:text-3xl font-bold">
-              <CountUp start={0} end={item.value} duration={0.4} />{item.suffix}
+              <CountUp start={0} end={item.value} duration={1} />{item.suffix}
             </h3>
             <p className="text-gray-600 text-sm sm:text-base">{item.label}</p>
           </div>
