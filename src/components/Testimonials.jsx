@@ -35,7 +35,8 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-16 bg-white text-black">
+    <section className="py-12 bg-white text-black px-2 sm:px-0">
+
       <h2 className="text-3xl font-bold mb-8 text-center">Testimonials</h2>
 
       <Swiper
@@ -45,6 +46,7 @@ const Testimonials = () => {
         centeredSlides={true}
         initialSlide={1} // Center the middle slide
         slidesPerView={1} // Default to 1 slide per view for small screens
+        modules={[EffectCoverflow, Pagination]}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -100,6 +102,11 @@ const Testimonials = () => {
             )}
           </SwiperSlide>
         ))}
+
+        {/* Pagination Dots */}
+        <div className="mt-8">
+          <div className="swiper-pagination"></div>
+        </div>
       </Swiper>
     </section>
   );

@@ -21,7 +21,7 @@ const statsData = [
 
 const Blog = () => {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-8 bg-white">
       <h2 className="text-center text-4xl font-bold mb-8">Blog</h2>
 
       {/* Blog Horizontal Scroller */}
@@ -42,16 +42,31 @@ const Blog = () => {
       </div>
 
       {/* Statistics Section */}
-      <div className="mt-16 bg-gray-100 py-8 px-6 sm:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        {statsData.map((item, index) => (
-          <div key={index} className="flex flex-col items-center px-4 sm:px-8">
+      <div className="mt-16 bg-gray-100 py-8 px-6 sm:px-8 flex flex-wrap justify-center md:justify-between text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {statsData.map((item, index) => (
+        <div key={index} className="flex flex-col md:flex-row items-center gap-x-6 md:gap-x-12">
+          
+          {/* Dot and Divider (for non-first items) */}
+          {index !== 0 && (
+            <div className="relative flex flex-col items-center hidden md:flex">
+              {/* Animated Dot */}
+              <div className="w-2 h-2 bg-[#AD954F] rounded-full absolute animate-move-up-down"></div>
+              {/* Divider */}
+              <div className="border-l border-gray-300 h-12"></div>
+            </div>
+          )}
+
+          {/* Stats Content */}
+          <div className="flex flex-col items-center px-4 sm:px-8">
             <h3 className="text-[#AD954F] text-2xl sm:text-3xl font-bold">
-              <CountUp start={0} end={item.value} duration={1} />{item.suffix}
+              <CountUp start={0} end={item.value} duration={2.5} />{item.suffix}
             </h3>
             <p className="text-gray-600 text-sm sm:text-base">{item.label}</p>
           </div>
-        ))}
-      </div>
+
+        </div>
+      ))}
+    </div>
 
       {/* Call to Action */}
       <div className="flex justify-center mt-16 px-4">

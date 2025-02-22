@@ -19,31 +19,21 @@ html, body, #root {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
- .swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+.swiper-pagination {
+  position: relative !important; /* Keeps it within the section */
+  margin-top: 20px; /* Adjust spacing */
+  text-align: center;
 }
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
+.swiper-pagination-bullet {
+  background: #AD954F !important; /* Set dot color */
+  opacity: 0.5;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
+.swiper-pagination-bullet-active {
+  background: #AD954F !important; /* Active dot color */
+  opacity: 1;
 }
-.partner-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
 .partner-image {
   width: 100%;  /* Adjust size if needed */
 }
