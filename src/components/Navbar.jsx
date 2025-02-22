@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import Logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -13,7 +12,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img src={Logo} alt="Company Logo" className="w-10 h-10" />
+          <img src="/images/logo.svg" alt="Company Logo" className="w-10 h-10" />
           <span className="text-lg font-bold text-white">
             <span className="text-[#000]">Codetech</span> <span className="text-[#AC964F]">Infosystems</span>
           </span>

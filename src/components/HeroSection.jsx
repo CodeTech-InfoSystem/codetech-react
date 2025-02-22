@@ -1,4 +1,3 @@
-import { Assessment, starImage, Planning, Team, CodingTeam, Discussion, OfficeWork, Collabration } from "../assets";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -35,16 +34,16 @@ const HeroSection = () => {
 
                 {/* Image Grid */}
                 <div className="mt-12 grid grid-cols-4 gap-x-6 place-items-center">
-                    <img src={Team} alt="Team Work" className="w-full max-w-[400px]" />
+                    <img src="/images/team.svg" alt="Team Work" className="w-full max-w-[400px]" />
                     <div></div>
-                    <img src={Planning} alt="Planning" className="w-full max-w-[400px]" />
-                    <img src={CodingTeam} alt="Coding Team" className="w-full max-w-[400px]" />
+                    <img src="/images/planning.svg" alt="Planning" className="w-full max-w-[400px]" />
+                    <img src="/images/coding.svg" alt="Coding Team" className="w-full max-w-[400px]" />
                 </div>
                 <div className="grid grid-cols-4 gap-x-6 place-items-center">
-                    <img src={Discussion} alt="Discussion" className="w-full max-w-[400px]" />
-                    <img src={OfficeWork} alt="Office Work" className="w-full max-w-[400px]" />
-                    <img src={Assessment} alt="Assessment" className="w-full max-w-[400px]" />
-                    <img src={Collabration} alt="Collaboration" className="w-full max-w-[400px]" />
+                    <img src="/images/discussion.svg" alt="Discussion" className="w-full max-w-[400px]" />
+                    <img src="/images/office.svg" alt="Office Work" className="w-full max-w-[400px]" />
+                    <img src="/images/assesment.svg" alt="Assessment" className="w-full max-w-[400px]" />
+                    <img src="/images/collabration.svg" alt="Collaboration" className="w-full max-w-[400px]" />
                 </div>
 
 
@@ -58,7 +57,7 @@ const HeroSection = () => {
                         animate={{ rotate: 360 }}
                         transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                     >
-                        <img src={starImage} alt="star" />
+                        <img src="/images/start.svg" alt="star" />
                     </motion.div>
 
                     <motion.div
@@ -66,7 +65,7 @@ const HeroSection = () => {
                         animate={{ rotate: 360 }}
                         transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                     >
-                        <img src={starImage} className="w-[192px] h-[192px]" alt="big-star" />
+                        <img src="/images/start.svg" className="w-[192px] h-[192px]" alt="big-star" />
                     </motion.div>
                 </>
             )}

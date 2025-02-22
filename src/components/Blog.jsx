@@ -1,15 +1,14 @@
 import React from "react";
-import { BlogImage1, BlogImage2, BlogImage3, BlogImage4, BlogImage5 } from "../assets";
 import { FaArrowRight } from "react-icons/fa";
 import blogVideo from "../assets/blog-video.mp4";
 import CountUp from "react-countup";
 
 const blogs = [
-  { id: 1, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: BlogImage1 },
-  { id: 2, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: BlogImage2 },
-  { id: 3, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: BlogImage3 },
-  { id: 4, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: BlogImage4 },
-  { id: 5, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: BlogImage5 },
+  { id: 1, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image1.svg" },
+  { id: 2, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image2.svg" },
+  { id: 3, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image3.svg" },
+  { id: 4, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image4.svg" },
+  { id: 5, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image5.svg" },
 ];
 
 const statsData = [

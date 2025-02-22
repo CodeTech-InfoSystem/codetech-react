@@ -1,43 +1,42 @@
-import { Hubspot, Web, Migration, Marketing, UX, App } from "../assets";
-
 const servicesData = [
     {
         id: 1,
         title: "Web Design / Development",
         description: "It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout.",
-        icon: Web,
+        icon: "/images/web.svg",  // Direct path
     },
     {
         id: 2,
         title: "UI/UX Design",
         description: "It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout.",
-        icon: UX,
+        icon: "/images/ux.svg",
     },
     {
         id: 3,
         title: "Website Migration",
         description: "It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout.",
-        icon: Migration,
+        icon: "/images/migration.svg",
     },
     {
         id: 4,
         title: "App Development",
         description: "It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout.",
-        icon: App,
+        icon: "/images/app.svg",
     },
     {
         id: 5,
         title: "HubSpot Integration",
         description: "It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout.",
-        icon: Hubspot,
+        icon: "/images/hubspot.svg",
     },
     {
         id: 6,
         title: "Email Marketing",
         description: "It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout.",
-        icon: Marketing,
+        icon: "/images/marketing.svg",
     },
 ];
+
 
 const Services = () => {
     return (

@@ -1,5 +1,4 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import { Companylogo, React, Python, Wordpress } from '../assets';
 
 const Footer = () => {
   return (
@@ -7,7 +6,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-8">
         {/* Left - Logo & About */}
         <div className="flex flex-col items-center sm:items-start">
-          <img src={Companylogo} alt="company logo" className="w-[100px]" />
+          <img src="/images/ct-logo.svg" alt="company logo" className="w-[100px]" />
           <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left mt-4">
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at.
           </p>
@@ -38,7 +37,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-4 rounded-md">
               <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src={React} alt="ReactJs Dev." className="w-8 h-8 text-[#AD954F]" />
+                <img src="/images/react.svg" alt="ReactJs Dev." className="w-8 h-8 text-[#AD954F]" />
               </div>
               <div>
                 <p className="font-bold">ReactJs Dev.</p>
@@ -47,7 +46,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-4 rounded-md">
               <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src={Wordpress} alt="Wordpress Dev." className="w-8 h-8 text-[#AD954F]" />
+                <img src="/images/wordpress.svg" alt="Wordpress Dev." className="w-8 h-8 text-[#AD954F]" />
               </div>
               <div>
                 <p className="font-bold">Wordpress Dev.</p>
@@ -56,7 +55,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-4 rounded-md">
               <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src={Python} alt="Python Dev." className="w-8 h-8 text-[#AD954F]" />
+                <img src="/images/python.svg" alt="Python Dev." className="w-8 h-8 text-[#AD954F]" />
               </div>
               <div>
                 <p className="font-bold">Python Developer</p>

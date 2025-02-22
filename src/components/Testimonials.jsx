@@ -1,7 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
-import { Quote } from "../assets";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -96,7 +95,7 @@ const Testimonials = () => {
 
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6">
-                  <img src={Quote} alt="Quote Icon" className="h-8" />
+                  <img src="/images/quote.svg" alt="Quote Icon" className="h-8" />
                 </div>
               </div>
             )}

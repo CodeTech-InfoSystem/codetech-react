@@ -1,30 +1,29 @@
 import React from "react";
-import { Research, Design, Develop, Test } from "../assets";
 
 const strengthsData = [
     {
         id: 1,
         title: "Research",
         description: "It is a long established fact that a reader will be distra by the readable content of a page.",
-        icon: Research,
+        icon: "/images/research.svg", 
     },
     {
         id: 2,
         title: "Design",
         description: "It is a long established fact that a reader will be distra by the readable content of a page.",
-        icon: Design,
+        icon: "/images/design.png", 
     },
     {
         id: 3,
         title: "Develop",
         description: "It is a long established fact that a reader will be distra by the readable content of a page.",
-        icon: Develop,
+        icon: "/images/develope.svg", 
     },
     {
         id: 4,
         title: "Test",
         description: "It is a long established fact that a reader will be distra by the readable content of a page.",
-        icon: Test,
+        icon: "/images/test.svg", 
     },
 ];
 

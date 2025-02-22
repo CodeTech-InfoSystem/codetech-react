@@ -1,6 +1,4 @@
 import React from "react";
-import { About, Help } from "../assets";
-
 const AboutUs = () => {
     return (
         <section className="py-8 px-20 bg-gray-100">
@@ -8,7 +6,7 @@ const AboutUs = () => {
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 {/* Left Image */}
                 <img
-                    src={About}
+                    src="/images/about.svg"
                     alt="People working together"
                     className="rounded-xl"
                 />
@@ -29,7 +27,7 @@ const AboutUs = () => {
                     <div className="mt-6 bg-white rounded-lg p-2  flex items-center">
                         <div className="bg-[#F7F7F7] p-3 rounded-lg">
                             <img
-                                src={Help}
+                                src="/images/help.svg"
                                 alt="Help"
                             />
                         </div>
