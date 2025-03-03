@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleScroll = (e, scrollFunction) => {
+    e.preventDefault();
+    scrollFunction();
+    setIsOpen(false);
+  };
+
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Clients", path: "/" },
+    { name: "Clients", path: "/clients", onClick: (e) => handleScroll(e, scrollToTestimonials) },
     { name: "About Us", path: "/about-us" },
-    { name: "Services", path: "/" },
-    { name: "Blog", path: "/" },
+    { name: "Services", path: "/services", onClick: (e) => handleScroll(e, scrollToServices) },
+    { name: "Blog", path: "/blog", onClick: (e) => handleScroll(e, scrollToBlog) },
     { name: "Contact Us", path: "/contact-us" },
   ];
 
@@ -40,14 +46,18 @@ const Navbar = () => {
           >
             {navItems.map((item) => (
               <li key={item.name} className="relative">
-                <Link
-                  to={item.path}
-                  className={`px-2 py-2 block transition-colors ${location.pathname === item.path ? "text-[#AF9854]" : "hover:text-yellow-400"
-                    }`}
-                  onClick={() => setIsOpen(false)} // Close menu on click
-                >
-                  {item.name}
-                </Link>
+                {item.onClick ? (
+                  <a href="#" onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${
+                    location.pathname === item.path ? "text-[#AF9854] font-bold" : "hover:text-yellow-400"
+                  }`}>
+                    {item.name}
+                  </Link>
+                )}
+
                 {location.pathname === item.path && (
                   <div className="hidden lg:block absolute left-1/2 w-12 h-[5px] bg-[#AF9854] transform -translate-x-1/2 rounded-t-[2px]"></div>
                 )}

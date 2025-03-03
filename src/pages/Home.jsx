@@ -7,7 +7,7 @@ const Services = lazy(() => import("../components/Services"));
 const Testimonials = lazy(() => import("../components/Testimonials"));
 const Blog = lazy(() => import("../components/Blog"));
 
-function Home () {
+function Home({ servicesRef, testimonialsRef, blogRef }) {
   return (
     <>
       <div className="min-h-screen bg-[linear-gradient(180deg,#242423_37.91%,#434342_51.86%,#545454_56.79%,#686868_62.25%,#7B7B7A_67.71%,#8B8B8B_72.59%,#B6B6B5_81.95%,#D9D9D9_88.38%,#EBEBEB_94.04%,#FFFFFF_100%)] px-4 sm:px-8 md:px-14 lg:px-20 pt-2">
@@ -19,9 +19,21 @@ function Home () {
       <Suspense fallback={<div>Loading...</div>}>
         <Partners />
         <Strengths />
-        <Services />
-        <Testimonials />
-        <Blog />
+
+        {/* 👇 Pass the ref to Services Section */}
+        <div ref={servicesRef}>
+          <Services />
+        </div>
+
+        {/* 👇 Pass the ref to Testimonials (Clients) Section */}
+        <div ref={testimonialsRef}>
+          <Testimonials />
+        </div>
+
+        {/* 👇 Pass the ref to Blog Section */}
+        <div ref={blogRef}>
+          <Blog />
+        </div>
       </Suspense>
     </>
   );
