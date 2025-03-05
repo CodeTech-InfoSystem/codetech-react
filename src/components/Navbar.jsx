@@ -47,9 +47,12 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
             {navItems.map((item) => (
               <li key={item.name} className="relative">
                 {item.onClick ? (
-                  <a href="#" onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
+                  // <a href="#" onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
+                  //   {item.name}
+                  // </a>
+                  <button onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
                     {item.name}
-                  </a>
+                  </button>
                 ) : (
                   <Link to={item.path} className={`px-2 py-2 block transition-colors ${
                     location.pathname === item.path ? "text-[#AF9854] font-bold" : "hover:text-yellow-400"
