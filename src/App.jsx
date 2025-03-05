@@ -35,6 +35,7 @@ function App() {
           <Route path="/" element={<Home servicesRef={servicesRef} testimonialsRef={testimonialsRef} blogRef={blogRef} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          {/* Add New Pages Url In `public/sitemap.xml` for SEO  */}
         </Routes>
         <Footer />
       </Suspense>
