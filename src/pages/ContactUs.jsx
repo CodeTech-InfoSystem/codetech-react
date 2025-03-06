@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import blogVideo from "../assets/blog-video.mp4";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const ContactUs = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+    // Check if all fields are filled
+    const isFormValid = name.trim() !== "" && email.trim() !== "" && message.trim() !== "";
+
     return (
         <div className="min-h-screen">
             {/* Header Section */}
@@ -26,12 +33,12 @@ const ContactUs = () => {
                     </p>
                     <div className="flex items-center gap-2">
                         <img src="/images/contact.svg" alt="Phone" className="w-6 h-6" />
-                        <p>Phone: 123-456-7890</p>
+                        <p>Phone: +91 88891 43373</p>
                     </div>
 
                     <div className="flex items-center gap-2">
                         <img src="/images/email.svg" alt="Email" className="w-6 h-6" />
-                        <p>Email: contact@vpeters.org</p>
+                        <p>Email: hr@codetechinfosystem.com</p>
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -40,12 +47,22 @@ const ContactUs = () => {
                     </div>
 
                     <div className="flex gap-3 py-2">
-                        <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
+                        <a
+                            href="https://www.linkedin.com/company/codetechinfosystem/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
+                        >
                             <FaLinkedinIn className="text-[#AD954F]" />
-                        </div>
-                        <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
+                        </a>
+                        <a
+                            href="https://www.instagram.com/codetechinfosystem?igsh=MXdqc2l4dmUwd29hOQ=="
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
+                        >
                             <FaInstagram className="text-[#AD954F]" />
-                        </div>
+                        </a>
                         <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
                             <FaFacebookF className="text-[#AD954F]" />
                         </div>
@@ -57,38 +74,60 @@ const ContactUs = () => {
                 <div className="w-full lg:w-[40%] bg-white text-black p-6 rounded-3xl shadow-lg">
                     <h3 className="text-xl font-semibold mb-4 text-center text-[#AC964F]">Get in Touch</h3>
 
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter Your Name"
-                        className="w-full p-2 mb-3 border rounded"
-                    />
+                    <form name="contact" netlify>
+                        <input type="hidden" name="form-name" value="contact" />
 
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter email address"
-                        className="w-full p-2 mb-3 border rounded"
-                    />
+                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
+                            Name
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter Your Name"
+                            className="w-full p-2 mb-3 border rounded"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
 
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="message">
-                        Message
-                    </label>
-                    <textarea
-                        id="message"
-                        // placeholder="Message"
-                        className="w-full p-2 mb-3 border rounded h-24"
-                    ></textarea>
+                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
+                            Email
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter email address"
+                            className="w-full p-2 mb-3 border rounded"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
 
-                    <button className="w-full bg-[#AD954F] text-white py-2 font-semibold rounded-lg">Submit</button>
+                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="message">
+                            Message
+                        </label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            className="w-full p-2 mb-3 border rounded h-24"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            required
+                        ></textarea>
+
+                        <button
+                            type="submit"
+                            className={`w-full py-2 font-semibold rounded-lg ${isFormValid ? "bg-[#AD954F] text-white" : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                }`}
+                            disabled={!isFormValid}
+                        >
+                            Submit
+                        </button>
+                    </form>
+
                 </div>
-
             </div>
 
             {/* Video Section */}

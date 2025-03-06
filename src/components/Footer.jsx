@@ -75,12 +75,22 @@ const Footer = () => {
             It is a long established fact that a reader will be distracted by the readable content.
           </p>
           <div className="flex gap-3 mt-4 justify-center sm:justify-start">
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
+            <a
+              href="https://www.linkedin.com/company/codetechinfosystem/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
+            >
               <FaLinkedinIn className="text-[#AD954F]" />
-            </div>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
+            </a>
+            <a
+              href="https://www.instagram.com/codetechinfosystem?igsh=MXdqc2l4dmUwd29hOQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
+            >
               <FaInstagram className="text-[#AD954F]" />
-            </div>
+            </a>
             <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
               <FaFacebookF className="text-[#AD954F]" />
             </div>
@@ -100,10 +110,10 @@ const Footer = () => {
             Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016
           </p>
           <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            contact@codetechInfosystem.com
+            hr@codetechinfosystem.com
           </p>
           <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            Ph : +91 99999-20000
+            Ph : +91 88891 43373
           </p>
         </div>
       </div>

@@ -7,6 +7,9 @@ const Footer = lazy(() => import("./components/Footer"));
 const Home = lazy(() => import("./pages/Home"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
+const Blog = lazy(() => import("./pages/Blog"));
+
+
 
 function App() {
   const servicesRef = useRef(null);
@@ -35,6 +38,7 @@ function App() {
           <Route path="/" element={<Home servicesRef={servicesRef} testimonialsRef={testimonialsRef} blogRef={blogRef} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         <Footer />
       </Suspense>
