@@ -8,13 +8,13 @@ const Home = lazy(() => import("./pages/Home"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const Blog = lazy(() => import("./pages/Blog"));
+const Service = lazy(() => import("./pages/Service"));
+
 
 
 
 function App() {
-  const servicesRef = useRef(null);
   const testimonialsRef = useRef(null);
-  const blogRef = useRef(null);
   const location = useLocation();
 
   const scrollToSection = (ref, sectionId) => {
@@ -30,15 +30,15 @@ function App() {
       <ScrollToTop />
       <Suspense fallback={<div className="text-center p-10">Loading...</div>}>
         <Navbar
-          scrollToServices={() => scrollToSection(servicesRef, "services")}
           scrollToTestimonials={() => scrollToSection(testimonialsRef, "testimonials")}
-          scrollToBlog={() => scrollToSection(blogRef, "blog")}
         />
         <Routes>
-          <Route path="/" element={<Home servicesRef={servicesRef} testimonialsRef={testimonialsRef} blogRef={blogRef} />} />
+          <Route path="/" element={<Home testimonialsRef={testimonialsRef}/>} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/services" element={<Service />} />
+
         </Routes>
         <Footer />
       </Suspense>
