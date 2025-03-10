@@ -107,7 +107,7 @@ const Footer = () => {
           </h3>
           <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
           <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016
+            PU4, Scheme no. 54 PU4, Vijay Nagar, Madhya Pradesh 452011
           </p>
           <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
             hr@codetechinfosystem.com
