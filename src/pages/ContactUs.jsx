@@ -43,7 +43,7 @@ const ContactUs = () => {
 
                     <div className="flex items-center gap-2">
                         <img src="/images/time.svg" alt="Time" className="w-6 h-6" />
-                        <p>Monday - Friday, 9 AM - 4 PM PST</p>
+                        <p>Monday - Friday, 9 AM - 6 PM ISD</p>
                     </div>
 
                     <div className="flex gap-3 py-2">
