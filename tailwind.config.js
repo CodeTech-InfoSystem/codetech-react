@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        baloo: ["Baloo 2", "cursive"], // Add Baloo font
+        baloo: ['"Baloo 2"', 'cursive'],
+        raleway: ['"Raleway"', 'sans-serif'],
       },
       animation: {
         "move-up-down": "moveUpDown 4.5s infinite ease-in-out",

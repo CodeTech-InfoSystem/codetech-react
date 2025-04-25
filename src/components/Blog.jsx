@@ -62,7 +62,7 @@ const Blog = () => {
               <h3 className="text-[#AD954F] text-2xl sm:text-3xl font-bold">
                 <CountUp start={0} end={item.value} duration={2.5} />{item.suffix}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base">{item.label}</p>
+              <p className="text-gray-600 text-sm sm:text-base font-raleway font-bold">{item.label}</p>
             </div>
           ))}
         </div>
@@ -77,7 +77,7 @@ const Blog = () => {
             Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center text-center px-4">
-            <p className="text-white text-lg md:text-xl font-semibold w-[69%]">
+            <p className="text-white text-lg md:text-xl font-bold font-baloo w-[69%]">
               “Some of the History of Our Company is that we are Catching up through Video”
             </p>
             <div className="mt-8 flex justify-center gap-4">

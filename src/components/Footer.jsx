@@ -1,120 +1,81 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-
 const Footer = () => {
+  const footerData = [
+    { id: 1, image: "/images/ct-logo.svg" },
+    { id: 2, image: "/images/google.svg" },
+    { id: 3, image: "/images/goodfirms.svg" },
+    { id: 4, image: "/images/learn.svg" },
+  ];
+
   return (
-    <footer className="bg-[#E7DFC5] py-10 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-8">
-        {/* Left - Logo & About */}
-        <div className="flex flex-col items-center sm:items-start">
-          <img src="/images/ct-logo.svg" alt="company logo" className="w-[100px]" />
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left mt-4">
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at.
-          </p>
+    <footer className="bg-[#F3EFE3] pt-8 ">
+      {/* Top Section */}
+      <div className="flex justify-center text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
+          {/* Logos */}
+          {footerData.map((item, index) => (
+            <div key={index} className="flex flex-col items-center relative">
+              {/* Divider with animated dot */}
+              {index !== 0 && (
+                <div className="absolute left-0 top-[30%] -translate-x-1/2 -translate-y-1/2 hidden md:flex flex-col items-center">
+                  {/* Animated Dot */}
+                  <div className="w-2 h-2 bg-[#AD954F] rounded-full absolute animate-move-up-down"></div>
+                  {/* Divider Line */}
+                  <div className="w-px h-20 bg-gray-300"></div>
+                </div>
+              )}
+              <img
+                src={item.image}
+                alt={`logo-${index}`}
+                className={`mt-4 ${item.id === 2
+                  ? ' mt-6 w-24'
+                  : item.id === 3 || item.id === 4
+                    ? 'w-24 mt-6 sm:w-[60%]'
+                    : 'w-24'
+                  }`}
+              />
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* Services */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Services
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <ul className="text-gray-700 space-y-2">
-            <li>Web Design/Development</li>
-            <li>App Development</li>
-            <li>UI/UX Design</li>
-            <li>HubSpot Integration</li>
-            <li>Email Marketing</li>
-            <li>Website Migration</li>
-          </ul>
-        </div>
+      {/* Office Info Blocks */}
+      <div className="flex flex-col items-center text-sm px-20 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full">
+          <div className="flex flex-col items-start text-sm w-[70%]">
+            <p className="font-bold flex items-center gap-2">
+              <img src="/images/india.svg" alt="Flag" className="w-8 h-8 font-baloo" /> INDIA, INDORE
+            </p>
+            <p className="font-medium font-raleway">CodeTech Infosystem</p>
+            <p className="font-medium font-raleway">hr@codetechinfosystem.com</p>
+            <p className="font-medium font-raleway">13/3, Pardeshipura, Indore, Madhya Pradesh 452003</p>
+          </div>
 
-        {/* Career */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Career
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/react.svg" alt="ReactJs Dev." className="w-8 h-8 text-[#AD954F]" />
-              </div>
-              <div>
-                <p className="font-bold">ReactJs Dev.</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/wordpress.svg" alt="Wordpress Dev." className="w-8 h-8 text-[#AD954F]" />
-              </div>
-              <div>
-                <p className="font-bold">Wordpress Dev.</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/python.svg" alt="Python Dev." className="w-8 h-8 text-[#AD954F]" />
-              </div>
-              <div>
-                <p className="font-bold">Python Developer</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
-              </div>
-            </div>
+          <div className="flex flex-col items-start text-sm">
+            <p className="font-bold flex items-center gap-2">
+            <img src="/images/india.svg" alt="Flag" className="w-8 h-8 font-baloo" /> Dubai, Quaz
+            </p>
+            <p className="font-medium font-raleway">CodeTech Infosystem</p>
+            <p className="font-medium font-raleway">Blow Dubai / Al Quoz Dubai 9966</p>
+          </div>
+
+          <div className="flex flex-col items-start text-sm">
+            <p className="font-bold flex items-center gap-2">
+            <img src="/images/india.svg" alt="Flag" className="w-8 h-8 font-baloo" /> INDIA, Hyderabad
+            </p>
+            <p className="font-medium font-raleway">CodeTech Infosystem</p>
+            <p className="font-medium font-raleway">hr@codetechinfosystem.com</p>
+            <p className="font-medium font-raleway">Hmt Sathavahana Nagar, Kukatpally, Hyderabad, Telangana 500072</p>
           </div>
         </div>
+      </div>
 
-        {/* Subscribe Us */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Subscribe Us
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            It is a long established fact that a reader will be distracted by the readable content.
-          </p>
-          <div className="flex gap-3 mt-4 justify-center sm:justify-start">
-            <a
-              href="https://www.linkedin.com/company/codetechinfosystem/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
-            >
-              <FaLinkedinIn className="text-[#AD954F]" />
-            </a>
-            <a
-              href="https://www.instagram.com/codetechinfosystem?igsh=MXdqc2l4dmUwd29hOQ=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
-            >
-              <FaInstagram className="text-[#AD954F]" />
-            </a>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaFacebookF className="text-[#AD954F]" />
-            </div>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaTwitter className="text-[#AD954F]" />
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Us */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Contact Us
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            PU4, Scheme no. 54 PU4, Vijay Nagar, Madhya Pradesh 452011
-          </p>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            hr@codetechinfosystem.com
-          </p>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            Ph : +91 88891 43373
-          </p>
+      {/* Bottom Bar */}
+      <div className="bg-[#B5903A] text-white text-sm mt-10 py-3 flex flex-col md:flex-row justify-between items-center px-20">
+        <span>@CodeTech Infosystem ALL RIGHTS RESERVED 2025</span>
+        <div className="flex gap-3 mt-2 md:mt-0">
+          <a href="#" className="hover:underline">Terms And Conditions</a>
+          <span>|</span>
+          <a href="#" className="hover:underline">Privacy Policy</a>
         </div>
       </div>
     </footer>

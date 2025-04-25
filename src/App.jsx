@@ -40,8 +40,8 @@ function App() {
           <Route path="/services" element={<Service />} />
 
         </Routes>
-        <Footer />
       </Suspense>
+        <Footer />
     </>
   );
 }
