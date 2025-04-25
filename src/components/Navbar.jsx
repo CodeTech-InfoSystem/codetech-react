@@ -34,6 +34,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
             </span>
           </div>
 
+
           {/* Mobile Menu Button */}
           <button className="lg:hidden text-white z-50" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={28} /> : <Menu size={28} />}
