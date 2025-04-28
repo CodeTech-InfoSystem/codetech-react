@@ -1,123 +1,122 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#E7DFC5] py-10 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-8">
-        {/* Left - Logo & About */}
-        <div className="flex flex-col items-center sm:items-start">
-          <img src="/images/ct-logo.svg" alt="company logo" className="w-[100px]" />
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left mt-4">
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at.
-          </p>
-        </div>
-
-        {/* Services */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Services
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <ul className="text-gray-700 space-y-2">
-            <li>Web Design/Development</li>
-            <li>App Development</li>
-            <li>UI/UX Design</li>
-            <li>HubSpot Integration</li>
-            <li>Email Marketing</li>
-            <li>Website Migration</li>
-          </ul>
-        </div>
-
-        {/* Career */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Career
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/react.svg" alt="ReactJs Dev." className="w-8 h-8 text-[#AD954F]" />
+    <>
+      <footer className="bg-[rgba(228,220,197,0.5)] py-10 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8">
+          {/* Left - Logo & About */}
+          <div className="flex flex-col items-center sm:items-start flex-grow">
+            <img src="/images/ct-logo.svg" alt="company logo" className="w-[100px]" />
+            <div className="m-4">
+              <div className="flex items-center space-x-2 mt-4">
+                <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
+                <p className="font-semibold text-lg">INDIA, INDORE</p>
               </div>
-              <div>
-                <p className="font-bold">ReactJs Dev.</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
-              </div>
+              <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left mt-4">
+                PU4, Scheme no. 54 PU4, Vijay Nagar, Madhya Pradesh 452011
+                <br />
+                hr@codetechinfosystem.com
+                <br />
+                Ph : +91 88891 43373
+              </p>
             </div>
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/wordpress.svg" alt="Wordpress Dev." className="w-8 h-8 text-[#AD954F]" />
-              </div>
-              <div>
-                <p className="font-bold">Wordpress Dev.</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/python.svg" alt="Python Dev." className="w-8 h-8 text-[#AD954F]" />
-              </div>
-              <div>
-                <p className="font-bold">Python Developer</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
-              </div>
+            <div className="relative">
+              <div class="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex flex-col items-center"><div class="w-2 h-2 bg-[#AD954F] rounded-full absolute animate-move-up-down"></div><div class="w-px h-12 bg-gray-300"></div></div>
             </div>
           </div>
-        </div>
 
-        {/* Subscribe Us */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Subscribe Us
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            It is a long established fact that a reader will be distracted by the readable content.
-          </p>
-          <div className="flex gap-3 mt-4 justify-center sm:justify-start">
-            <a
-              href="https://www.linkedin.com/company/codetechinfosystem/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
-            >
-              <FaLinkedinIn className="text-[#AD954F]" />
-            </a>
-            <a
-              href="https://www.instagram.com/codetechinfosystem?igsh=MXdqc2l4dmUwd29hOQ=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
-            >
-              <FaInstagram className="text-[#AD954F]" />
-            </a>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaFacebookF className="text-[#AD954F]" />
+          {/* Services */}
+          <div className="flex flex-col items-center sm:items-center flex-grow mt-12">
+            {/* Rating Section (Stars and Rating Text) */}
+            <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1">
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaRegStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+              </div>
+              <span className="text-[#000000] text-[18px] font-semibold">4.5</span>
+
+              
             </div>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaTwitter className="text-[#AD954F]" />
-            </div>
+            <img src="/images/google.png" alt="company logo" className="w-[124.04px] h-[41.01px] mt-2" />
           </div>
+
+          {/* Career */}
+          <div className="flex flex-col items-center sm:items-center flex-grow mt-12">
+            {/* Rating Section (Stars and Rating Text) */}
+            <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1">
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaRegStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+              </div>
+              <span className="text-[#000000] text-[18px] font-semibold">4.5</span>
+            </div>
+            <img src="/images/goodfirms.png" alt="company logo" className="w-[200.07px] h-[30.22px] mt-2" />
+          </div>
+
+          {/* Subscribe Us */}
+          <div className="flex flex-col items-center sm:items-center flex-grow mt-12">
+            <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1">
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+                <FaRegStar className="text-[#AC9450] w-[16.15px] h-[18.09px]" />
+              </div>
+              <span className="text-[#000000] text-[18px] font-semibold">4.5</span>
+            </div>
+            <div className="flex items-center">
+              <img src="/images/Polygon5.svg" alt="company logo" className="w-[43.04px] h-[31.01px] mt-2" />
+              <span className="ml-2 text-[36px] font-semibold text-[#000000] relative pr-2">
+                Learninja
+                <span className="absolute right-0 top-1/2 transform -translate-y-1/2 text-[#F9A682] text-[30px]">.</span>
+              </span>
+            </div>
+            <div className="m-4">
+              <div className="flex items-center space-x-2 mt-4">
+                <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
+                <p className="font-semibold text-lg">INDIA, Hyderabad</p>
+              </div>
+              <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left mt-4">
+                CodeTech Infosystem
+                <br />
+                hr@codetechinfosystem.com
+                <br />
+                Hmt Sathavahana Nagar, Kukatpally, Hyderabad, Telangana 500072
+              </p>
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Contact Us */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Contact Us
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            PU4, Scheme no. 54 PU4, Vijay Nagar, Madhya Pradesh 452011
+
+      </footer>
+      {/* Copyright Section */}
+      <div className="bg-[#AC9450] py-3">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <p className="text-white text-lg font-medium">
+            © CodeTech Infosystem. All Rights Reserved 2025
           </p>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            hr@codetechinfosystem.com
-          </p>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            Ph : +91 88891 43373
-          </p>
+          <div className="flex space-x-2">
+            <a href="/terms" className="text-white text-sm font-medium hover:text-[#AC9450]">
+              Terms and Conditions
+            </a>
+            <div className="h-6 border-l border-white mx-1"></div> {/* Adjusted margin to bring line closer */}
+            <a href="/privacy" className="text-white text-sm font-medium hover:text-[#AC9450]">
+              Privacy Policy
+            </a>
+          </div>
         </div>
       </div>
-    </footer>
+    </>
   );
 };
 

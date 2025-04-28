@@ -81,10 +81,10 @@ const Blog = () => {
               “Some of the History of Our Company is that we are Catching up through Video”
             </p>
             <div className="mt-8 flex justify-center gap-4">
-            <button className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
-                          onClick={() => navigate("/contact-us")}>
-                           Get In Touch
-                         </button>
+              <button className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
+                onClick={() => navigate("/contact-us")}>
+                Get In Touch
+              </button>
             </div>
           </div>
         </div>
