@@ -51,9 +51,7 @@ const Blog = () => {
               {/* Divider between stats with animated dot */}
               {index !== 0 && (
                 <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex flex-col items-center">
-                  {/* Animated Dot */}
                   <div className="w-2 h-2 bg-[#AD954F] rounded-full absolute animate-move-up-down"></div>
-                  {/* Divider Line */}
                   <div className="w-px h-12 bg-gray-300"></div>
                 </div>
               )}
