@@ -6,19 +6,12 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (e, scrollFunction) => {
-    e.preventDefault();
-    scrollFunction();
-    setIsOpen(false);
-  };
-
   const navItems = [
     { name: "Home", path: "/" },
-    // { name: "Clients", path: "/clients", onClick: (e) => handleScroll(e, scrollToTestimonials) },
-     { name: "Clients", path: "/clients"},
+    { name: "Clients", path: "/clients" },
     { name: "About Us", path: "/about-us" },
-    { name: "Services", path: "/services"},
-    { name: "Blog", path: "/blog"},
+    { name: "Services", path: "/services" },
+    { name: "Blog", path: "/blog" },
     { name: "Contact Us", path: "/contact-us" },
   ];
 
@@ -55,9 +48,8 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
                     {item.name}
                   </button>
                 ) : (
-                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${
-                    location.pathname === item.path ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
-                  }`}>
+                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${location.pathname === item.path ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
+                    }`}>
                     {item.name}
                   </Link>
                 )}
