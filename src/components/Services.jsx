@@ -64,7 +64,7 @@ const Services = ({ showHeading = true }) => {
                             <div className="h-1 w-4 bg-[#AD954F] group-hover:bg-white rounded-lg"></div>
                         </div>
 
-                        <p className="font-Raleway w-[98%] my-2">{service.description}</p>
+                        <p className="font-raleway w-[98%] my-2">{service.description}</p>
                     </div>
                 ))}
             </div>
