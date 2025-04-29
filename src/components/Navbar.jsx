@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Clients", path: "/client"},
+    { name: "Clients", path: "/client" },
     { name: "About Us", path: "/about-us" },
     { name: "Services", path: "/services" },
     { name: "Blog", path: "/blog" },
@@ -29,7 +29,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="lg:hidden text-white z-50" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="lg:hidden text-white z-50"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
 
@@ -41,21 +44,28 @@ const Navbar = () => {
             {navItems.map((item) => (
               <li key={item.name} className="relative">
                 {item.onClick ? (
-                  // <a href="#" onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
-                  //   {item.name}
-                  // </a>
-                  <button onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
+                  <button
+                    onClick={item.onClick}
+                    className="px-2 py-2 block hover:text-yellow-400"
+                  >
                     {item.name}
                   </button>
                 ) : (
-                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${
-                    location.pathname === item.path ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
-                  }`}>
-                    {item.name}
-                  </Link>
-
-                {location.pathname === item.path && (
-                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[15px] rounded-t-[2px]"></div>
+                  <>
+                    <Link
+                      to={item.path}
+                      className={`px-2 py-2 block transition-colors ${
+                        location.pathname === item.path
+                          ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]"
+                          : "hover:text-yellow-400"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                    {location.pathname === item.path && (
+                      <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 translate-y-[15px] rounded-t-[2px]"></div>
+                    )}
+                  </>
                 )}
               </li>
             ))}
