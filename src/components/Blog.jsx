@@ -23,7 +23,7 @@ const Blog = () => {
   const navigate = useNavigate();
   return (
     <section className="py-8 bg-white">
-      <h2 className="text-center text-4xl font-bold mb-8">Blog</h2>
+      <h2 className="text-center text-4xl font-bold mb-8 text-4xl">Blog</h2>
 
       {/* Blog Horizontal Scroller */}
       <div className="relative px-4 sm:px-4">

@@ -20,7 +20,7 @@ const ContactUs = () => {
                         "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 77.4%, #FFFFFF 100%)",
                 }}
             >
-                <h1 className="text-3xl font-bold text-[#AF9854]">Contact Us</h1>
+                <h1 className="text-4xl font-bold text-[#AF9854] font-Baloo 2">Contact Us</h1>
             </header>
 
             {/* Contact Section */}
@@ -43,7 +43,7 @@ const ContactUs = () => {
 
                     <div className="flex items-center gap-2">
                         <img src="/images/time.svg" alt="Time" className="w-6 h-6" />
-                        <p>Monday - Friday, 9 AM - 6 PM ISD</p>
+                        <p>Monday - Friday, 9 AM - 6 PM IST</p>
                     </div>
 
                     <div className="flex gap-3 py-2">

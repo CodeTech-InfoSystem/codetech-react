@@ -14,7 +14,8 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Clients", path: "/clients", onClick: (e) => handleScroll(e, scrollToTestimonials) },
+    // { name: "Clients", path: "/clients", onClick: (e) => handleScroll(e, scrollToTestimonials) },
+     { name: "Clients", path: "/clients"},
     { name: "About Us", path: "/about-us" },
     { name: "Services", path: "/services"},
     { name: "Blog", path: "/blog"},
