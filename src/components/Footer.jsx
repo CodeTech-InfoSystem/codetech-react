@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="bg-[rgba(228,220,197,0.5)]">
         <div className="py-10 px-6 md:px-12">
 
-          <div className="grid grid-flow-col auto-cols-max items-center justify-center gap-14 py-12">
+          <div className="grid grid-flow-col auto-cols-max items-center justify-center gap-20">
             {/* 1. Logo Section */}
             <div className="flex flex-col items-center sm:items-start justify-center">
               <img src="/images/ct-logo.svg" alt="Company Logo" className="w-[100px]" />
@@ -31,7 +31,7 @@ const Footer = () => {
                 </div>
                 <span className="text-black text-lg font-semibold mt-1">4.5</span>
               </div>
-              <img src="/images/google.png" alt="Google rating" className="w-[124px] mt-2" />
+              <img src="/images/google.png" alt="Google rating" className="w-[124px]" />
             </div>
 
             {/* 4. Divider */}
@@ -53,7 +53,7 @@ const Footer = () => {
                 </div>
                 <span className="text-black text-lg font-semibold">4.5</span>
               </div>
-              <img src="/images/goodfirms.png" alt="Goodfirms rating" className="w-[203px] mt-2" />
+              <img src="/images/goodfirms.png" alt="Goodfirms rating" className="w-[203px] mt-3" />
             </div>
 
             {/* 6. Divider */}
@@ -87,15 +87,15 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
 
             {/* Indore Address (Left) */}
             <div className="flex flex-col items-start sm:items-start w-full sm:w-3/4 pl-7">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                <p className="font-semibold text-lg font-Baloo">INDIA, INDORE</p>
+                <p className="font-semibold text-[24px] font-Baloo">INDIA, INDORE</p>
               </div>
-              <p className="text-sm text-gray-700 font-raleway text-[18px]">
+              <p className="font-raleway text-[18px] leading-[30px]">
                 PU4, Scheme no. 54 PU4, Vijay Nagar,
                 <br />
                 Madhya Pradesh 452011
@@ -111,10 +111,10 @@ const Footer = () => {
               <div>
                 <div className="flex items-center space-x-2 mb-2">
                   <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                  <p className="font-semibold text-lg font-Baloo">INDIA, Hyderabad</p>
+                  <p className="font-semibold text-[24px] font-Baloo">INDIA, Hyderabad</p>
                 </div>
-                <div className="flex flex-col">
-                  <p className="text-sm text-gray-700 font-raleway text-[18px]" >
+                <div className="flex flex-col text-[18px]">
+                  <p className="font-raleway text-[18px] leading-[30px]" >
                     CodeTech Infosystem
                     <br />
                     hr@codetechinfosystem.com
