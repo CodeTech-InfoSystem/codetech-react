@@ -1,5 +1,4 @@
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-
+import { MdStar,MdStarHalf  } from "react-icons/md";
 const Footer = () => {
   return (
     <>
@@ -25,11 +24,11 @@ const Footer = () => {
               <div className="flex items-center  space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <FaStar key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
-                  <FaStarHalfAlt className="text-[#AC9450] w-4 h-5" />
+                  <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
-                <span className="text-black text-lg font-semibold mt-1">4.5</span>
+                <span className="text-black text-lg font-semibold">4.5</span>
               </div>
               <img src="/images/google.png" alt="Google rating" className="w-[124px]" />
             </div>
@@ -47,9 +46,9 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <FaStar key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
-                  <FaStarHalfAlt className="text-[#AC9450] w-4 h-5" />
+                  <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
                 <span className="text-black text-lg font-semibold">4.5</span>
               </div>
@@ -69,11 +68,11 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <FaStar key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
-                  <FaStarHalfAlt className="text-[#AC9450] w-4 h-5" />
+                  <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
-                <span className="text-black text-lg font-semibold mt-1">4.5</span>
+                <span className="text-black text-lg font-semibold">4.5</span>
               </div>
               <div className="flex items-center mt-2">
                 <img src="/images/Polygon5.svg" alt="Learninja Logo" className="w-[30px]" />
