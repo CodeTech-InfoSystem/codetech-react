@@ -6,7 +6,9 @@ export default {
       fontFamily: {
         baloo: ["Baloo 2", "cursive,"], // Add Baloo font
         raleway: ['Raleway', 'sans-serif'],
-        graphik: ['Graphik']
+        graphik: ['Graphik'],
+        canela: ['"Canela Text Trial"', 'sans-serif'],
+        outfit: ['"Outfit"', 'sans-serif'],
       },
       animation: {
         "move-up-down": "moveUpDown 4.5s infinite ease-in-out",
