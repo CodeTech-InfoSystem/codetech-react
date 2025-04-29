@@ -98,7 +98,7 @@ const ContactUs = () => {
         <div className="w-full lg:w-[40%] bg-white text-black p-6 rounded-3xl shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-center text-[#AC964F]">Get in Touch</h3>
 
-                    <form name="contact" method='post' netlify>
+                    <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field">
                        
 
                         <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
