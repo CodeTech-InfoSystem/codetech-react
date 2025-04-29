@@ -73,12 +73,12 @@ const Blog = () => {
                             {/* Top Shadow Effect */}
                             <img src={post.imgSrc} alt="Blog Cover" className="w-full h-60 object-cover p-3" />
                             <div className="p-4">
-                                <p className="text-sm text-[#000000] flex items-center gap-2">
+                                <p className="text-sm text-[#000000] flex items-center gap-2 font-outfit">
                                     <img src="/images/calendar-date.svg" alt="calendar" /> {post.date}
                                     <img src="/images/person.svg" alt="person" /> {post.author}
                                 </p>
-                                <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
-                                <p className="text-gray-600 text-sm mt-2">
+                                <h3 className="text-lg font-semibold mt-2 font-canela">{post.title}</h3>
+                                <p className="text-gray-600 text-sm mt-2 font-raleway">
                                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
                                 </p>
                             </div>
