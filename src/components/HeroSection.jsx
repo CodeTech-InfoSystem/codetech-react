@@ -11,20 +11,20 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className="text-white py-16 relative">
+        <section className="text-white pb-16 relative mt-[110px]">
             <div className="max-w-7xl mx-auto text-center px-4">
-                <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#AD954F] via-[#BCA86F] via-[#CDBF95] via-[#DED4B8] via-[#EBE6D5] to-white">
+                <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#AD954F] via-[#BCA86F] via-[#CDBF95] via-[#DED4B8] via-[#EBE6D5] to-white leading-[70px]" style={{ lineHeight: '70px' }}>
                     Software Services Enabling <br />
                     <span className="block">Business Competence</span>
                 </h1>
 
-                <p className="mt-4 text-lg text-gray-300 w-full md:w-[40%] mx-auto text-center">
+                <p className="mt-[33px] text-lg text-gray-300 w-full md:w-[40%] mx-auto text-center" style={{lineHeight:'32px' }}>
                     We help build and manage a team of world-class developers to bring your vision to life.
                 </p>
 
                 {/* Buttons */}
                 <div className="my-6 flex justify-center gap-4">
-                    <button className="px-10 py-2 bg-[#AD954F] text-white font-semibold rounded-2xl">
+                    <button className="px-10 py-2 bg-[#AD954F] text-white font-bold rounded-2xl lg:w-[234px] lg:h-[42px] leading-[1.5]">
                         Enquiry
                     </button>
                 </div>

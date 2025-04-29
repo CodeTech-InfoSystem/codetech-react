@@ -31,7 +31,7 @@ const Strengths = () => {
     return (
         <>
         <section className="py-8 px-20 bg-white">
-            <h2 className="text-2xl font-bold text-center mb-6">Our Strength</h2>
+            <h2 className="text-4xl font-bold text-center mb-6">Our Strength</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {strengthsData.map((strength, index) => (
                     <div
@@ -47,7 +47,7 @@ const Strengths = () => {
                             <div className="h-1 w-4 bg-[#AD954F] rounded-lg"></div>
                         </div>
 
-                        <p className="text-[#000000] font-Raleway">{strength.description}</p>
+                        <p className="text-[#000000] font-raleway">{strength.description}</p>
                         <span className="absolute top-4 right-4 text-3xl font-bold text-gray-300">
                             {`0${strength.id}`}
                         </span>
@@ -56,7 +56,7 @@ const Strengths = () => {
             </div>
         </section>
         <section className="py-8 px-20 bg-gray-100">
-        <h2 className="text-2xl font-bold text-center mb-6">About Us</h2>
+        <h2 className="text-4xl font-bold text-center mb-6">About Us</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Left Image */}
             <img

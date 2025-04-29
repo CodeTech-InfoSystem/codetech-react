@@ -41,7 +41,7 @@ const servicesData = [
 const Services = ({ showHeading = true }) => {
     return (
         <section className="py-8 px-4 sm:px-4 md:px-10 lg:px-20 xl:px-24 bg-white">
-         {showHeading && <h2 className="text-2xl font-bold text-center mb-6">Our Services</h2>}
+         {showHeading && <h2 className="text-4xl font-bold text-center mb-6">Our Services</h2>}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {servicesData.map((service) => (
                     <div
@@ -64,7 +64,7 @@ const Services = ({ showHeading = true }) => {
                             <div className="h-1 w-4 bg-[#AD954F] group-hover:bg-white rounded-lg"></div>
                         </div>
 
-                        <p className="font-Raleway w-[98%] my-2">{service.description}</p>
+                        <p className="font-raleway w-[98%] my-2">{service.description}</p>
                     </div>
                 ))}
             </div>

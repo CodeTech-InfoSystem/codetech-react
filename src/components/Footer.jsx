@@ -1,123 +1,155 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#E7DFC5] py-10 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-8">
-        {/* Left - Logo & About */}
-        <div className="flex flex-col items-center sm:items-start">
-          <img src="/images/ct-logo.svg" alt="company logo" className="w-[100px]" />
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left mt-4">
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at.
-          </p>
-        </div>
+    <>
+      <footer className="bg-[rgba(228,220,197,0.5)]">
+        <div className="py-10 px-6 md:px-12">
 
-        {/* Services */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Services
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <ul className="text-gray-700 space-y-2">
-            <li>Web Design/Development</li>
-            <li>App Development</li>
-            <li>UI/UX Design</li>
-            <li>HubSpot Integration</li>
-            <li>Email Marketing</li>
-            <li>Website Migration</li>
-          </ul>
-        </div>
+          <div className="grid grid-flow-col auto-cols-max items-center justify-center gap-14 py-12">
+            {/* 1. Logo Section */}
+            <div className="flex flex-col items-center sm:items-start justify-center">
+              <img src="/images/ct-logo.svg" alt="Company Logo" className="w-[100px]" />
+            </div>
 
-        {/* Career */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Career
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/react.svg" alt="ReactJs Dev." className="w-8 h-8 text-[#AD954F]" />
-              </div>
-              <div>
-                <p className="font-bold">ReactJs Dev.</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
+            {/* 2. Divider */}
+            <div className="hidden md:flex justify-center items-center">
+              <div className="relative h-24 flex flex-col items-center">
+                <div className="w-2 h-2 bg-[#AD954F] rounded-full animate-move-up-down"></div>
+                <div className="w-px h-full bg-gray-300"></div>
               </div>
             </div>
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/wordpress.svg" alt="Wordpress Dev." className="w-8 h-8 text-[#AD954F]" />
+
+            {/* 3. Services Rating */}
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center  space-x-2">
+                <div className="flex">
+                  {[...Array(4)].map((_, i) => (
+                    <FaStar key={i} className="text-[#AC9450] w-4 h-5" />
+                  ))}
+                  <FaStarHalfAlt className="text-[#AC9450] w-4 h-5" />
+                </div>
+                <span className="text-black text-lg font-semibold mt-1">4.5</span>
               </div>
-              <div>
-                <p className="font-bold">Wordpress Dev.</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
+              <img src="/images/google.png" alt="Google rating" className="w-[124px] mt-2" />
+            </div>
+
+            {/* 4. Divider */}
+            <div className="hidden md:flex justify-center items-center">
+              <div className="relative h-24 flex flex-col items-center">
+                <div className="w-2 h-2 bg-[#AD954F] rounded-full animate-move-up-down"></div>
+                <div className="w-px h-full bg-gray-300"></div>
               </div>
             </div>
-            <div className="flex items-center gap-4 rounded-md">
-              <div className="bg-white p-1 rounded-lg cursor-pointer hover:bg-gray-200">
-                <img src="/images/python.svg" alt="Python Dev." className="w-8 h-8 text-[#AD954F]" />
+
+            {/* 5. Career Rating */}
+            <div className="flex flex-col justify-center w-full">
+              <div className="flex items-center space-x-2">
+                <div className="flex">
+                  {[...Array(4)].map((_, i) => (
+                    <FaStar key={i} className="text-[#AC9450] w-4 h-5" />
+                  ))}
+                  <FaStarHalfAlt className="text-[#AC9450] w-4 h-5" />
+                </div>
+                <span className="text-black text-lg font-semibold">4.5</span>
               </div>
-              <div>
-                <p className="font-bold">Python Developer</p>
-                <p className="text-sm text-gray-600">1-5 Years of Exp.</p>
+              <img src="/images/goodfirms.png" alt="Goodfirms rating" className="w-[203px] mt-2" />
+            </div>
+
+            {/* 6. Divider */}
+            <div className="hidden md:flex justify-center items-center">
+              <div className="relative h-24 flex flex-col items-center">
+                <div className="w-2 h-2 bg-[#AD954F] rounded-full animate-move-up-down"></div>
+                <div className="w-px h-full bg-gray-300"></div>
+              </div>
+            </div>
+
+            {/* 7. Subscribe / Learninja */}
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center space-x-2">
+                <div className="flex">
+                  {[...Array(4)].map((_, i) => (
+                    <FaStar key={i} className="text-[#AC9450] w-4 h-5" />
+                  ))}
+                  <FaStarHalfAlt className="text-[#AC9450] w-4 h-5" />
+                </div>
+                <span className="text-black text-lg font-semibold mt-1">4.5</span>
+              </div>
+              <div className="flex items-center mt-2">
+                <img src="/images/Polygon5.svg" alt="Learninja Logo" className="w-[30px]" />
+                <div className="flex items-center ml-2">
+                  <span className="text-4xl font-bold text-black font-graphik text-[27.7px]">
+                    Learninja
+                  </span>
+                  <span className="text-[#F9A682] text-4xl ml-1 font-graphik">.</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Subscribe Us */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Subscribe Us
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            It is a long established fact that a reader will be distracted by the readable content.
-          </p>
-          <div className="flex gap-3 mt-4 justify-center sm:justify-start">
-            <a
-              href="https://www.linkedin.com/company/codetechinfosystem/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
-            >
-              <FaLinkedinIn className="text-[#AD954F]" />
-            </a>
-            <a
-              href="https://www.instagram.com/codetechinfosystem?igsh=MXdqc2l4dmUwd29hOQ=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
-            >
-              <FaInstagram className="text-[#AD954F]" />
-            </a>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaFacebookF className="text-[#AD954F]" />
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+
+            {/* Indore Address (Left) */}
+            <div className="flex flex-col items-start sm:items-start w-full sm:w-3/4 pl-7">
+              <div className="flex items-center space-x-2 mb-2">
+                <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
+                <p className="font-semibold text-lg font-Baloo">INDIA, INDORE</p>
+              </div>
+              <p className="text-sm text-gray-700 font-raleway text-[18px]">
+                PU4, Scheme no. 54 PU4, Vijay Nagar,
+                <br />
+                Madhya Pradesh 452011
+                <br />
+                hr@codetechinfosystem.com
+                <br />
+                Ph : +91 88891 43373
+              </p>
             </div>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaTwitter className="text-[#AD954F]" />
+
+            {/* Hyderabad Address (Right) */}
+            <div className="flex flex-col items-end sm:items-end w-full sm:w-3/4 ml-auto">
+              <div>
+                <div className="flex items-center space-x-2 mb-2">
+                  <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
+                  <p className="font-semibold text-lg font-Baloo">INDIA, Hyderabad</p>
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-sm text-gray-700 font-raleway text-[18px]" >
+                    CodeTech Infosystem
+                    <br />
+                    hr@codetechinfosystem.com
+                    <br />
+                    Hmt Sathavahana Nagar, Kukatpally,
+                    <br />
+                    Hyderabad, Telangana 500072
+                  </p>
+                </div>
+              </div>
             </div>
+
           </div>
-        </div>
 
-        {/* Contact Us */}
-        <div>
-          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
-            Contact Us
-          </h3>
-          <div className="h-1 w-10 bg-[#AD954F] rounded-lg my-2"></div>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            PU4, Scheme no. 54 PU4, Vijay Nagar, Madhya Pradesh 452011
+        </div>
+      </footer>
+
+      {/* Copyright Section */}
+      <div className="bg-[#AC9450] py-3">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <p className="text-white text-lg font-medium font-raleway">
+            © CodeTech Infosystem. All Rights Reserved 2025
           </p>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            hr@codetechinfosystem.com
-          </p>
-          <p className="text-sm text-gray-700 w-full sm:w-[80%] text-center sm:text-left">
-            Ph : +91 88891 43373
-          </p>
+          <div className="flex space-x-2">
+            <a href="/terms" className="font-raleway text-white text-sm font-medium hover:text-[#AC9450]">
+              Terms and Conditions
+            </a>
+            <div className=" font-raleway h-6 border-l border-white mx-1"></div>
+            <a href="/privacy" className="text-white text-sm font-medium hover:text-[#AC9450]">
+              Privacy Policy
+            </a>
+          </div>
         </div>
       </div>
-    </footer>
+    </>
   );
 };
 

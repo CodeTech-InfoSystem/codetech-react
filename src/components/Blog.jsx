@@ -23,7 +23,7 @@ const Blog = () => {
   const navigate = useNavigate();
   return (
     <section className="py-8 bg-white">
-      <h2 className="text-center text-4xl font-bold mb-8">Blog</h2>
+      <h2 className="text-center text-4xl font-bold mb-8 text-4xl">Blog</h2>
 
       {/* Blog Horizontal Scroller */}
       <div className="relative px-4 sm:px-4">
@@ -51,9 +51,7 @@ const Blog = () => {
               {/* Divider between stats with animated dot */}
               {index !== 0 && (
                 <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex flex-col items-center">
-                  {/* Animated Dot */}
                   <div className="w-2 h-2 bg-[#AD954F] rounded-full absolute animate-move-up-down"></div>
-                  {/* Divider Line */}
                   <div className="w-px h-12 bg-gray-300"></div>
                 </div>
               )}
@@ -81,10 +79,10 @@ const Blog = () => {
               “Some of the History of Our Company is that we are Catching up through Video”
             </p>
             <div className="mt-8 flex justify-center gap-4">
-            <button className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
-                          onClick={() => navigate("/contact-us")}>
-                           Get In Touch
-                         </button>
+              <button className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
+                onClick={() => navigate("/contact-us")}>
+                Get In Touch
+              </button>
             </div>
           </div>
         </div>

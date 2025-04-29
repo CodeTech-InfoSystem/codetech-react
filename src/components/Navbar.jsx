@@ -14,7 +14,8 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Clients", path: "/clients", onClick: (e) => handleScroll(e, scrollToTestimonials) },
+    // { name: "Clients", path: "/clients", onClick: (e) => handleScroll(e, scrollToTestimonials) },
+     { name: "Clients", path: "/clients"},
     { name: "About Us", path: "/about-us" },
     { name: "Services", path: "/services"},
     { name: "Blog", path: "/blog"},
@@ -24,7 +25,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
   return (
     <div className="bg-[#242423] px-3 sm:px-8 md:px-14 lg:px-20 pt-2">
       <nav className="bg-[#545454] rounded-lg border border-[#FFFFFF]">
-        <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0">
+        <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0 h-[72px]">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/images/logo.svg" alt="Company Logo" className="w-10 h-10" />
@@ -55,7 +56,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
                   </button>
                 ) : (
                   <Link to={item.path} className={`px-2 py-2 block transition-colors ${
-                    location.pathname === item.path ? "text-[#AF9854] font-bold" : "hover:text-yellow-400"
+                    location.pathname === item.path ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
                   }`}>
                     {item.name}
                   </Link>
