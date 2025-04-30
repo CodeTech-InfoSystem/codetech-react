@@ -1,14 +1,46 @@
 import React, { useState } from "react";
 import blogVideo from "../assets/blog-video.mp4";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ContactUs = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    // Check if all fields are filled
-    const isFormValid = name.trim() !== "" && email.trim() !== "" && message.trim() !== "";
+    const handleSubmit = event => {
+        event.preventDefault();
+
+        const formData = new URLSearchParams();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("message", message);
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: formData.toString()
+        })
+            .then(async response => {
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Error: ${response.status} - ${errorText}`);
+                }
+
+                const responseText = await response.text();
+                console.log("Success:", responseText);
+                toast.success("Your message has been sent successfully!")
+
+                setName("");
+                setEmail("");
+                setMessage("");
+            })
+            .catch(error => {
+                toast.error(`Failed to send message: ${error.message}`);
+                console.error("Form submission error:", error);
+                alert(error.message);
+            });
+    };
 
     return (
         <div className="min-h-screen">
@@ -74,7 +106,7 @@ const ContactUs = () => {
                 <div className="w-full lg:w-[40%] bg-white text-black p-6 rounded-3xl shadow-lg">
                     <h3 className="text-xl font-semibold mb-4 text-center text-[#AC964F]">Get in Touch</h3>
 
-                    <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field">
+                    <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit}>
                         <input type="hidden" name="form-name" value="contact" />
 
                         <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
@@ -119,14 +151,12 @@ const ContactUs = () => {
 
                         <button
                             type="submit"
-                            className={`w-full py-2 font-semibold rounded-lg ${isFormValid ? "bg-[#AD954F] text-white" : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                                }`}
-                            disabled={!isFormValid}
+                            className='w-full py-2 font-semibold rounded-lg bg-[#AD954F] text-white'
                         >
                             Submit
                         </button>
                     </form>
-
+                    <ToastContainer position="top-right" autoClose={3000} />
                 </div>
             </div>
 
