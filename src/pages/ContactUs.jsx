@@ -17,20 +17,13 @@ const ContactUs = () => {
     formData.append("message", message);
     formData.append("form-name", "contact");
 
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
-        })
-            .then(async response => {
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Error: ${response.status} - ${errorText}`);
-                }
-
-                const responseText = await response.text();
-                console.log("Success:", responseText);
-                toast.success("Your message has been sent successfully!")
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formData.toString()
+    })
+      .then(() => {
+        toast.success("Your request has been sent successfully!")
 
         setName("");
         setEmail("");
