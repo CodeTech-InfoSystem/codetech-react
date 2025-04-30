@@ -22,7 +22,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/images/logo.svg" alt="Company Logo" className="w-10 h-10" />
-            <span className="text-lg font-bold text-white">
+            <span className="text-2xl font-bold text-white">
               <span className="text-[#000]">Codetech</span>{" "}
               <span className="text-[#AC964F]">Infosystems</span>
             </span>
@@ -39,7 +39,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
               } lg:flex lg:space-x-6 text-white font-medium items-center space-y-6 lg:space-y-0 bg-[#545454] lg:bg-transparent p-6 lg:p-0 absolute lg:static top-16 left-[5%] z-10 rounded-lg w-[90%] lg:w-auto transition-all duration-300`}
           >
             {navItems.map((item) => (
-              <li key={item.name} className="relative">
+              <li key={item.name} className="relative font-raleway">
                 {item.onClick ? (
                   // <a href="#" onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
                   //   {item.name}
@@ -55,7 +55,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
                 )}
 
                 {location.pathname === item.path && (
-                  <div className="hidden lg:block absolute left-1/2 w-12 h-[5px] bg-[#AF9854] transform -translate-x-1/2 rounded-t-[2px]"></div>
+                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 rounded-t-[2px]"></div>
                 )}
               </li>
             ))}

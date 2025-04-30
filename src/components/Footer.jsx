@@ -1,4 +1,4 @@
-import { MdStar,MdStarHalf  } from "react-icons/md";
+import { MdStar, MdStarHalf } from "react-icons/md";
 const Footer = () => {
   return (
     <>
@@ -24,7 +24,7 @@ const Footer = () => {
               <div className="flex items-center  space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
@@ -46,7 +46,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
@@ -68,7 +68,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
@@ -86,15 +86,16 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
-
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12">
             {/* Indore Address (Left) */}
-            <div className="flex flex-col items-start sm:items-start w-full sm:w-3/4 pl-7">
+            <div className="flex flex-col items-start sm:items-start w-full sm:w-4/4 pl-7">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
                 <p className="font-semibold text-[24px] font-Baloo">INDIA, INDORE</p>
               </div>
               <p className="font-raleway text-[18px] leading-[30px]">
+                Code Tech Infosystem
+                <br />
                 PU4, Scheme no. 54 PU4, Vijay Nagar,
                 <br />
                 Madhya Pradesh 452011
@@ -104,13 +105,24 @@ const Footer = () => {
                 Ph : +91 88891 43373
               </p>
             </div>
-
+            {/* Duabi Address (Right) */}
+            <div className="flex flex-col items-start sm:items-start w-full sm:w-4/4 pl-7">
+              <div className="flex items-center space-x-2 mb-2">
+                <img src="/images/dubai_flag.png" alt="India Flag" className="w-[30px] h-[30px]" />
+                <p className="font-semibold text-[24px] font-Baloo">DUABI,QUAZ</p>
+              </div>
+              <p className="font-raleway text-[18px] leading-[30px]">
+                Code Tech Infosystem
+                <br />
+                Blow Dubai/Al Quoz Dubai 9966
+              </p>
+            </div>
             {/* Hyderabad Address (Right) */}
-            <div className="flex flex-col items-end sm:items-end w-full sm:w-3/4 ml-auto">
+            <div className="flex flex-col items-end sm:items-end w-full sm:w-4/4 ml-auto">
               <div>
                 <div className="flex items-center space-x-2 mb-2">
                   <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                  <p className="font-semibold text-[24px] font-Baloo">INDIA, Hyderabad</p>
+                  <p className="font-semibold text-[24px] font-Baloo">INDIA,HYDERABAD </p>
                 </div>
                 <div className="flex flex-col text-[18px]">
                   <p className="font-raleway text-[18px] leading-[30px]" >
@@ -138,11 +150,11 @@ const Footer = () => {
             © CodeTech Infosystem. All Rights Reserved 2025
           </p>
           <div className="flex space-x-2">
-            <a href="/terms" className="font-raleway text-white text-sm font-medium hover:text-[#AC9450]">
+            <a href="/" className="font-raleway text-white text-sm font-medium">
               Terms and Conditions
             </a>
-            <div className=" font-raleway h-6 border-l border-white mx-1"></div>
-            <a href="/privacy" className="text-white text-sm font-medium hover:text-[#AC9450]">
+            <div className="font-raleway h-6 border-l border-white mx-1"></div>
+            <a href="/" className="text-white text-sm font-medium">
               Privacy Policy
             </a>
           </div>
