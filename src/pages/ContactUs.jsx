@@ -23,7 +23,7 @@ const ContactUs = () => {
       body: formData.toString()
     })
       .then(() => {
-        toast.success("Your message has been sent successfully!")
+        toast.success("Your request has been sent successfully!")
 
         setName("");
         setEmail("");
