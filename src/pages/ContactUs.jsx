@@ -17,13 +17,20 @@ const ContactUs = () => {
     formData.append("message", message);
     formData.append("form-name", "contact");
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded"},
-      body: formData.toString()
-    })
-      .then(() => {
-        toast.success("Your request has been sent successfully!")
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: formData.toString()
+        })
+            .then(async response => {
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Error: ${response.status} - ${errorText}`);
+                }
+
+                const responseText = await response.text();
+                console.log("Success:", responseText);
+                toast.success("Your message has been sent successfully!")
 
         setName("");
         setEmail("");
@@ -41,7 +48,7 @@ const ContactUs = () => {
                 className="text-center py-20"
                 style={{
                     background:
-                        "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 73.93%, #D3D3D3 86.67%, #FFFFFF 100%)",
+                        "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 77.4%, #FFFFFF 100%)",
                 }}
             >
                 <h1 className="text-4xl font-bold text-[#AF9854] font-Baloo 2">Contact Us</h1>
@@ -65,10 +72,10 @@ const ContactUs = () => {
             <p>Email: hr@codetechinfosystem.com</p>
           </div>
 
-                    <div className="flex items-center gap-2">
-                        <img src="/images/time.svg" alt="Time" className="w-6 h-6" />
-                        <p>Monday - Friday, 9 AM - 6 PM IST</p>
-                    </div>
+          <div className="flex items-center gap-2">
+            <img src="/images/time.svg" alt="Time" className="w-6 h-6" />
+            <p>Monday - Friday, 9 AM - 6 PM IST</p>
+          </div>
 
           <div className="flex gap-3 py-2">
             <a
@@ -98,22 +105,20 @@ const ContactUs = () => {
         <div className="w-full lg:w-[40%] bg-white text-black p-6 rounded-3xl shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-center text-[#AC964F]">Get in Touch</h3>
 
-                    <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit}>
-                        <input type="hidden" name="form-name" value="contact" />
-
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
-                            Name
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Enter Your Name"
-                            className="w-full p-2 mb-3 border rounded"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
+          <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter Your Name"
+              className="w-full p-2 mb-3 border rounded"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
 
             <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
               Email
