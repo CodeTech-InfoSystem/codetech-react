@@ -2,19 +2,13 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
+const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (e, scrollFunction) => {
-    e.preventDefault();
-    scrollFunction();
-    setIsOpen(false);
-  };
-
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Clients", path: "/clients", onClick: (e) => handleScroll(e, scrollToTestimonials) },
+    { name: "Clients", path: "/client"},
     { name: "About Us", path: "/about-us" },
     { name: "Services", path: "/services"},
     { name: "Blog", path: "/blog"},
@@ -22,7 +16,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
   ];
 
   return (
-    <div className="bg-[#242423] px-3 sm:px-8 md:px-14 lg:px-20 pt-2">
+    <div className="bg-[#242423] px-3 sm:px-8 md:px-14 lg:px-20 pt-4">
       <nav className="bg-[#545454] rounded-lg border border-[#FFFFFF]">
         <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0">
           {/* Logo */}
@@ -45,21 +39,12 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
               } lg:flex lg:space-x-6 text-white font-medium items-center space-y-6 lg:space-y-0 bg-[#545454] lg:bg-transparent p-6 lg:p-0 absolute lg:static top-16 left-[5%] z-10 rounded-lg w-[90%] lg:w-auto transition-all duration-300`}
           >
             {navItems.map((item) => (
-              <li key={item.name} className="relative">
-                {item.onClick ? (
-                  // <a href="#" onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
-                  //   {item.name}
-                  // </a>
-                  <button onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
-                    {item.name}
-                  </button>
-                ) : (
-                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${
-                    location.pathname === item.path ? "text-[#AF9854] font-bold" : "hover:text-yellow-400"
+              <li key={item.name} className="relative font-raleway">
+                  <Link to={item.path} className={`px-2 py-2 font-raleway font-medium block transition-colors ${
+                    location.pathname === item.path ? "text-[#AF9854] font-medium" : "hover:text-yellow-400"
                   }`}>
                     {item.name}
                   </Link>
-                )}
 
                 {location.pathname === item.path && (
                   <div className="hidden lg:block absolute left-1/2 w-12 h-[5px] bg-[#AF9854] transform -translate-x-1/2 rounded-t-[2px]"></div>

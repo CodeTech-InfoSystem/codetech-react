@@ -18,13 +18,13 @@ const HeroSection = () => {
                     <span className="block">Business Competence</span>
                 </h1>
 
-                <p className="mt-4 text-lg text-gray-300 w-full md:w-[40%] mx-auto text-center">
-                    We help build and manage a team of world-class developers to bring your vision to life.
+                <p className="my-8 text-lg text-gray-300 w-full md:w-[50%] mx-auto text-center">
+                We are the ones who bring your thoughts into the practical world with top notch quality and affordability.
                 </p>
 
                 {/* Buttons */}
                 <div className="my-6 flex justify-center gap-4">
-                    <button className="px-10 py-2 bg-[#AD954F] text-white font-semibold rounded-2xl">
+                    <button className="px-16 py-2 bg-[#AD954F] text-white font-semibold rounded-3xl">
                         Enquiry
                     </button>
                 </div>
