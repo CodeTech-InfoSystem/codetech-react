@@ -61,7 +61,7 @@ const Blog = () => {
                         "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 73.93%, #D3D3D3 86.67%, #FFFFFF 100%)",
                 }}
             >
-                <h1 className="text-3xl font-bold text-[#AF9854]">Blog</h1>
+                <h1 className="text-4xl font-bold text-[#AF9854] font-Baloo 2">Blog</h1>
             </header>
 
             {/* Blog Section */}
@@ -73,12 +73,12 @@ const Blog = () => {
                             {/* Top Shadow Effect */}
                             <img src={post.imgSrc} alt="Blog Cover" className="w-full h-60 object-cover p-3" />
                             <div className="p-4">
-                                <p className="text-sm text-[#000000] flex items-center gap-2">
+                                <p className="text-sm text-[#000000] flex items-center gap-2 font-outfit">
                                     <img src="/images/calendar-date.svg" alt="calendar" /> {post.date}
                                     <img src="/images/person.svg" alt="person" /> {post.author}
                                 </p>
-                                <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
-                                <p className="text-gray-600 text-sm mt-2">
+                                <h3 className="text-lg font-semibold mt-2 font-canela">{post.title}</h3>
+                                <p className="text-gray-600 text-sm mt-2 font-raleway">
                                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
                                 </p>
                             </div>

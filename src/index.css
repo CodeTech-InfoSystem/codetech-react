@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.cdnfonts.com/css/canela-text-trial');
+@import url('https://fonts.cdnfonts.com/css/outfit');
+@font-face {
+  font-family: 'Graphik'; /* Your desired font name */
+  src: url('.././public/fonts/Graphik-Medium-Trial.otf') format('otf'); /* Example */
+  font-weight: 400; 
+  font-style: normal;
+}
+
 /* Apply Baloo font to the whole app */
 html, body, #root {
   width: 100%;

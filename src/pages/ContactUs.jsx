@@ -20,7 +20,7 @@ const ContactUs = () => {
                         "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 73.93%, #D3D3D3 86.67%, #FFFFFF 100%)",
                 }}
             >
-                <h1 className="text-3xl font-bold text-[#AF9854]">Contact Us</h1>
+                <h1 className="text-4xl font-bold text-[#AF9854] font-Baloo 2">Contact Us</h1>
             </header>
 
             {/* Contact Section */}
@@ -43,7 +43,7 @@ const ContactUs = () => {
 
                     <div className="flex items-center gap-2">
                         <img src="/images/time.svg" alt="Time" className="w-6 h-6" />
-                        <p>Monday - Friday, 9 AM - 6 PM ISD</p>
+                        <p>Monday - Friday, 9 AM - 6 PM IST</p>
                     </div>
 
                     <div className="flex gap-3 py-2">
@@ -74,7 +74,7 @@ const ContactUs = () => {
                 <div className="w-full lg:w-[40%] bg-white text-black p-6 rounded-3xl shadow-lg">
                     <h3 className="text-xl font-semibold mb-4 text-center text-[#AC964F]">Get in Touch</h3>
 
-                    <form name="contact" netlify>
+                    <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact" />
 
                         <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">

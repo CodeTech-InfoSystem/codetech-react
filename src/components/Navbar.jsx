@@ -10,15 +10,15 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Clients", path: "/client"},
     { name: "About Us", path: "/about-us" },
-    { name: "Services", path: "/services"},
-    { name: "Blog", path: "/blog"},
+    { name: "Services", path: "/services" },
+    { name: "Blog", path: "/blog" },
     { name: "Contact Us", path: "/contact-us" },
   ];
 
   return (
     <div className="bg-[#242423] px-3 sm:px-8 md:px-14 lg:px-20 pt-4">
       <nav className="bg-[#545454] rounded-lg border border-[#FFFFFF]">
-        <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0">
+        <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0 h-[72px]">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/images/logo.svg" alt="Company Logo" className="w-10 h-10" />

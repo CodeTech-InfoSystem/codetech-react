@@ -15,7 +15,7 @@ const AboutUs = () => {
                         "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 73.93%, #D3D3D3 86.67%, #FFFFFF 100%)",
                 }}
             >
-                <h1 className="text-3xl font-bold text-[#AF9854]">About Us</h1>
+                <h1 className="text-4xl font-bold text-[#AF9854]">About Us</h1>
             </header>
 
 
@@ -34,7 +34,7 @@ const AboutUs = () => {
                         <h3 className="text-4xl font-bold text-[#000000]">
                             One of the Fastest Way to Business Growth
                         </h3>
-                        <p className="text-gray-600 mt-4 w-[90%]">
+                        <p className="text-gray-600 mt-4 w-[90%] font-raleway">
                             It is a long established fact that a reader will be distracted by
                             the readable content of a page when looking at its layout. The point
                             of using Lorem Ipsum is that it has a more-or-less normal
@@ -68,8 +68,8 @@ const AboutUs = () => {
             <section className="mt-10 flex flex-col md:flex-row items-center px-4 md:px-20">
                 <img src="/images/mission.svg" alt="Our Mission" className="w-full md:w-1/2 rounded-lg" />
                 <div className="md:ml-10 mt-4 md:mt-0">
-                    <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl">Our Mission</span>
-                    <p className="mt-8 text-gray-600 text-[18px]">
+                    <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Mission</span>
+                    <p className="mt-8 text-gray-600 text-[18px] font-raleway">
                         At we believe in the transformation power of education and the boundless potential that resides within each individual. Our mission is to foster intellectual curiosity, empower individuals to realize their fullest potential, and contribute meaningfully to the betterment of society. commitment to academic excellence, diversity, and community engagement.
                     </p>
                 </div>
@@ -78,8 +78,8 @@ const AboutUs = () => {
             {/* Vision Section */}
             <section className="mt-10 flex flex-col-reverse md:flex-row items-center px-4 md:px-20">
                 <div className="md:mr-10 mt-4 md:mt-0">
-                    <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl">Our Vision</span>
-                    <p className="mt-8 text-gray-600 text-[18px]">
+                    <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Vision</span>
+                    <p className="mt-8 text-gray-600 text-[18px] font-raleway">
                         At we believe in the transformation power of education and the boundless potential that resides within each individual. Our mission is to foster intellectual curiosity, empower individuals to realize their fullest potential, and contribute meaningfully to the betterment of society. commitment to academic excellence, diversity, and community engagement.
                     </p>
                 </div>

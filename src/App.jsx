@@ -41,6 +41,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/client" element={<Client />} />
           <Route path="/services" element={<Service />} />
+          <Route path="/clients" element={<Clients />} />
 
         </Routes>
       </Suspense>
