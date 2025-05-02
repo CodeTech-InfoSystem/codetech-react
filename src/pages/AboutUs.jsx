@@ -12,7 +12,7 @@ const AboutUs = () => {
                 className="text-center py-20"
                 style={{ background: "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 77.4%, #FFFFFF 100%)" }}
             >
-                <h1 className="text-4xl font-bold text-[#AF9854]">About Us</h1>
+                <h1 className="text-[3.5rem] font-bold text-[#AF9854]">About Us</h1>
             </header>
 
 
