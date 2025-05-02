@@ -51,21 +51,14 @@ const Navbar = () => {
                     {item.name}
                   </button>
                 ) : (
-                  <>
-                    <Link
-                      to={item.path}
-                      className={`px-2 py-2 block transition-colors ${
-                        location.pathname === item.path
-                          ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]"
-                          : "hover:text-yellow-400"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                    {location.pathname === item.path && (
-                      <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 translate-y-[15px] rounded-t-[2px]"></div>
-                    )}
-                  </>
+                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${location.pathname === item.path ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
+                    }`}>
+                    {item.name}
+                  </Link>
+                )}
+
+                {location.pathname === item.path && (
+                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[15px] rounded-t-[2px]"></div>
                 )}
               </li>
             ))}
