@@ -18,7 +18,7 @@ const HeroSection = () => {
                     <span className="block">Business Competence</span>
                 </h1>
 
-                <p className="mt-[33px] text-lg text-gray-300 w-full md:w-[40%] mx-auto text-center" style={{lineHeight:'32px' }}>
+                <p className="mt-[33px] text-lg text-gray-300 w-full md:w-[40%] mx-auto text-center font-raleway" style={{lineHeight:'32px' }}>
                     We help build and manage a team of world-class developers to bring your vision to life.
                 </p>
 

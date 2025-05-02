@@ -100,7 +100,7 @@ const Footer = () => {
                 <br />
                 Madhya Pradesh 452011
                 <br />
-                hr@codetechinfosystem.com
+                careers@codetechinfosystem.com
                 <br />
                 Ph : +91 88891 43373
               </p>
@@ -109,7 +109,7 @@ const Footer = () => {
             <div className="flex flex-col items-start sm:items-start w-full sm:w-4/4 pl-7">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/dubai_flag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                <p className="font-semibold text-[24px] font-Baloo">DUABI,QUAZ</p>
+                <p className="font-semibold text-[24px] font-Baloo">DUABI, QUAZ</p>
               </div>
               <p className="font-raleway text-[18px] leading-[25px]">
                 Code Tech Infosystem
@@ -122,15 +122,15 @@ const Footer = () => {
               <div>
                 <div className="flex items-center space-x-2 mb-2">
                   <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                  <p className="font-semibold text-[24px] font-Baloo">INDIA,HYDERABAD </p>
+                  <p className="font-semibold text-[24px] font-Baloo">INDIA, HYDERABAD </p>
                 </div>
                 <div className="flex flex-col text-[18px]">
                   <p className="font-raleway text-[18px] leading-[25px]" >
                     CodeTech Infosystem
                     <br />
-                    hr@codetechinfosystem.com
-                    <br />
                     Hmt Sathavahana Nagar, Kukatpally,
+                    <br />
+                    hr@codetechinfosystem.com
                     <br />
                     Hyderabad, Telangana 500072
                   </p>

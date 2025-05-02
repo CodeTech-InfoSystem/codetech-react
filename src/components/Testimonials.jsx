@@ -73,7 +73,7 @@ const Testimonials = () => {
                 {/* Profile & Text Container */}
                 <div className="flex items-start gap-4">
                   {/* Profile Image */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden font-raleway">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
@@ -83,21 +83,21 @@ const Testimonials = () => {
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-gray-700 leading-relaxed mt-4 text-sm md:text-base lg:text-lg">
+                <p className="text-gray-700 leading-relaxed mt-4 text-base md:text-base lg:text-base font-raleway">
                   {testimonial.quote}
                 </p>
 
                 {/* Name & Role */}
-                <div className="mt-4">
+                <div className="mt-4 font-raleway">
                   <p className="font-semibold text-[#AD954F] text-base sm:text-lg">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  <p className="text-gray-500 text-base sm:text-lg">{testimonial.role}</p>
                 </div>
 
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6">
-                  <img src="/images/quote.svg" alt="Quote Icon" className="h-8" />
+                  <img src="/images/quote.svg" alt="Quote Icon" className="h-8"/>
                 </div>
-              </div>
+              </div> 
             )}
           </SwiperSlide>
         ))}

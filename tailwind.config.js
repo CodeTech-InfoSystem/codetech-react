@@ -9,6 +9,7 @@ export default {
         graphik: ['Graphik'],
         canela: ['"Canela Text Trial"', 'sans-serif'],
         outfit: ['"Outfit"', 'sans-serif'],
+        inter: ['"Inter"', 'sans-serif'],
       },
       animation: {
         "move-up-down": "moveUpDown 4.5s infinite ease-in-out",
