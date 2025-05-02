@@ -89,8 +89,8 @@ const Testimonials = () => {
 
                 {/* Name & Role */}
                 <div className="mt-4 font-raleway">
-                  <p className="font-semibold text-[#AD954F] text-base sm:text-lg">{testimonial.name}</p>
-                  <p className="text-gray-500 text-base sm:text-lg">{testimonial.role}</p>
+                  <p className="font-semibold text-[#AD954F] text-base sm:text-base">{testimonial.name}</p>
+                  <p className="text-gray-500  sm:text-sm">{testimonial.role}</p>
                 </div>
 
                 {/* Quote Icon */}
