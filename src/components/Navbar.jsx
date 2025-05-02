@@ -55,7 +55,7 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
                 )}
 
                 {location.pathname === item.path && (
-                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 rounded-t-[2px]"></div>
+                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[15px] rounded-t-[2px]"></div>
                 )}
               </li>
             ))}

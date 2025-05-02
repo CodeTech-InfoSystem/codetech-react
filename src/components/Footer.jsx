@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-[rgba(228,220,197,0.5)]">
-        <div className="py-10 px-6 md:px-12">
+        <div className="py-5 px-5 md:px-5">
 
           <div className="grid grid-flow-col auto-cols-max items-center justify-center gap-20">
             {/* 1. Logo Section */}
@@ -86,21 +86,21 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mt-6">
             {/* Indore Address (Left) */}
             <div className="flex flex-col items-start sm:items-start w-full sm:w-4/4 pl-7">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
                 <p className="font-semibold text-[24px] font-Baloo">INDIA, INDORE</p>
               </div>
-              <p className="font-raleway text-[18px] leading-[30px]">
+              <p className="font-raleway text-[18px] leading-[25px]">
                 Code Tech Infosystem
                 <br />
                 PU4, Scheme no. 54 PU4, Vijay Nagar,
                 <br />
                 Madhya Pradesh 452011
                 <br />
-                hr@codetechinfosystem.com
+                careers@codetechinfosystem.com
                 <br />
                 Ph : +91 88891 43373
               </p>
@@ -109,9 +109,9 @@ const Footer = () => {
             <div className="flex flex-col items-start sm:items-start w-full sm:w-4/4 pl-7">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/dubai_flag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                <p className="font-semibold text-[24px] font-Baloo">DUABI,QUAZ</p>
+                <p className="font-semibold text-[24px] font-Baloo">DUABI, QUAZ</p>
               </div>
-              <p className="font-raleway text-[18px] leading-[30px]">
+              <p className="font-raleway text-[18px] leading-[25px]">
                 Code Tech Infosystem
                 <br />
                 Blow Dubai/Al Quoz Dubai 9966
@@ -122,15 +122,15 @@ const Footer = () => {
               <div>
                 <div className="flex items-center space-x-2 mb-2">
                   <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                  <p className="font-semibold text-[24px] font-Baloo">INDIA,HYDERABAD </p>
+                  <p className="font-semibold text-[24px] font-Baloo">INDIA, HYDERABAD </p>
                 </div>
                 <div className="flex flex-col text-[18px]">
-                  <p className="font-raleway text-[18px] leading-[30px]" >
+                  <p className="font-raleway text-[18px] leading-[25px]" >
                     CodeTech Infosystem
                     <br />
-                    hr@codetechinfosystem.com
-                    <br />
                     Hmt Sathavahana Nagar, Kukatpally,
+                    <br />
+                    hr@codetechinfosystem.com
                     <br />
                     Hyderabad, Telangana 500072
                   </p>
@@ -144,7 +144,7 @@ const Footer = () => {
       </footer>
 
       {/* Copyright Section */}
-      <div className="bg-[#AC9450] py-3">
+      <div className="bg-[#AC9450] py-1.5">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <p className="text-white text-lg font-medium font-raleway">
             © CodeTech Infosystem. All Rights Reserved 2025

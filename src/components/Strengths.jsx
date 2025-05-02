@@ -70,7 +70,7 @@ const Strengths = () => {
                 <h3 className="text-4xl font-bold text-[#000000]">
                     One of the Fastest Way to Business Growth
                 </h3>
-                <p className="text-gray-600 mt-4 w-[90%]">
+                <p className="text-gray-600 mt-4 w-[90%] font-raleway">
                     It is a long established fact that a reader will be distracted by
                     the readable content of a page when looking at its layout. The point
                     of using Lorem Ipsum is that it has a more-or-less normal
@@ -87,7 +87,7 @@ const Strengths = () => {
                     </div>
                     <div className="ml-4">
                         <p className="font-semibold">Get Instant Professional Advice</p>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 font-raleway">
                             Ready to Help:{" "}
                             <a href="tel:+13566787897" className="text-[#AD954F] font-semibold">
                                 +1 356 678 7897
