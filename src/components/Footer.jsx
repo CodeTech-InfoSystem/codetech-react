@@ -10,15 +10,16 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-[rgba(228,220,197,0.5)]">
-        <div className="py-5 px-5 md:px-5">
+        <div className="py-5 px-5">
+          {/* Top Grid Section */}
+          <div className="md:grid md:grid-flow-col md:auto-cols-max md:items-center md:justify-center md:gap-20 flex flex-col items-center gap-8">
 
-          <div className="grid grid-flow-col auto-cols-max items-center justify-center gap-20">
-            {/* 1. Logo Section */}
+            {/* 1. Logo */}
             <div className="flex flex-col items-center sm:items-start justify-center">
               <img src="/images/ct-logo.svg" alt="Company Logo" className="w-[100px]" />
             </div>
 
-            {/* 2. Divider */}
+            {/* 2. Divider (Hidden on Mobile) */}
             <div className="hidden md:flex justify-center items-center">
               <div className="relative h-24 flex flex-col items-center">
                 <div className="w-2 h-2 bg-[#AD954F] rounded-full animate-move-up-down"></div>
@@ -26,9 +27,9 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* 3. Services Rating */}
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center  space-x-2">
+            {/* 3. Google Rating */}
+            <div className="flex flex-col justify-center items-center md:items-start w-full">
+              <div className="flex items-center space-x-2 mt-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
                     <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
@@ -37,7 +38,7 @@ const Footer = () => {
                 </div>
                 <span className="text-black text-lg font-semibold">4.5</span>
               </div>
-              <img src="/images/google.png" alt="Google rating" className="w-[124px]" />
+              <img src="/images/google.png" alt="Google rating" className="w-[124px] mt-2" />
             </div>
 
             {/* 4. Divider */}
@@ -49,7 +50,7 @@ const Footer = () => {
             </div>
 
             {/* 5. Career Rating */}
-            <div className="flex flex-col justify-center w-full">
+            <div className="flex flex-col justify-center items-center md:items-start w-full">
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
@@ -70,8 +71,8 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* 7. Subscribe / Learninja */}
-            <div className="flex flex-col justify-center">
+            {/* 7. Learninja */}
+            <div className="flex flex-col justify-center items-center md:items-start">
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
@@ -93,14 +94,16 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mt-6">
-            {/* Indore Address (Left) */}
-            <div className="flex flex-col items-start sm:items-start w-full sm:w-3/4 pl-7">
+          {/* Address Section */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mt-7" >
+            {/* Indore Address */}
+
+            <div className="flex flex-col items-center sm:items-start w-full sm:pl-7 justify-center sm:justify-start">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                <p className="font-semibold text-[24px] font-Baloo">INDIA, INDORE</p>
+                <p className="font-semibold text-[24px] font-Baloo text-center sm:text-left">INDIA, INDORE</p>
               </div>
-              <p className="font-raleway text-[18px] leading-[25px]">
+              <p className="font-raleway text-[18px] leading-[25px] text-center sm:text-left">
                 Code Tech Infosystem
                 <br />
                 PU4, Scheme no. 54 PU4, Vijay Nagar,
@@ -112,27 +115,29 @@ const Footer = () => {
                 Ph : +91 88891 43373
               </p>
             </div>
-            {/* Duabi Address (Right) */}
-            <div className="flex flex-col items-start sm:items-start w-full sm:w-4/4 pl-7">
+
+            {/* Dubai Address */}
+            <div className="flex flex-col items-center sm:items-start w-full sm:pl-7 justify-center sm:justify-start">
               <div className="flex items-center space-x-2 mb-2">
-                <img src="/images/dubai_flag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                <p className="font-semibold text-[24px] font-Baloo">DUABI, QUAZ</p>
+                <img src="/images/dubai_flag.png" alt="Dubai Flag" className="w-[30px] h-[30px]" />
+                <p className="font-semibold text-[24px] font-Baloo text-center sm:text-left">DUABI, QUAZ</p>
               </div>
-              <p className="font-raleway text-[18px] leading-[25px]">
+              <p className="font-raleway text-[18px] leading-[25px] text-center sm:text-left">
                 Code Tech Infosystem
                 <br />
                 Blow Dubai/Al Quoz Dubai 9966
               </p>
             </div>
-            {/* Hyderabad Address (Right) */}
-            <div className="flex flex-col items-end sm:items-end w-full sm:w-3/4 ml-auto">
-              <div>
-                <div className="flex items-center space-x-2 mb-2">
+
+            {/* Hyderabad Address */}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-start w-full">
+              <div className="sm:flex-1 flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center space-x-2 mb-2 justify-center sm:justify-start">
                   <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
-                  <p className="font-semibold text-[24px] font-Baloo">INDIA, HYDERABAD </p>
+                  <p className="font-semibold text-[24px] font-Baloo">INDIA, HYDERABAD</p>
                 </div>
                 <div className="flex flex-col text-[18px]">
-                  <p className="font-raleway text-[18px] leading-[25px]" >
+                  <p className="font-raleway text-[18px] leading-[25px] sm:text-left text-center">
                     CodeTech Infosystem
                     <br />
                     Hmt Sathavahana Nagar, Kukatpally,
@@ -146,22 +151,21 @@ const Footer = () => {
             </div>
 
           </div>
-
         </div>
       </footer>
 
       {/* Copyright Section */}
       <div className="bg-[#AC9450] py-1.5">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <p className="text-white text-lg font-medium font-raleway">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 space-y-2 sm:space-y-0">
+          <p className="text-white text-center sm:text-left text-lg font-medium font-raleway">
             © CodeTech Infosystem. All Rights Reserved 2025
           </p>
-          <div className="flex space-x-2">
-            <a href="/terms" className="font-raleway text-white text-sm font-medium hover:text-[#AC9450]">
+          <div className="flex flex-col sm:flex-row items-center text-center sm:text-left space-y-1 sm:space-y-0 sm:space-x-2">
+            <a href="/" className="font-raleway text-white text-sm font-medium">
               Terms and Conditions
             </a>
-            <div className=" font-raleway h-6 border-l border-white mx-1"></div>
-            <a href="/privacy" className="text-white text-sm font-medium hover:text-[#AC9450]">
+            <div className="hidden sm:block font-raleway h-6 border-l border-white mx-1"></div>
+            <a href="/" className="text-white text-sm font-medium">
               Privacy Policy
             </a>
           </div>
