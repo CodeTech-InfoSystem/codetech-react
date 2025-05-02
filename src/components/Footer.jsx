@@ -85,7 +85,7 @@ const Footer = () => {
           <a href="#" className="hover:underline">Privacy Policy</a>
         </div>
       </div>
-    </footer>
+    </>
   );
 };
 
