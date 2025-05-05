@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
+const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Clients", path: "/clients" },
+    { name: "Clients", path: "/client"},
     { name: "About Us", path: "/about-us" },
     { name: "Services", path: "/services" },
     { name: "Blog", path: "/blog" },
@@ -16,9 +16,9 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
   ];
 
   return (
-    <div className="bg-[#242423] px-3 sm:px-8 md:px-14 lg:px-20 pt-2">
+    <div className="bg-[#242423] px-3 sm:px-8 md:px-14 lg:px-20 pt-4">
       <nav className="bg-[#545454] rounded-lg border border-[#FFFFFF]">
-        <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0 h-[72px]">
+        <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/images/logo.svg" alt="Company Logo" className="w-10 h-10" />
@@ -40,19 +40,11 @@ const Navbar = ({ scrollToServices, scrollToTestimonials, scrollToBlog }) => {
           >
             {navItems.map((item) => (
               <li key={item.name} className="relative font-raleway">
-                {item.onClick ? (
-                  // <a href="#" onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
-                  //   {item.name}
-                  // </a>
-                  <button onClick={item.onClick} className="px-2 py-2 block hover:text-yellow-400">
-                    {item.name}
-                  </button>
-                ) : (
-                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${location.pathname === item.path ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
-                    }`}>
+                  <Link to={item.path} className={`px-2 py-2 font-raleway font-medium block transition-colors ${
+                    location.pathname === item.path ? "text-[#AF9854] font-medium" : "hover:text-yellow-400"
+                  }`}>
                     {item.name}
                   </Link>
-                )}
 
                 {location.pathname === item.path && (
                   <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[15px] rounded-t-[2px]"></div>

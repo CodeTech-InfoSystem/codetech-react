@@ -1,5 +1,12 @@
-import { MdStar, MdStarHalf } from "react-icons/md";
+import { MdStar,MdStarHalf  } from "react-icons/md";
 const Footer = () => {
+  const footerData = [
+    { id: 1, image: "/images/ct-logo.svg" },
+    { id: 2, image: "/images/google.svg" },
+    { id: 3, image: "/images/goodfirms.svg" },
+    { id: 4, image: "/images/learn.svg" },
+  ];
+
   return (
     <>
       <footer className="bg-[rgba(228,220,197,0.5)]">
@@ -25,7 +32,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2 mt-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
@@ -47,7 +54,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
@@ -69,7 +76,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
