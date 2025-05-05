@@ -38,7 +38,7 @@ const Footer = () => {
                 </div>
                 <span className="text-black text-lg font-semibold">4.5</span>
               </div>
-              <img src="/images/google.png" alt="Google rating" className="w-[124px] mt-2" />
+              <img src="/images/google.png" alt="Google rating" className="w-[124px]"/>
             </div>
 
             {/* 4. Divider */}
@@ -62,7 +62,7 @@ const Footer = () => {
               </div>
               <img src="/images/goodfirms.png" alt="Goodfirms rating" className="w-[203px] mt-3" />
             </div>
-
+              
             {/* 6. Divider */}
             <div className="hidden md:flex justify-center items-center">
               <div className="relative h-24 flex flex-col items-center">
@@ -80,14 +80,14 @@ const Footer = () => {
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
-                <span className="text-black text-lg font-semibold">4.5</span>
+                <span className="text-black text-lg font-semibold">4.8</span>
               </div>
               <div className="flex items-center mt-2">
-                <img src="/images/Polygon5.svg" alt="Learninja Logo" className="w-[30px]" />
+                <img src="/images/ab-brand.png" alt="Learninja Logo" className="w-[50px]" />
                 <div className="flex items-center ml-2">
                   <span className="text-4xl font-bold text-black font-graphik text-[27.7px]">
-                    Learninja
-                  </span>
+                  AmbitionBox 
+                   </span>
                   <span className="text-[#F9A682] text-4xl ml-1 font-graphik">.</span>
                 </div>
               </div>
@@ -95,10 +95,10 @@ const Footer = () => {
           </div>
 
           {/* Address Section */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mt-7" >
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mt-7 sm:mt-[15px]" >
             {/* Indore Address */}
 
-            <div className="flex flex-col items-center sm:items-start w-full sm:pl-7 justify-center sm:justify-start">
+            <div className="flex flex-col items-center sm:items-start w-full justify-center sm:justify-start">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/indiaflag.png" alt="India Flag" className="w-[30px] h-[30px]" />
                 <p className="font-semibold text-[24px] font-Baloo text-center sm:text-left">INDIA, INDORE</p>
@@ -112,12 +112,12 @@ const Footer = () => {
                 <br />
                 careers@codetechinfosystem.com
                 <br />
-                Ph : +91 88891 43373
+                Ph : +7993828531
               </p>
             </div>
 
             {/* Dubai Address */}
-            <div className="flex flex-col items-center sm:items-start w-full sm:pl-7 justify-center sm:justify-start">
+            <div className="flex flex-col items-center sm:items-start w-full justify-center sm:justify-start">
               <div className="flex items-center space-x-2 mb-2">
                 <img src="/images/dubai_flag.png" alt="Dubai Flag" className="w-[30px] h-[30px]" />
                 <p className="font-semibold text-[24px] font-Baloo text-center sm:text-left">DUABI, QUAZ</p>
@@ -149,8 +149,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
-          </div>
+            </div>
         </div>
       </footer>
 
