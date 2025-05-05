@@ -104,10 +104,15 @@ const Strengths = () => {
                             <div className="h-1 w-4 bg-[#AD954F] rounded-lg"></div>
                         </div>
 
-                        <p className="text-[#000000] font-raleway">{strength.description}</p>
-                        <span className="absolute top-4 right-4 text-3xl font-bold text-gray-300">
-                            {`0${strength.id}`}
-                        </span>
+                        
+                        <ul className="text-[#000000] font-raleway list-disc pl-5">
+                                {strength.description.map((point, i) => (
+                                    <li key={i}>{point}</li>
+                                ))}
+                            </ul>
+                            <span className="absolute top-4 right-4 text-3xl font-bold text-gray-300">
+                                {`0${strength.id}`}
+                            </span>
                     </div>
                 ))}
             </div>
