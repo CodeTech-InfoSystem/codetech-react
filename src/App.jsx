@@ -12,6 +12,7 @@ const Service = lazy(() => import("./pages/Service"));
 const Client = lazy(() => import("./pages/Client"));
 
 
+const Clients = lazy(()=>import("./pages/Clients"))
 
 
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/client" element={<Client />} />
           <Route path="/services" element={<Service />} />
+          <Route path="/clients" element={<Clients />} />
 
         </Routes>
       </Suspense>

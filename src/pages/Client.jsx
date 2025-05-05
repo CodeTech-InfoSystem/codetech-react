@@ -56,7 +56,7 @@ const Client = () => {
                         "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 73.93%, #D3D3D3 86.67%, #FFFFFF 100%)",
                 }}
             >
-                <h1 className="text-3xl font-bold text-[#AF9854]">Clients</h1>
+                <h1 className="text-[3.5rem] font-bold text-[#AF9854]">Clients</h1>
             </header>
 
 

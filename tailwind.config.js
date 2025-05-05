@@ -4,8 +4,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        baloo: ['"Baloo 2"', 'cursive'],
-        raleway: ['"Raleway"', 'sans-serif'],
+        baloo: ["Baloo 2", "cursive,"], // Add Baloo font
+        raleway: ['Raleway', 'sans-serif'],
+        graphik: ['Graphik'],
+        canela: ['"Canela Text Trial"', 'sans-serif'],
+        outfit: ['"Outfit"', 'sans-serif'],
+        inter: ['"Inter"', 'sans-serif'],
       },
       animation: {
         "move-up-down": "moveUpDown 4.5s infinite ease-in-out",
