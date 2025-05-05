@@ -31,10 +31,10 @@ const Blog = () => {
           {blogs.map((blog) => (
             <div key={blog.id} className="w-72 flex-shrink-0 snap-start">
               <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover rounded-lg shadow-md" />
-              <p className="mt-3 text-gray-700">{blog.title}</p>
+              <p className="mt-3 text-gray-700 font-raleway text-base text-[#2D3748]">{blog.title}</p>
               <div className="flex justify-end mt-2">
-                <a href="/" className="text-[#AD954F] font-medium flex items-center gap-1">
-                  Read More <FaArrowRight className="font-medium" />
+                <a href="/" className="text-[#AD954F] text-base flex items-center gap-1 font-inter">
+                  Read More <FaArrowRight className="text-base" />
                 </a>
               </div>
             </div>
@@ -57,7 +57,7 @@ const Blog = () => {
               )}
 
               {/* Stats Content */}
-              <h3 className="text-[#AD954F] text-2xl sm:text-3xl font-bold">
+              <h3 className="text-[#AD954F] sm:text-5xl font-bold">
                 <CountUp start={0} end={item.value} duration={2.5} />{item.suffix}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base font-raleway font-bold">{item.label}</p>

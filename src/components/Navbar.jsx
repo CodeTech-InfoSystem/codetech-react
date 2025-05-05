@@ -22,7 +22,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/images/logo.svg" alt="Company Logo" className="w-10 h-10" />
-            <span className="text-lg font-bold text-white">
+            <span className="text-2xl font-bold text-white">
               <span className="text-[#000]">Codetech</span>{" "}
               <span className="text-[#AC964F]">Infosystems</span>
             </span>
@@ -47,7 +47,7 @@ const Navbar = () => {
                   </Link>
 
                 {location.pathname === item.path && (
-                  <div className="hidden lg:block absolute left-1/2 w-12 h-[5px] bg-[#AF9854] transform -translate-x-1/2 rounded-t-[2px]"></div>
+                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[15px] rounded-t-[2px]"></div>
                 )}
               </li>
             ))}
