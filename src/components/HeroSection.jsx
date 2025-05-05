@@ -11,7 +11,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className="text-white pb-16 relative mt-[110px]">
+        <section className="text-white pb-16 relative mt-16">
             <div className="max-w-7xl mx-auto text-center px-4">
                 <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#AD954F] via-[#BCA86F] via-[#CDBF95] via-[#DED4B8] via-[#EBE6D5] to-white leading-[70px]" style={{ lineHeight: '70px' }}>
                     Software Services Enabling <br />
@@ -24,7 +24,7 @@ const HeroSection = () => {
 
                 {/* Buttons */}
                 <div className="my-6 flex justify-center gap-4">
-                    <button className="px-16 py-2 bg-[#AD954F] text-white font-semibold rounded-3xl">
+                    <button className="px-16 py-1 bg-[#AD954F] text-white font-semibold rounded-3xl">
                         Enquiry
                     </button>
                 </div>
