@@ -1,12 +1,5 @@
 import { MdStar,MdStarHalf  } from "react-icons/md";
 const Footer = () => {
-  const footerData = [
-    { id: 1, image: "/images/ct-logo.svg" },
-    { id: 2, image: "/images/google.svg" },
-    { id: 3, image: "/images/goodfirms.svg" },
-    { id: 4, image: "/images/learn.svg" },
-  ];
-
   return (
     <>
       <footer className="bg-[rgba(228,220,197,0.5)]">
