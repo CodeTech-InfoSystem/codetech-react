@@ -54,7 +54,7 @@ const Footer = () => {
           {/* Office 2 */}
           <div className="flex flex-col text-sm text-center md:text-left items-center md:items-start">
             <p className="font-bold flex items-center justify-center md:justify-start gap-2">
-              <img src="/images/india.svg" alt="Flag" className="w-8 h-8" /> Dubai, Quaz
+              <img src="/images/dubai_flag.png" alt="Flag" className="w-8 h-8" /> Dubai, Quaz
             </p>
             <p className="font-medium font-raleway text-[#172B32]">CodeTech Infosystem</p>
             <p className="font-medium font-raleway text-[#172B32] text-center md:text-left">
