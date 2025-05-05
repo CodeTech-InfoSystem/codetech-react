@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Navigation Links */}
           <ul
             className={`${isOpen ? "block" : "hidden"
-              } lg:flex lg:space-x-6 text-white font-medium items-center space-y-6 lg:space-y-0 bg-[#545454] lg:bg-transparent p-6 lg:p-0 absolute lg:static top-16 left-[5%] z-10 rounded-lg w-[90%] lg:w-auto transition-all duration-300`}
+              } lg:flex lg:space-x-6 text-white font-raleway font-medium items-center space-y-6 lg:space-y-0 bg-[#545454] lg:bg-transparent p-6 lg:p-0 absolute lg:static top-16 left-[5%] z-10 rounded-lg w-[90%] lg:w-auto transition-all duration-300`}
           >
             {navItems.map((item) => (
               <li key={item.name} className="relative">
@@ -51,14 +51,14 @@ const Navbar = () => {
                     {item.name}
                   </button>
                 ) : (
-                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${location.pathname === item.path ? "text-[#AF9854] text-[18px] font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
+                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${location.pathname === item.path ? "text-[#AF9854] text-[18px] font-raleway font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
                     }`}>
                     {item.name}
                   </Link>
                 )}
 
                 {location.pathname === item.path && (
-                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[15px] rounded-t-[2px] mt-[-15px]"></div>
+                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[26px] rounded-t-[2px] mt-[-12px]"></div>
                 )}
               </li>
             ))}

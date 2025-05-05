@@ -29,7 +29,7 @@ const Footer = () => {
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
-                <span className="text-black text-lg font-semibold">4.5</span>
+                <span className="text-black text-lg font-semibold">4.8</span>
               </div>
               <img src="/images/google.png" alt="Google rating" className="w-[124px]"/>
             </div>
@@ -73,7 +73,7 @@ const Footer = () => {
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
-                <span className="text-black text-lg font-semibold">4.8</span>
+                <span className="text-black text-lg font-semibold">4.5</span>
               </div>
               <div className="flex items-center mt-2">
                 <img src="/images/ab-brand.png" alt="Learninja Logo" className="w-[50px]" />
@@ -135,9 +135,9 @@ const Footer = () => {
                     <br />
                     Hmt Sathavahana Nagar, Kukatpally,
                     <br />
-                    hr@codetechinfosystem.com
-                    <br />
                     Hyderabad, Telangana 500072
+                    <br />
+                    hr@codetechinfosystem.com
                   </p>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const Footer = () => {
 
       {/* Copyright Section */}
       <div className="bg-[#AC9450] py-1.5">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 space-y-2 sm:space-y-0">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
           <p className="text-white text-center sm:text-left text-lg font-medium font-raleway">
             © CodeTech Infosystem. All Rights Reserved 2025
           </p>
