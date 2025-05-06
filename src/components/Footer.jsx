@@ -105,20 +105,24 @@ const Footer = () => {
                 <br />
                 careers@codetechinfosystem.com
                 <br />
-                Ph : +7993828531
+                Ph : +91 8889143373 
               </p>
             </div>
 
             {/* Dubai Address */}
             <div className="flex flex-col items-center sm:items-start w-full justify-center sm:justify-start">
               <div className="flex items-center space-x-2 mb-2">
-                <img src="/images/dubai_flag.png" alt="Dubai Flag" className="w-[30px] h-[30px]" />
+                <img src="/images/united-arab-emirates.png" alt="Dubai Flag" className="w-[30px] h-[30px]" />
                 <p className="font-semibold text-[24px] font-Baloo text-center sm:text-left">DUABI, QUAZ</p>
               </div>
               <p className="font-raleway text-[18px] leading-[25px] text-center sm:text-left">
                 Code Tech Infosystem
                 <br />
                 Blow Dubai/Al Quoz Dubai 9966
+                <br />
+                contact@codetechinfosystem.com
+                <br />
+                Ph : +971527547548
               </p>
             </div>
 
@@ -138,6 +142,8 @@ const Footer = () => {
                     Hyderabad, Telangana 500072
                     <br />
                     hr@codetechinfosystem.com
+                    <br />
+                    Ph : +7993828531
                   </p>
                 </div>
               </div>

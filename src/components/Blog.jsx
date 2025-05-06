@@ -15,8 +15,8 @@ const blogs = [
 const statsData = [
   { value: 6, suffix: "+", label: "Years Experience" },
   { value: 500, suffix: "+", label: "Completed Projects" },
-  { value: 20, suffix: "", label: "Team Strength" },
-  { value: 700, suffix: "", label: "Happy Clients" },
+  { value: 100, suffix: "+", label: "Team Strength" },
+  { value: 400, suffix: "+", label: "Happy Clients" },
 ];
 
 const Blog = () => {

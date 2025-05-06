@@ -110,9 +110,9 @@ const Strengths = () => {
                                     <li key={i}>{point}</li>
                                 ))}
                             </ul>
-                            <span className="absolute top-4 right-4 text-3xl font-bold text-gray-300">
+                            {/* <span className="absolute top-4 right-4 text-3xl font-bold text-gray-300">
                                 {`0${strength.id}`}
-                            </span>
+                            </span> */}
                     </div>
                 ))}
             </div>
@@ -152,7 +152,7 @@ const Strengths = () => {
                         <p className="text-gray-600 font-raleway">
                             Ready to Help:{" "}
                             <a href="tel:+13566787897" className="text-[#AD954F] font-semibold">
-                                +1 356 678 7897
+                                +7993828531
                             </a>
                         </p>
                     </div>

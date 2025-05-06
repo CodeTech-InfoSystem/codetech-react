@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+    const navigate = useNavigate();
     const [showStars, setShowStars] = useState(window.innerWidth > 1020);
 
     useEffect(() => {
@@ -24,11 +26,11 @@ const HeroSection = () => {
 
                 {/* Buttons */}
                 <div className="my-6 flex justify-center gap-4">
-                    <button className="px-10 py-2 bg-[#AD954F] text-white font-bold rounded-2xl lg:w-[234px] lg:h-[42px] leading-[1.5]">
+                    <button onClick={() => navigate("/contact-us")} className="px-10 py-2 bg-[#AD954F] text-white font-bold rounded-2xl lg:w-[234px] lg:h-[42px] leading-[1.5]">
                         Enquiry
                     </button>
                 </div>
-                <button className="px-6 py-2 border-b border-white text-white font-semibold">
+                <button onClick={() => navigate("/services")} className="px-6 py-2 border-b border-white text-white font-semibold">
                     Our Services
                 </button>
 

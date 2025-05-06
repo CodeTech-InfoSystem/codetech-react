@@ -54,7 +54,7 @@ const AboutUs = () => {
                                 <p className="text-gray-600">
                                     Ready to Help:{" "}
                                     <a href="tel:+13566787897" className="text-[#AD954F] font-semibold">
-                                        +1 356 678 7897
+                                        +7993828531
                                     </a>
                                 </p>
                             </div>
@@ -66,7 +66,7 @@ const AboutUs = () => {
 
             {/* Mission Section */}
             <section className="mt-10 flex flex-col md:flex-row items-center px-4 md:px-20">
-                <img src="/images/mission.svg" alt="Our Mission" className="w-full md:w-1/2 rounded-lg" />
+                <img src="/images/mission.svg" alt="Our Mission" className="w-full md:w-1/2 rounded-lg md:w-[582px] md:h-[508px]" />
                 <div className="md:ml-10 mt-4 md:mt-0">
                     <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Mission</span>
                     <p className="mt-8 text-gray-600 text-[18px] font-raleway">
@@ -83,29 +83,29 @@ const AboutUs = () => {
                         At we believe in the transformation power of education and the boundless potential that resides within each individual. Our mission is to foster intellectual curiosity, empower individuals to realize their fullest potential, and contribute meaningfully to the betterment of society. commitment to academic excellence, diversity, and community engagement.
                     </p>
                 </div>
-                <img src="/images/vision.svg" alt="Our Vision" className="w-full md:w-1/2 rounded-lg" />
+                <img src="/images/vision.svg" alt="Our Vision" className="w-full md:w-1/2 rounded-lg md:w-[582px] md:h-[508px]" />
             </section>
 
             {/* Call to Action */}
-                 <div className="flex justify-center my-16 px-4">
-                   <div className="relative w-full md:w-3/4 lg:w-1/2 rounded-lg overflow-hidden">
-                     <video autoPlay loop muted playsInline className="w-full h-[200px] object-cover rounded-lg">
-                       <source src={blogVideo} type="video/mp4" />
-                       Your browser does not support the video tag.
-                     </video>
-                     <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center text-center px-4">
-                       <p className="text-white text-lg md:text-xl font-semibold w-[69%]">
-                         “Some of the History of Our Company is that we are Catching up through Video”
-                       </p>
-                       <div className="mt-8 flex justify-center gap-4">
-                         <button className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
-                          onClick={() => navigate("/contact-us")}>
-                           Get In Touch
-                         </button>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
+            <div className="flex justify-center my-16 px-4">
+                <div className="relative w-full md:w-3/4 lg:w-1/2 rounded-lg overflow-hidden">
+                    <video autoPlay loop muted playsInline className="w-full h-[200px] object-cover rounded-lg">
+                        <source src={blogVideo} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center text-center px-4">
+                        <p className="text-white text-lg md:text-xl font-semibold w-[69%]">
+                            “Some of the History of Our Company is that we are Catching up through Video”
+                        </p>
+                        <div className="mt-8 flex justify-center gap-4">
+                            <button className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
+                                onClick={() => navigate("/contact-us")}>
+                                Get In Touch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
