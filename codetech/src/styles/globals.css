@@ -3,15 +3,20 @@
 @import url('https://fonts.cdnfonts.com/css/canela-text-trial');
 @import url('https://fonts.cdnfonts.com/css/outfit');
 @import url('https://fonts.cdnfonts.com/css/inter');
+
 @font-face {
-  font-family: 'Graphik'; /* Your desired font name */
-  src: url('/fonts/Graphik-Medium-Trial.otf') format('otf'); /* Example */
-  font-weight: 400; 
+  font-family: 'Graphik';
+  /* Your desired font name */
+  src: url('/fonts/Graphik-Medium-Trial.otf') format('otf');
+  /* Example */
+  font-weight: 400;
   font-style: normal;
 }
 
 /* Apply Baloo font to the whole app */
-html, body, #root {
+html,
+body,
+#root {
   width: 100%;
   overflow-x: hidden;
   margin: 0;
@@ -24,26 +29,35 @@ html, body, #root {
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .swiper-pagination {
-  position: relative !important; /* Keeps it within the section */
-  margin-top: 20px; /* Adjust spacing */
+  position: relative !important;
+  /* Keeps it within the section */
+  margin-top: 20px;
+  /* Adjust spacing */
   text-align: center;
 }
 
 .swiper-pagination-bullet {
-  background: #AD954F !important; /* Set dot color */
+  background: #AD954F !important;
+  /* Set dot color */
   opacity: 0.5;
 }
 
 .swiper-pagination-bullet-active {
-  background: #AD954F !important; /* Active dot color */
+  background: #AD954F !important;
+  /* Active dot color */
   opacity: 1;
 }
+
 .partner-image {
-  width: 100%;  /* Adjust size if needed */
+  width: 100%;
+  /* Adjust size if needed */
 }
 
 .company-loop {
@@ -54,17 +68,19 @@ html, body, #root {
 }
 
 .company-image {
-  height: 100px;  /* Adjust the size as needed */
-  margin-right: 30px;  /* Adjust the spacing between logos */
+  height: 100px;
+  /* Adjust the size as needed */
+  margin-right: 30px;
+  /* Adjust the spacing between logos */
 }
 
 @keyframes companyAnimation {
   0% {
-      transform: translateX(100%);
+    transform: translateX(100%);
   }
-  
+
   100% {
-      transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -72,26 +88,32 @@ html, body, #root {
 
 @keyframes scroll {
   from {
-      transform: translateX(0%);
+    transform: translateX(0%);
   }
+
   to {
-      transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
+
 .min-h-screen {
   min-height: 100vh;
 }
 
 @media (max-width: 1024px) {
   .min-h-screen {
-      min-height: auto;
+    min-height: auto;
   }
 }
+
 @media (max-width: 1024px) {
   .nav-menu {
     display: flex !important;
-  };
+  }
+
+  ;
 }
+
 /* Default padding */
 .px-20 {
   padding-left: 5rem;
@@ -101,35 +123,35 @@ html, body, #root {
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .px-20 {
-      padding-left: 1rem;
-      padding-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 @media (min-width: 640px) {
   .px-20 {
-      padding-left: 2rem;
-      padding-right: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 768px) {
   .px-20 {
-      padding-left: 2rem;
-      padding-right: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .px-20 {
-      padding-left: 5rem;
-      padding-right: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
 
 @media (min-width: 1280px) {
   .px-20 {
-      padding-left: 6rem;
-      padding-right: 6rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
   }
 }
