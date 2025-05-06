@@ -9,12 +9,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Service = lazy(() => import("./pages/Service"));
-const Client = lazy(() => import("./pages/Client"));
-
-
-const Clients = lazy(()=>import("./pages/Clients"))
-
-
+const Clients = lazy(() => import("./pages/Clients"))
 
 function App() {
   const testimonialsRef = useRef(null);
@@ -36,17 +31,15 @@ function App() {
           scrollToTestimonials={() => scrollToSection(testimonialsRef, "testimonials")}
         />
         <Routes>
-          <Route path="/" element={<Home testimonialsRef={testimonialsRef}/>} />
+          <Route path="/" element={<Home testimonialsRef={testimonialsRef} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/client" element={<Client />} />
           <Route path="/services" element={<Service />} />
           <Route path="/clients" element={<Clients />} />
-
         </Routes>
       </Suspense>
-        <Footer />
+      <Footer />
     </>
   );
 }

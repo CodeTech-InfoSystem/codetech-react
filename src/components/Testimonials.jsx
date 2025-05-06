@@ -95,9 +95,9 @@ const Testimonials = () => {
 
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6">
-                  <img src="/images/quote.svg" alt="Quote Icon" className="h-8"/>
+                  <img src="/images/quote.svg" alt="Quote Icon" className="h-8" />
                 </div>
-              </div> 
+              </div>
             )}
           </SwiperSlide>
         ))}
