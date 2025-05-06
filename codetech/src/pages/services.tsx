@@ -33,7 +33,7 @@ const Service = () => {
             <source src='/blog-video.mp4' type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center text-center px-4">
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] flex flex-col items-center justify-center text-center px-4">
             <p className="text-white text-lg md:text-xl font-semibold w-[69%]">
               “Some of the History of Our Company is that we are Catching up through Video”
             </p>
