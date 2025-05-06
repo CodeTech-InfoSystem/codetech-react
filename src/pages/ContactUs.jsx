@@ -87,9 +87,14 @@ const ContactUs = () => {
             >
               <FaInstagram className="text-[#AD954F]" />
             </a>
-            <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaFacebookF className="text-[#AD954F]" />
-            </div>
+            <a
+              href="https://www.facebook.com/profile.php?id=61576225342115"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200"
+            > <FaFacebookF className="text-[#AD954F]" /></a>
+              
+            
             <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
               <FaTwitter className="text-[#AD954F]" />
             </div>

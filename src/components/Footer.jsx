@@ -122,7 +122,7 @@ const Footer = () => {
                 <br />
                 contact@codetechinfosystem.com
                 <br />
-                Ph : +971527547548
+                Ph : +971 527547548
               </p>
             </div>
 
@@ -143,7 +143,7 @@ const Footer = () => {
                     <br />
                     hr@codetechinfosystem.com
                     <br />
-                    Ph : +7993828531
+                    Ph : +91 7993828531
                   </p>
                 </div>
               </div>

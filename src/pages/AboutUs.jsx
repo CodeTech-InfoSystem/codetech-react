@@ -1,10 +1,18 @@
 import React from "react";
 import blogVideo from "../assets/blog-video.mp4";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import WOW from 'wowjs';
+import 'animate.css';
 
 
 const AboutUs = () => {
     const navigate = useNavigate();
+
+
+    useEffect(() => {
+        new WOW.WOW().init();
+    }, []);
     return (
         <div className="min-h-screen">
             {/* Header Section */}
@@ -26,7 +34,8 @@ const AboutUs = () => {
                     <img
                         src="/images/about.svg"
                         alt="People working together"
-                        className="rounded-xl"
+                        className="rounded-xl wow animate__animated animate__slideInDown"
+                        data-wow-duration="2s"
                     />
 
                     {/* Right Content */}
@@ -54,7 +63,7 @@ const AboutUs = () => {
                                 <p className="text-gray-600">
                                     Ready to Help:{" "}
                                     <a href="tel:+13566787897" className="text-[#AD954F] font-semibold">
-                                        +7993828531
+                                        +91 7993828531
                                     </a>
                                 </p>
                             </div>

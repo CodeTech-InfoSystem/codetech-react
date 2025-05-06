@@ -152,7 +152,7 @@ const Strengths = () => {
                         <p className="text-gray-600 font-raleway">
                             Ready to Help:{" "}
                             <a href="tel:+13566787897" className="text-[#AD954F] font-semibold">
-                                +7993828531
+                                +91 7993828531
                             </a>
                         </p>
                     </div>
