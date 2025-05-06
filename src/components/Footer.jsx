@@ -1,4 +1,4 @@
-import { MdStar,MdStarHalf  } from "react-icons/md";
+import { MdStar, MdStarHalf } from "react-icons/md";
 const Footer = () => {
   return (
     <>
@@ -25,13 +25,13 @@ const Footer = () => {
               <div className="flex items-center space-x-2 mt-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
                 <span className="text-black text-lg font-semibold">4.8</span>
               </div>
-              <img src="/images/google.png" alt="Google rating" className="w-[124px]"/>
+              <img src="/images/google.png" alt="Google rating" className="w-[124px]" />
             </div>
 
             {/* 4. Divider */}
@@ -47,7 +47,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
@@ -55,7 +55,7 @@ const Footer = () => {
               </div>
               <img src="/images/goodfirms.png" alt="Goodfirms rating" className="w-[203px] mt-3" />
             </div>
-              
+
             {/* 6. Divider */}
             <div className="hidden md:flex justify-center items-center">
               <div className="relative h-24 flex flex-col items-center">
@@ -69,7 +69,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
-                    <MdStar  key={i} className="text-[#AC9450] w-4 h-5" />
+                    <MdStar key={i} className="text-[#AC9450] w-4 h-5" />
                   ))}
                   <MdStarHalf className="text-[#AC9450] w-4 h-5" />
                 </div>
@@ -79,8 +79,8 @@ const Footer = () => {
                 <img src="/images/ab-brand.png" alt="Learninja Logo" className="w-[50px]" />
                 <div className="flex items-center ml-2">
                   <span className="text-4xl font-bold text-black font-graphik text-[27.7px]">
-                  AmbitionBox 
-                   </span>
+                    AmbitionBox
+                  </span>
                   <span className="text-[#F9A682] text-4xl ml-1 font-graphik">.</span>
                 </div>
               </div>
@@ -105,7 +105,7 @@ const Footer = () => {
                 <br />
                 careers@codetechinfosystem.com
                 <br />
-                Ph : +91 8889143373 
+                Ph : +91 8889143373
               </p>
             </div>
 
@@ -148,7 +148,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            </div>
+          </div>
         </div>
       </footer>
 
