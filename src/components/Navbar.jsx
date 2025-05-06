@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const location = useLocation();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
@@ -43,22 +44,19 @@ const Navbar = () => {
           >
             {navItems.map((item) => (
               <li key={item.name} className="relative">
-                {item.onClick ? (
-                  <button
-                    onClick={item.onClick}
-                    className="px-2 py-2 block hover:text-yellow-400"
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <Link to={item.path} className={`px-2 py-2 block transition-colors ${location.pathname === item.path ? "text-[#AF9854] text-[18px] font-raleway font-medium leading-[100%] tracking-[0%]" : "hover:text-yellow-400"
-                    }`}>
-                    {item.name}
-                  </Link>
-                )}
+                <Link
+                  href={item.path}
+                  className={`px-2 py-2 block transition-colors ${
+                    pathname === item.path
+                      ? 'text-[#AF9854] text-[18px] font-raleway font-medium leading-[100%] tracking-[0%]'
+                      : 'hover:text-yellow-400'
+                  }`}
+                >
+                  {item.name}
+                </Link>
 
-                {location.pathname === item.path && (
-                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 transform translate-y-[26px] rounded-t-[2px] mt-[-12px]"></div>
+                {pathname === item.path && (
+                  <div className="hidden lg:block absolute left-1/2 w-12 h-[4px] bg-[#AF9854] transform -translate-x-1/2 translate-y-[26px] rounded-t-[2px] mt-[-12px]" />
                 )}
               </li>
             ))}
