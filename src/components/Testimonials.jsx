@@ -8,27 +8,27 @@ import "swiper/css/pagination";
 const testimonials = [
   {
     id: 1,
-    name: "Samual Karl",
+    name: "Amit Sharma",
     role: "CEO",
     image: "https://randomuser.me/api/portraits/men/45.jpg",
     quote:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...",
+      "Codetech Infosystem has consistently demonstrated technical excellence and a deep understanding of our project requirements. Their commitment to quality and timely delivery has made them a reliable technology partner for our business",
   },
   {
     id: 2,
-    name: "Daria Linney",
+    name: "Sarah Khan",
     role: "CEO",
     image: "https://randomuser.me/api/portraits/women/45.jpg",
     quote:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...",
+      "Partnering with Codetech Infosystem was instrumental in scaling our online presence. Their design thinking, development expertise, and post-launch support exceeded our expectations",
   },
   {
     id: 3,
-    name: "John Doe",
+    name: "Rahul Mehta",
     role: "Manager",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     quote:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...",
+      "From initial consultation to final delivery, Codetech Infosystem maintained a high standard of professionalism. Their team’s attention to detail, technical knowledge, and agile approach made our mobile app launch a success",
   },
 ];
 
