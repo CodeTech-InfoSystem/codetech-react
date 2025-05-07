@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* 7. Learninja */}
+            {/* 7. AmbitionBox */}
             <div className="flex flex-col justify-center items-center md:items-start">
               <div className="flex items-center space-x-2">
                 <div className="flex">
@@ -77,9 +77,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center mt-2">
                 <img src="/images/ambitionBox.webp" alt="Learninja Logo" className="w-[200px]" />
-                <div className="flex items-center ml-2">
-                  <span className="text-[#F9A682] text-4xl ml-1 font-graphik">.</span>
-                </div>
+               
               </div>
             </div>
           </div>
