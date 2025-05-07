@@ -85,7 +85,7 @@ const AboutUs = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="mt-10 flex flex-col-reverse md:flex-row items-center px-4 md:px-20">
+      <section className="mt-10 flex flex-col-reverse md:flex-row items-center px-4">
         <div className="md:mr-10 mt-4 md:mt-0">
           <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Vision</span>
           <p className="mt-8 text-gray-600 text-[18px] font-raleway">

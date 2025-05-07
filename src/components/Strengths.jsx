@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 const strengthsData = [
   {
     id: 1,
@@ -121,10 +121,23 @@ const Strengths = () => {
         <h2 className="text-4xl font-bold text-center mb-6">About Us</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Image */}
-          <img
+          <motion.img
             src="/images/about.svg"
             alt="People working together"
             className="rounded-xl"
+            initial={{ y: -100, opacity: 0 }}
+            animate={{
+              y: [0, -10, 0],  
+              opacity: 1
+            }}
+            transition={{
+              y: {
+                duration: 3,
+                ease: "easeInOut",
+                repeat: Infinity
+              },
+              opacity: { duration: 1 }
+            }}
           />
 
           {/* Right Content */}

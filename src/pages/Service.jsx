@@ -7,7 +7,7 @@ const Service = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen font-raleway">
+    <div className="min-h-screen">
       {/* Header Section */}
       <header
         className="text-center py-20"

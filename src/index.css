@@ -135,3 +135,15 @@ html, body, #root {
       padding-right: 6rem;
   }
 }
+
+@media (min-width: 1008px) and (max-width: 1208px) {
+  .custom-gap-fix {
+    gap: 3rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .hide-divider-custom {
+    display: none !important;
+  }
+}
