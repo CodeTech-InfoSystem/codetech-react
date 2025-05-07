@@ -22,7 +22,7 @@ const Service = () => {
       {/* Services Section */}
 
       <Services showHeading={false} />
-      {/* Call to Action */}
+      {/* Call to Action */} 
       <div className="flex justify-center my-16 px-4">
         <div className="relative w-full md:w-3/4 lg:w-1/2 rounded-lg overflow-hidden">
           <video

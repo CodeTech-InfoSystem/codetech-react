@@ -26,13 +26,13 @@ const servicesData = [
   {
     id: 5,
     title: "Digital marketing",
-    description: "It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout.",
+    description: "We provide result-driven digital marketing solutions to help your business grow online.Our services are designed to increase your visibility, attract the right audience, and deliver measurable success.SEO and social media to paid advertising and content marketing—we offer complete digital strategies that empower your brand in the digital space.",
     icon: "/images/hubspot.svg",
   },
   {
     id: 6,
     title: "Cybersecurity Services",
-    description: "We provide robust cybersecurity measures to shield your systems from cyber threats, ensuring your business stays safe and secure. Protect your Data from digital threats. Protect Your data with Advanced Cybersecurity Solutions.",
+    description: "We provide result-driven digital marketing services to help your business grow online. From SEO and social media to paid ads and content marketing, we create strategies that boost visibility and deliver measurable results.",
     icon: "/images/marketing.svg",
   },
   {

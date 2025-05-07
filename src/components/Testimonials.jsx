@@ -8,9 +8,11 @@ import "swiper/css/pagination";
 const testimonials = [
   {
     id: 1,
-    name: "Amit Sharma",
+    name: "Raju Yajali",
     role: "CEO",
     image: "https://randomuser.me/api/portraits/men/45.jpg",
+    companyName: "ElricSoft",
+    webUrl: "https://elricsoft.com/",
     quote:
       "Codetech Infosystem has consistently demonstrated technical excellence and a deep understanding of our project requirements. Their commitment to quality and timely delivery has made them a reliable technology partner for our business",
   },
@@ -19,6 +21,8 @@ const testimonials = [
     name: "Sarah Khan",
     role: "CEO",
     image: "https://randomuser.me/api/portraits/women/45.jpg",
+    companyName: "Navasoft",
+    webUrl: "https://nivisinfo.com/about-page/",
     quote:
       "Partnering with Codetech Infosystem was instrumental in scaling our online presence. Their design thinking, development expertise, and post-launch support exceeded our expectations",
   },
@@ -26,6 +30,8 @@ const testimonials = [
     id: 3,
     name: "Rahul Mehta",
     role: "Manager",
+    companyName: "Siril Technologies",
+    webUrl: "https://siriltechnologies.com/",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     quote:
       "From initial consultation to final delivery, Codetech Infosystem maintained a high standard of professionalism. Their team’s attention to detail, technical knowledge, and agile approach made our mobile app launch a success",
@@ -90,7 +96,22 @@ const Testimonials = () => {
                 {/* Name & Role */}
                 <div className="mt-4 font-raleway">
                   <p className="font-semibold text-[#AD954F] text-base sm:text-base">{testimonial.name}</p>
-                  <p className="text-gray-500  sm:text-sm">{testimonial.role}</p>
+                  <p className="text-gray-500 sm:text-sm">
+                    {testimonial.role}
+                    {testimonial.companyName && testimonial.webUrl && (
+                      <>
+                        {" at "}
+                        <a
+                          href={testimonial.webUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:underline"
+                        >
+                          {testimonial.companyName}
+                        </a>
+                      </>
+                    )}
+                  </p>
                 </div>
 
                 {/* Quote Icon */}

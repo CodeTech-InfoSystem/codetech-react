@@ -44,11 +44,8 @@ const AboutUs = () => {
               One of the Fastest Way to Business Growth
             </h3>
             <p className="text-gray-600 mt-4 w-[90%] font-raleway">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The point
-              of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed.
-            </p>
+            One of Central India's leading Web and IT solutions providers, delivering high-quality, innovative technologies that drive businesses toward their next stage of growth and success.
+           </p>
 
             {/* Advice Box */}
             <div className="mt-6 bg-white rounded-lg p-2  flex items-center">
@@ -74,12 +71,12 @@ const AboutUs = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="mt-10 flex flex-col md:flex-row items-center px-4 md:px-20">
+      <section className="mt-10 flex flex-col md:flex-row items-center px-4">
         <img src="/images/mission.svg" alt="Our Mission" className="w-full md:w-1/2 rounded-lg md:w-[582px] md:h-[508px]" />
         <div className="md:ml-10 mt-4 md:mt-0">
           <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Mission</span>
           <p className="mt-8 text-gray-600 text-[18px] font-raleway">
-            At we believe in the transformation power of education and the boundless potential that resides within each individual. Our mission is to foster intellectual curiosity, empower individuals to realize their fullest potential, and contribute meaningfully to the betterment of society. commitment to academic excellence, diversity, and community engagement.
+          At Codetech Infosystem, we strive to be a trusted global technology partner known for service excellence, innovation, and long-term value. We understand that every business has unique challenges—that’s why we offer flexible, realistic pricing and tailored IT solutions that meet your needs, whether it’s a fast fix, expert advice, or a strategic technology roadmap. Our team is dedicated to supporting our clients at every stage, while also fostering a work environment where our people can grow, contribute, and thrive. Together, we deliver IT services that make a real difference.
           </p>
         </div>
       </section>
@@ -89,7 +86,7 @@ const AboutUs = () => {
         <div className="md:mr-10 mt-4 md:mt-0">
           <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Vision</span>
           <p className="mt-8 text-gray-600 text-[18px] font-raleway">
-            At we believe in the transformation power of education and the boundless potential that resides within each individual. Our mission is to foster intellectual curiosity, empower individuals to realize their fullest potential, and contribute meaningfully to the betterment of society. commitment to academic excellence, diversity, and community engagement.
+          At Codetech Infosystem, we are committed to becoming a globally respected information technology partner, known for service excellence, innovation, and long-term client value. We offer flexible and transparent pricing models tailored to the evolving needs of our clients—whether it’s rapid consultation, resolution of critical challenges, or the execution of complex, large-scale projects. Our strength lies in our ability to collaborate closely with clients, deliver impactful solutions, and maintain a workplace culture that values and supports our people. Through strategic insight and reliable execution, we empower businesses to harness technology for sustained success.
           </p>
         </div>
         <img src="/images/vision.svg" alt="Our Vision" className="w-full md:w-1/2 rounded-lg md:w-[582px] md:h-[508px]" />
