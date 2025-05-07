@@ -5,11 +5,11 @@ import CountUp from "react-countup";
 import { useNavigate } from "react-router-dom";
 
 const blogs = [
-  { id: 1, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image1.svg" },
-  { id: 2, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image2.svg" },
-  { id: 3, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image3.svg" },
-  { id: 4, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image4.svg" },
-  { id: 5, title: "How to Build a Scalable Application up to 1 Million Users on AWS", image: "/images/blog-image5.svg" },
+  { id: 1, title: "Custom Software Development Trends 2025- For your Business growth", image: "/images/blog1.webp" },
+  { id: 2, title: "Six Custom Software Development Challenges that Companies Face", image: "/images/blog2.svg" },
+  { id: 3, title: "Relational vs non-relational databases, querying data", image: "/images/blog3.png" },
+  { id: 4, title: "Grid system for better Design User Interface", image: "/images/blog4.webp" },
+  { id: 5, title: "The Role of AI in Customer Service: Enhancing Support with Chatbots", image:  "/images/blog5.webp" },
 ];
 
 const statsData = [
@@ -33,7 +33,7 @@ const Blog = () => {
               <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover rounded-lg shadow-md" />
               <p className="mt-3 text-gray-700 font-raleway text-base text-[#2D3748]">{blog.title}</p>
               <div className="flex justify-end mt-2">
-                <a href="/" className="text-[#AD954F] text-base flex items-center gap-1 font-inter">
+                <a href="/blog" className="text-[#AD954F] text-base flex items-center gap-1 font-inter">
                   Read More <FaArrowRight className="text-base" />
                 </a>
               </div>

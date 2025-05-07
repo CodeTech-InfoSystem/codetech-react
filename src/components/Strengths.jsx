@@ -146,10 +146,7 @@ const Strengths = () => {
               One of the Fastest Way to Business Growth
             </h3>
             <p className="text-gray-600 mt-4 w-[90%] font-raleway">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The point
-              of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed.
+            One of Central India's leading Web and IT solutions providers, delivering high-quality, innovative technologies that drive businesses toward their next stage of growth and success.
             </p>
 
             {/* Advice Box */}
