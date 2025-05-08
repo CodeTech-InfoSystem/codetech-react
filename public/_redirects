@@ -1,1 +1,3 @@
-/* /index.html 200
+https://www.codetechinfosystem.com/* https://codetechinfosystem.com/:splat 301!
+http://codetechinfosystem.com/* https://codetechinfosystem.com/:splat 301!
+http://www.codetechinfosystem.com/* https://codetechinfosystem.com/:splat 301!
