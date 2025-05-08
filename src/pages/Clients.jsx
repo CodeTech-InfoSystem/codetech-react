@@ -2,50 +2,60 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import blogVideo from "../assets/blog-video.mp4";
 import { IoIosArrowRoundForward } from "react-icons/io";
-
+import WOW from 'wowjs';
+import 'animate.css';
+import { useEffect } from "react";
 // Sample blog data
 const blogPosts = [
   {
     id: 1,
-    projectName: "Project Name 01",
-    projectUrl: "Project Name 01.com",
+    projectName: "Surgicloud",
+    description : "Surgical Coordination Platform",
+    projectUrl: "https://surgicloud.com/",
     imgSrc: "/images/blog_1.svg",
   },
   {
     id: 2,
-    projectName: "Project Name 01",
-    projectUrl: "Project Name 01.com",
+    projectName: "Reveza",
+    description : "Real-Time Engagement Engine",
+    projectUrl: "https://www.reveza.com/",
     imgSrc: "/images/blog_2.svg",
   },
   {
     id: 3,
-    projectName: "Project Name 01",
-    projectUrl: "Project Name 01.com",
+    projectName: "Zenda 360",
+    description :'EduCloud',
+    projectUrl: "https://elearningplus.co.uk/zanda-360-overview/",
     imgSrc: "/images/blog_3.svg",
   },
   {
     id: 4,
-    projectName: "Project Name 01",
-    projectUrl: "Project Name 01.com",
+    projectName: "Redbud Software",
+    description :"Yield-Driven Software",
+    projectUrl: "https://redbudsaas.com/",
     imgSrc: "/images/blog_4.svg",
   },
   {
     id: 5,
-    projectName: "Project Name 01",
-    projectUrl: "Project Name 01.com",
+    projectName: "Docyt",
+    description :"Docyt AI Agents",
+    projectUrl: "https://docyt.com/",
     imgSrc: "/images/blog_5.svg",
   },
   {
     id: 6,
-    projectName: "Project Name 01",
-    projectUrl: "Project Name 01.com",
+    projectName: "Biomarking",
+    description : "Health Empowerment Tool",
+    projectUrl: "https://www.biomarking.com/",
     imgSrc: "/images/blog_6.svg",
   },
 ];
 
 const Blog = () => {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    new WOW.WOW().init();
+  }, []);
   return (
     <div className="min-h-screen">
       {/* Header Section */}
@@ -56,7 +66,7 @@ const Blog = () => {
             "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 77.4%, #FFFFFF 100%)",
         }}
       >
-        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2">Clients</h1>
+        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2  wow animate__animated animate__slideInUp" data-wow-duration="1s">Clients</h1>
       </header>
 
       {/* Blog Section */}
@@ -71,8 +81,9 @@ const Blog = () => {
                 <p className="text-[18px]">{post.projectName}</p>
                 <hr />
                 <div className="flex justify-between items-center py-2 rounded-md">
-                  <p className="text-[16px]">{post.projectUrl}</p>
-                  <IoIosArrowRoundForward className="text-[#AD954F] text-xl" />
+                  <p className="text-[16px]">{post.description}</p>
+                  <a href={post.projectUrl} target="_blank" rel="noopener noreferrer"><IoIosArrowRoundForward className="text-[#AD954F] text-xl" /></a>
+                  
                 </div>
               </div>
 

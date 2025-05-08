@@ -22,7 +22,7 @@ const statsData = [
 const Blog = () => {
   const navigate = useNavigate();
   return (
-    <section className="py-8 bg-white">
+    <section className="pb-8 bg-white">
       <h2 className="text-center text-4xl font-bold mb-8 text-4xl">Blog</h2>
 
       {/* Blog Horizontal Scroller */}

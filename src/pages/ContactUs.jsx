@@ -3,10 +3,19 @@ import blogVideo from "../assets/blog-video.mp4";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import WOW from 'wowjs';
+import 'animate.css';
+import { useEffect } from "react";
+
 const ContactUs = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+
+  useEffect(() => {
+    new WOW.WOW().init();
+  }, []);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -44,7 +53,7 @@ const ContactUs = () => {
             "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 77.4%, #FFFFFF 100%)",
         }}
       >
-        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2">Contact Us</h1>
+        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2  wow animate__animated animate__slideInUp" data-wow-duration="1s">Contact Us</h1>
       </header>
 
       {/* Contact Section */}
