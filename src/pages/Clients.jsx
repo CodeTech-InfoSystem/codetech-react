@@ -5,7 +5,6 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import WOW from 'wowjs';
 import 'animate.css';
 import { useEffect } from "react";
-
 // Sample blog data
 const blogPosts = [
   {
@@ -90,7 +89,6 @@ const Blog = () => {
                 <div className="flex justify-between items-center py-2 rounded-md">
                   <p className="text-[16px]">{post.description}</p>
                   <a href={post.projectUrl} target="_blank" rel="noopener noreferrer"><IoIosArrowRoundForward className="text-[#AD954F] text-xl" /></a>
-
                 </div>
               </div>
 
