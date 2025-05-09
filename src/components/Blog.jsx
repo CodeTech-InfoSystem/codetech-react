@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import blogVideo from "../assets/blog-video.mp4";
 import CountUp from "react-countup";
@@ -9,7 +9,7 @@ const blogs = [
   { id: 2, title: "Six Custom Software Development Challenges that Companies Face", image: "/images/blog2.svg" },
   { id: 3, title: "Relational vs non-relational databases, querying data", image: "/images/blog3.png" },
   { id: 4, title: "Grid system for better Design User Interface", image: "/images/blog4.webp" },
-  { id: 5, title: "The Role of AI in Customer Service: Enhancing Support with Chatbots", image:  "/images/blog5.webp" },
+  { id: 5, title: "The Role of AI in Customer Service: Enhancing Support with Chatbots", image: "/images/blog5.webp" },
 ];
 
 const statsData = [
@@ -21,9 +21,34 @@ const statsData = [
 
 const Blog = () => {
   const navigate = useNavigate();
+  const statsRef = useRef(null);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const element = statsRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setAnimate(true);
+          observer.disconnect(); // Trigger only once
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (element) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, []);
+
   return (
     <section className="pb-8 bg-white">
-      <h2 className="text-center text-4xl font-bold mb-8 text-4xl">Blog</h2>
+      <h2 className="text-center text-4xl font-bold mb-8">Blog</h2>
 
       {/* Blog Horizontal Scroller */}
       <div className="relative px-4 sm:px-4">
@@ -43,11 +68,13 @@ const Blog = () => {
       </div>
 
       {/* Statistics Section */}
-      <div className="mt-16 bg-gray-100 py-6 px-6 sm:px-8 flex justify-center text-center">
+      <div
+        className="mt-16 bg-gray-100 py-6 px-6 sm:px-8 flex justify-center text-center"
+        ref={statsRef}
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
           {statsData.map((item, index) => (
             <div key={index} className="flex flex-col items-center relative">
-
               {/* Divider between stats with animated dot */}
               {index !== 0 && (
                 <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex flex-col items-center">
@@ -58,14 +85,14 @@ const Blog = () => {
 
               {/* Stats Content */}
               <h3 className="text-[#AD954F] sm:text-5xl font-bold">
-                <CountUp start={0} end={item.value} duration={2.5} />{item.suffix}
+                {animate ? <CountUp start={0} end={item.value} duration={2.5} /> : 0}
+                {item.suffix}
               </h3>
               <p className="text-customGray text-base sm:text-base font-raleway font-bold">{item.label}</p>
             </div>
           ))}
         </div>
       </div>
-
 
       {/* Call to Action */}
       <div className="flex justify-center mt-16 px-4">
@@ -79,8 +106,10 @@ const Blog = () => {
               “Some of the History of Our Company is that we are Catching up through Video”
             </p>
             <div className="mt-8 flex justify-center gap-4">
-              <button className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
-                onClick={() => navigate("/contact-us")}>
+              <button
+                className="px-4 py-1 bg-[#AD954F] text-white rounded-md"
+                onClick={() => navigate("/contact-us")}
+              >
                 Get In Touch
               </button>
             </div>
