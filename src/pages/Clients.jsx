@@ -10,42 +10,42 @@ const blogPosts = [
   {
     id: 1,
     projectName: "Surgicloud",
-    description : "Surgical Coordination Platform",
+    description: "Surgical Coordination Platform",
     projectUrl: "https://surgicloud.com/",
     imgSrc: "/images/blog_1.svg",
   },
   {
     id: 2,
     projectName: "Reveza",
-    description : "Real-Time Engagement Engine",
+    description: "Real-Time Engagement Engine",
     projectUrl: "https://www.reveza.com/",
     imgSrc: "/images/blog_2.svg",
   },
   {
     id: 3,
     projectName: "Zenda 360",
-    description :'EduCloud',
+    description: 'EduCloud',
     projectUrl: "https://elearningplus.co.uk/zanda-360-overview/",
     imgSrc: "/images/blog_3.svg",
   },
   {
     id: 4,
     projectName: "Redbud Software",
-    description :"Yield-Driven Software",
+    description: "Yield-Driven Software",
     projectUrl: "https://redbudsaas.com/",
     imgSrc: "/images/blog_4.svg",
   },
   {
     id: 5,
     projectName: "Docyt",
-    description :"Docyt AI Agents",
+    description: "Docyt AI Agents",
     projectUrl: "https://docyt.com/",
     imgSrc: "/images/blog_5.svg",
   },
   {
     id: 6,
     projectName: "Biomarking",
-    description : "Health Empowerment Tool",
+    description: "Health Empowerment Tool",
     projectUrl: "https://www.biomarking.com/",
     imgSrc: "/images/blog_6.svg",
   },
@@ -76,14 +76,19 @@ const Blog = () => {
             <div key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
 
               {/* Top Shadow Effect */}
-              <img src={post.imgSrc} alt="Blog Cover" className="w-full h-60 object-cover p-3" />
+
+              <img
+                src={post.imgSrc}
+                alt="Blog Cover"
+                className="w-full h-60 object-cover transition-transform duration-300 hover:scale-105"
+              />
+
               <div className="p-4 font-raleway font-bold space-y-2">
                 <p className="text-[18px]">{post.projectName}</p>
                 <hr />
                 <div className="flex justify-between items-center py-2 rounded-md">
                   <p className="text-[16px]">{post.description}</p>
                   <a href={post.projectUrl} target="_blank" rel="noopener noreferrer"><IoIosArrowRoundForward className="text-[#AD954F] text-xl" /></a>
-                  
                 </div>
               </div>
 
