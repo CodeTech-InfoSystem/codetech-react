@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import blogVideo from "../assets/blog-video.mp4";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WOW from 'wowjs';
@@ -53,12 +54,12 @@ const ContactUs = () => {
             "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 77.4%, #FFFFFF 100%)",
         }}
       >
-        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2  wow animate__animated animate__slideInUp" data-wow-duration="1s">Contact Us</h1>
+        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2  wow animate__animated animate__slideInDown" data-wow-duration="1s">Contact Us</h1>
       </header>
 
       {/* Contact Section */}
       <div className="flex flex-col lg:flex-row justify-center items-center bg-[#AD954F] text-white py-8 px-6 lg:px-16">
-        <div className="w-full lg:w-1/2 space-y-4">
+        <div className="w-full lg:w-1/2 space-y-4 wow animate__animated animate__slideInLeft" data-wow-duration="1s">
           <h2 className="text-2xl font-bold">Write Us at</h2>
           <p className="w-full lg:w-[80%]">
             Working with your design team was an absolute pleasure. The
@@ -105,11 +106,11 @@ const ContactUs = () => {
 
 
             <div className="bg-white p-2 rounded-lg cursor-pointer hover:bg-gray-200">
-              <FaTwitter className="text-[#AD954F]" />
-            </div>
+            <FaXTwitter className="text-[#AD954F]"/>
+           </div>
           </div>
         </div>
-        <div className="w-full lg:w-[40%] bg-white text-black p-6 rounded-3xl shadow-lg">
+        <div className="w-full lg:w-[40%] bg-white text-black p-6 rounded-3xl shadow-lg wow animate__animated animate__slideInRight" data-wow-duration="1s">
           <h3 className="text-xl font-semibold mb-4 text-center text-[#AC964F]">Get in Touch</h3>
 
           <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit}>

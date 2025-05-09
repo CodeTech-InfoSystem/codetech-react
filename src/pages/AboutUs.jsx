@@ -24,7 +24,7 @@ const AboutUs = () => {
                 }}
             >
                 <h1
-                    className="text-[3.5rem] font-bold text-[#AF9854] wow animate__animated animate__slideInUp"
+                    className="text-[3.5rem] font-bold text-[#AF9854] wow animate__animated animate__slideInDown"
                     data-wow-duration="1s"
                 >
                     About Us
@@ -44,8 +44,8 @@ const AboutUs = () => {
                     />
 
                     {/* Right Content */}
-                    <div>
-                        <h3 className="text-4xl font-bold text-[#000000]">
+                    <div className="wow animate__animated animate__slideInRight" data-wow-duration="2s">
+                        <h3 className="text-4xl font-bold text-[#000000]"> 
                             One of the Fastest Way to Business Growth
                         </h3>
                         <p className="text-gray-600 mt-4 w-[90%] font-raleway">
@@ -82,7 +82,7 @@ const AboutUs = () => {
                 <div className="md:ml-10 mt-4 md:mt-0">
                     <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Mission</span>
                     <p className="mt-8 text-gray-600 text-[18px] font-raleway">
-                        At Codetech Infosystem, we strive to be a trusted global technology partner known for service excellence, innovation, and long-term value. We understand that every business has unique challenges—that’s why we offer flexible, realistic pricing and tailored IT solutions that meet your needs, whether it’s a fast fix, expert advice, or a strategic technology roadmap. Our team is dedicated to supporting our clients at every stage, while also fostering a work environment where our people can grow, contribute, and thrive. Together, we deliver IT services that make a real difference.
+                        Codetech Infosystem, we strive to be a trusted global technology partner known for service excellence, innovation, and long-term value. We understand that every business has unique challenges—that’s why we offer flexible, realistic pricing and tailored IT solutions that meet your needs, whether it’s a fast fix, expert advice, or a strategic technology roadmap. Our team is dedicated to supporting our clients at every stage, while also fostering a work environment where our people can grow, contribute, and thrive. Together, we deliver IT services that make a real difference.
                     </p>
                 </div>
             </section>
@@ -92,7 +92,7 @@ const AboutUs = () => {
                 <div className="md:mr-10 mt-4 md:mt-0">
                     <span className="bg-[#AF9854] text-white px-4 py-1 rounded-3xl font-Baloo 2">Our Vision</span>
                     <p className="mt-8 text-gray-600 text-[18px] font-raleway">
-                        At Codetech Infosystem, we are committed to becoming a globally respected information technology partner, known for service excellence, innovation, and long-term client value. We offer flexible and transparent pricing models tailored to the evolving needs of our clients—whether it’s rapid consultation, resolution of critical challenges, or the execution of complex, large-scale projects. Our strength lies in our ability to collaborate closely with clients, deliver impactful solutions, and maintain a workplace culture that values and supports our people. Through strategic insight and reliable execution, we empower businesses to harness technology for sustained success.
+                        Codetech Infosystem, we are committed to becoming a globally respected information technology partner, known for service excellence, innovation, and long-term client value. We offer flexible and transparent pricing models tailored to the evolving needs of our clients—whether it’s rapid consultation, resolution of critical challenges, or the execution of complex, large-scale projects. Our strength lies in our ability to collaborate closely with clients, deliver impactful solutions, and maintain a workplace culture that values and supports our people. Through strategic insight and reliable execution, we empower businesses to harness technology for sustained success.
                     </p>
                 </div>
                 <img src="/images/vision.svg" alt="Our Vision" className="w-full md:w-1/2 rounded-lg md:w-[582px] md:h-[508px] wow animate__animated animate__slideInRight"
