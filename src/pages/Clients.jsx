@@ -66,7 +66,7 @@ const Blog = () => {
             "linear-gradient(180deg, #242423 3.95%, #434342 23.15%, #545454 37.84%, #7B7B7A 57.04%, #B9B9B9 77.4%, #FFFFFF 100%)",
         }}
       >
-        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2  wow animate__animated animate__slideInUp" data-wow-duration="1s">Clients</h1>
+        <h1 className="text-[3.5rem] font-bold text-[#AF9854] font-Baloo 2  wow animate__animated animate__slideInDown" data-wow-duration="1s">Clients</h1>
       </header>
 
       {/* Blog Section */}
@@ -75,26 +75,41 @@ const Blog = () => {
           {blogPosts.map((post) => (
             <div key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
 
-              {/* Top Shadow Effect */}
 
-              <img
-                src={post.imgSrc}
-                alt="Blog Cover"
-                className="w-full h-60 object-cover transition-transform duration-300 hover:scale-105"
-              />
+              <div className="relative group w-full h-60 overflow-hidden">
+                <img
+                  src={post.imgSrc}
+                  alt="Blog Cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                {/* Centered Text */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <h2 className="text-white text-2xl font-bold font-raleway opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-center px-2">
+                    {post.projectName}
+                  </h2>
+                </div>
+              </div>
+
 
               <div className="p-4 font-raleway font-bold space-y-2">
                 <p className="text-[18px]">{post.projectName}</p>
                 <hr />
                 <div className="flex justify-between items-center py-2 rounded-md">
                   <p className="text-[16px]">{post.description}</p>
-                  <a href={post.projectUrl} target="_blank" rel="noopener noreferrer"><IoIosArrowRoundForward className="text-[#AD954F] text-xl" /></a>
+                  <a href={post.projectUrl} target="_blank" rel="noopener noreferrer">
+                    <IoIosArrowRoundForward className="text-[#AD954F] text-xl" />
+                  </a>
                 </div>
               </div>
 
             </div>
           ))}
         </div>
+
       </div>
 
       {/* Call to Action */}
