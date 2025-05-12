@@ -22,9 +22,10 @@ function Home({ testimonialsRef }) {
 
 
       <Suspense fallback={<div>Loading...</div>}>
+      <div>
         <Partners />
         <Strengths />
-
+        </div>
         <div>
           <Services />
         </div>
