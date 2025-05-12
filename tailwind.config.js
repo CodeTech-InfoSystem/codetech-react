@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"], // Ensure this path is correct
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        baloo: ["Baloo 2", "cursive,"], // Add Baloo font
+        baloo: ["Baloo 2", "cursive"],
         raleway: ['Raleway', 'sans-serif'],
         graphik: ['Graphik'],
         canela: ['"Canela Text Trial"', 'sans-serif'],
@@ -20,7 +20,7 @@ export default {
           "50%": { transform: "translateY(50px)" },
         },
       },
-    },
+    }, 
   },
   plugins: [
     require("tailwind-scrollbar-hide"),

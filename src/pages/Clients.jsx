@@ -109,8 +109,7 @@ const Blog = () => {
             </div>
           ))}
         </div>
-
-      </div>
+     </div>
 
       {/* Call to Action */}
       <div className="flex justify-center my-16 px-4">
