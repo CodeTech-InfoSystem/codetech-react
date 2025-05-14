@@ -1,6 +1,7 @@
 import { Suspense, lazy, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import { ToastContainer } from 'react-toastify';
 
 const Navbar = lazy(() => import("./components/Navbar"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -44,6 +45,7 @@ function App() {
         </Routes>
       </Suspense>
       <Footer />
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }

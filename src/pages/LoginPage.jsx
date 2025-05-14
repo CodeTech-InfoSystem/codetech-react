@@ -2,6 +2,8 @@ import { auth, provider } from '../util/firebaseConfig';
 import { signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+
 const LoginPage = () => {
   const navigate = useNavigate();
 
