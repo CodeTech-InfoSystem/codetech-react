@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useRef } from "react";
+import { Suspense, lazy, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -10,6 +10,8 @@ const ContactUs = lazy(() => import("./pages/ContactUs"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Service = lazy(() => import("./pages/Service"));
 const Clients = lazy(() => import("./pages/Clients"))
+const Admin = lazy(() => import("./pages/Admin"))
+const LoginPage = lazy(() => import("./pages/LoginPage"))
 
 function App() {
   const testimonialsRef = useRef(null);
@@ -37,6 +39,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/services" element={<Service />} />
           <Route path="/clients" element={<Clients />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/login" element={<LoginPage/>} />
         </Routes>
       </Suspense>
       <Footer />
