@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
 
           {/* Address Section */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-24 mt-7 sm:mt-[15px]" >
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-[2.5rem] mt-7  sm:mt-[15px]">
             {/* Indore Address */}
 
             <div className="flex flex-col items-center sm:items-start w-full justify-center sm:justify-start">

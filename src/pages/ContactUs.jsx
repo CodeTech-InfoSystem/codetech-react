@@ -114,7 +114,7 @@ const ContactUs = () => {
           <h3 className="text-xl font-semibold mb-4 text-center text-[#AC964F]">Get in Touch</h3>
 
           <form name="contact" method='post' data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit}>
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
+            <label className="block text-sm font-medium text-gray-700 mb-1 font-raleway" htmlFor="name">
               Name
             </label>
             <input
@@ -128,7 +128,7 @@ const ContactUs = () => {
               required
             />
 
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
+            <label className="block text-sm font-medium text-gray-700 mb-1 font-raleway" htmlFor="email">
               Email
             </label>
             <input
@@ -142,7 +142,7 @@ const ContactUs = () => {
               required
             />
 
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="message">
+            <label className="block text-sm font-medium text-gray-700 mb-1 font-raleway" htmlFor="message">
               Message
             </label>
             <textarea
@@ -156,7 +156,7 @@ const ContactUs = () => {
 
             <button
               type="submit"
-              className='w-full py-2 font-semibold rounded-lg bg-[#AD954F] text-white'
+              className='w-full py-2 font-semibold rounded-lg bg-[#AD954F] text-white font-Baloo 2'
             >
               Submit
             </button>

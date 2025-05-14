@@ -9,7 +9,9 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Service = lazy(() => import("./pages/Service"));
-const Clients = lazy(() => import("./pages/Clients"))
+const Clients = lazy(() => import("./pages/Clients"));
+const Careers = lazy(()=>import("./pages/Career"));
+const JobListing = lazy(()=>import("./components/JobListing"))
 
 function App() {
   const testimonialsRef = useRef(null);
@@ -37,6 +39,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/services" element={<Service />} />
           <Route path="/clients" element={<Clients />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/joblisting" element={<JobListing />} />
         </Routes>
       </Suspense>
       <Footer />
