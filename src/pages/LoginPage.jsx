@@ -11,7 +11,7 @@ const LoginPage = () => {
       navigate('/admin');
     } catch (err) {
       console.error(err);
-      alert('Login failed');
+      toast.error('Login failed');
     }
   };
 
