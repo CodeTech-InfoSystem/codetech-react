@@ -1,5 +1,5 @@
 import React from 'react'
-import JobListingForm from './JobListingForm'
+import JobListingForm from './JobApplyForm'
 
  const JobListing = () => {
   return (

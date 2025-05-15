@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const JobListingForm = () => {
+const JobApplyForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -149,4 +149,4 @@ const JobListingForm = () => {
   );
 };
 
-export default JobListingForm;
+export default JobApplyForm;
