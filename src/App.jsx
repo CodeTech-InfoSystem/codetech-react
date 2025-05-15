@@ -15,6 +15,7 @@ const Careers = lazy(()=>import("./pages/Career"));
 const JobListing = lazy(()=>import("./components/JobListing"));
 const Admin = lazy(() => import("./pages/Admin"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
+const ResumeViewer = lazy(() => import("./pages/ResumeViewer"));
 
 function App() {
   const testimonialsRef = useRef(null);
@@ -46,6 +47,7 @@ function App() {
           <Route path="/joblisting" element={<JobListing />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<LoginPage/>} />
+          <Route path="/admin/resume/:filename" element={<ResumeViewer />} />
         </Routes>
       </Suspense>
       <Footer />
