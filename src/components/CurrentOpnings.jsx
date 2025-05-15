@@ -37,7 +37,7 @@ export const CurrentOpnings = () => {
   };
 
   return (
-    <section className="bg-[#f3f4f6] py-14 px-4 md:px-12">
+    <section className="bg-[#f3f4f6] py-14 px-4 md:px-12" id="current-openings">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-Baloo 2">Current Openings</h2>

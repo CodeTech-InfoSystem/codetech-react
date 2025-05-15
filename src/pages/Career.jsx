@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { FaChartLine, FaBullseye, FaCrown } from 'react-icons/fa';
 import { Benefits } from '../components/Benefits';
 import { ReviewsSection } from '../components/ReviewsSection';
@@ -10,9 +9,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import { CurrentOpnings } from '../components/CurrentOpnings';
 
 const Career = () => {
-  const navigate = useNavigate();
   useEffect(() => {
-
     new WOW.WOW().init();
   }, []);
 
@@ -38,16 +35,19 @@ const Career = () => {
           {/* Buttons */}
           <div className="my-6 flex justify-center gap-4">
             <button
-              onClick={() => navigate("/contact-us")}
+              onClick={() => {
+                document.getElementById("current-openings")?.scrollIntoView({ behavior: "smooth" });
+              }}
+
               className="group px-6 py-2 bg-[#AD954F] text-white font-bold rounded-2xl lg:w-[260px] lg:h-[42px] leading-[1.5] flex items-center justify-center gap-2 whitespace-nowrap mt-4"
             >
               <span className="flex items-center gap-2">
                 Explore Opportunities
-                
-                  <GoArrowUpRight className="text-[1.2em]" />
-                
+
+                <GoArrowUpRight className="text-[1.2em]" />
+
               </span>
-            </button> 
+            </button>
           </div>
         </div>
       </section>
@@ -122,17 +122,9 @@ const Career = () => {
       <div>
         <ReviewsSection />
       </div>
-      {/* Industry Experts */}
-      {/* <div>
-      
-
-
-      </div> */}
-      <CurrentOpnings />
+      {/* Opnings */}
       <div>
-
-
-
+        <CurrentOpnings />
       </div>
     </div>
   );
