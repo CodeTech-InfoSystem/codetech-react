@@ -46,7 +46,8 @@ const JobApplyForm = () => {
 
     fetch("/", {
       method: "POST",
-      body: data,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: data.toString()
     })
       .then(() => {
         toast.success("Your request has been sent successfully!");
