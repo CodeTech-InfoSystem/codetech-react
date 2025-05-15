@@ -46,8 +46,7 @@ const JobApplyForm = () => {
 
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: data.toString()
+      body: data
     })
       .then(() => {
         toast.success("Your request has been sent successfully!");
@@ -80,6 +79,7 @@ const JobApplyForm = () => {
         className="bg-white p-6 rounded-xl space-y-4 shadow-lg"
         encType="multipart/form-data"
       >
+        <input type="hidden" name="form-name" value="jobApply" />
         <input
           type="text"
           name="firstName"
