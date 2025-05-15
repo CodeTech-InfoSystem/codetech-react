@@ -74,7 +74,7 @@ const JobApplyForm = () => {
   return (
     <>
       <form
-        name="jobApply" method='post' data-netlify="true" netlify-honeypot="bot-field"
+        name="jobApply" method='post' data-netlify="true" data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-xl space-y-4 shadow-lg"
         encType="multipart/form-data"
@@ -175,6 +175,7 @@ const JobApplyForm = () => {
           <input
             id="cv-upload"
             type="file"
+            name="cv"
             onChange={handleFileChange}
             className="hidden"
           />
