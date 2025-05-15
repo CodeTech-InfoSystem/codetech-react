@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { FaChartLine, FaBullseye, FaCrown } from 'react-icons/fa';
 import { Benefits } from '../components/Benefits';
 import { ReviewsSection } from '../components/ReviewsSection';
@@ -10,9 +9,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import { CurrentOpnings } from '../components/CurrentOpnings';
 
 const Career = () => {
-  const navigate = useNavigate();
   useEffect(() => {
-
     new WOW.WOW().init();
   }, []);
 
