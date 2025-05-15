@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const JobApplyForm = () => {
   const [formData, setFormData] = useState({
@@ -21,131 +22,174 @@ const JobApplyForm = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
- 
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+    console.log(file)
     setFormData((prev) => ({ ...prev, cv: file }));
     setCvFileName(file ? file.name : 'No file chosen');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
-    
+     console.log(formData)
+    const data = new FormData();
+    data.append("form-name", "jobApply");
+
+    Object.entries(formData).forEach(([key, value]) => {
+      if (key === 'cv' && value) {
+        data.append('cv', value);
+      } else if (value) {
+        data.append(key, value);
+      }
+    });
+
+    fetch("/", {
+      method: "POST",
+      body: data
+    })
+      .then(() => {
+        toast.success("Your request has been sent successfully!");
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          email: '',
+          location: '',
+          workingMode: '',
+          totalExp: '',
+          jobRole: '',
+          currentCompany: '',
+          noticePeriod: '',
+          cv: null,
+        });
+        setCvFileName("No file chosen");
+      })
+      .catch(() => {
+        toast.error("Internal server error");
+      });
   };
 
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-xl space-y-4 shadow-lg"
-    >
-      <input
-        type="text"
-        name="firstName"
-        placeholder="First Name"
-        value={formData.firstName}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Last Name"
-        value={formData.lastName}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Mobile No."
-        value={formData.phone}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email Address"
-        value={formData.email}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <input
-        type="text"
-        name="location"
-        placeholder="Current Location"
-        value={formData.location}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <select
-        name="workingMode"
-        value={formData.workingMode}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
+    <>
+      <form
+        name="jobApply" method='post' data-netlify="true" data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded-xl space-y-4 shadow-lg"
+        encType="multipart/form-data"
       >
-        <option value="" className='font-raleway'>Select Preferabl Working Mode</option>
-        <option value="Remote">Remote</option>
-        <option value="Onsite">Onsite</option>
-        <option value="Hybrid">Hybrid</option>
-      </select>
-      <input
-        type="text"
-        name="totalExp"
-        placeholder="Total Experience (e.g. 3 years)"
-        value={formData.totalExp}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <input
-        type="text"
-        name="jobRole"
-        placeholder="Job Role"
-        value={formData.jobRole}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <input
-        type="text"
-        name="currentCompany"
-        placeholder="Current Company"
-        value={formData.currentCompany}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-      <input
-        type="text"
-        name="noticePeriod"
-        placeholder="Notice Period (e.g. 15 days)"
-        value={formData.noticePeriod}
-        onChange={handleChange}
-        className="w-full text-black border px-4 py-2 rounded font-raleway"
-      />
-
-      <div className="flex items-center gap-2">
-        <label
-          htmlFor="cv-upload"
-          className="bg-[#af9854] text-white font-semibold py-2 px-4 rounded cursor-pointer font-raleway"
-        >
-          Upload Resume *
-        </label>
-        <span className="text-gray-500">{cvFileName}</span>
+        <input type="hidden" name="form-name" value="jobApply" />
         <input
-          id="cv-upload"
-          type="file"
-          onChange={handleFileChange}
-          className="hidden"
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          value={formData.firstName}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
-      </div>
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          value={formData.lastName}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Mobile No."
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        <input
+          type="text"
+          name="location"
+          placeholder="Current Location"
+          value={formData.location}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        <select
+          name="workingMode"
+          value={formData.workingMode}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        >
+          <option value="" className='font-raleway'>Select Preferabl Working Mode</option>
+          <option value="Remote">Remote</option>
+          <option value="Onsite">Onsite</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+        <input
+          type="text"
+          name="totalExp"
+          placeholder="Total Experience (e.g. 3 years)"
+          value={formData.totalExp}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        <input
+          type="text"
+          name="jobRole"
+          placeholder="Job Role"
+          value={formData.jobRole}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        <input
+          type="text"
+          name="currentCompany"
+          placeholder="Current Company"
+          value={formData.currentCompany}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        <input
+          type="text"
+          name="noticePeriod"
+          placeholder="Notice Period (e.g. 15 days)"
+          value={formData.noticePeriod}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
 
-      <button
-        type="submit"
-        className="w-full bg-[#af9854] text-white font-bold py-2 rounded mt-4"
-      >
-        Submit
-      </button>
-    </form>
+        <div className="flex items-center gap-2">
+          <label
+            htmlFor="cv-upload"
+            className="bg-[#af9854] text-white font-semibold py-2 px-4 rounded cursor-pointer font-raleway"
+          >
+            Upload Resume *
+          </label>
+          <span className="text-gray-500">{cvFileName}</span>
+          <input
+            id="cv-upload"
+            type="file"
+            name="cv"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-[#af9854] text-white font-bold py-2 rounded mt-4"
+        >
+          Submit
+        </button>
+      </form>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </>
   );
 };
 

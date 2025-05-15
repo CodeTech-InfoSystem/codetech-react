@@ -34,7 +34,6 @@ const ContactUs = () => {
     })
       .then(() => {
         toast.success("Your request has been sent successfully!")
-
         setName("");
         setEmail("");
         setMessage("");

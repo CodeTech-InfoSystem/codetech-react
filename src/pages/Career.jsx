@@ -19,8 +19,6 @@ const Career = () => {
         background: "linear-gradient(180deg, #242423 37.91%, #434342 51.86%, #545454 56.79%, #686868 62.25%, #7B7B7A 67.71%, #8B8B8B 72.59%, #B6B6B5 81.95%, #D9D9D9 88.38%, #EBEBEB 94.04%, #FFFFFF 100%)",
       }}
     >
-
-
       <section className="text-white relative sm:px-8">
         <div className="max-w-7xl mx-auto text-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#AD954F] via-[#BCA86F] via-[#CDBF95] via-[#DED4B8] via-[#EBE6D5] to-white leading-[70px] mt-[80px]" style={{ lineHeight: '70px' }}>
