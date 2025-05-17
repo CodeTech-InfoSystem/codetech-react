@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css"; // Make sure this line is present
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
