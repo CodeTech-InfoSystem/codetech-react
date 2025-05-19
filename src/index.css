@@ -21,6 +21,15 @@ html, body, #root {
   font-family: "Baloo 2", serif;
 }
 
+.resume-iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-style: none;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

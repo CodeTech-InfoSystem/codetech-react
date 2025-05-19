@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react';
 import { auth } from '../util/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 
-const useAuthRequired = () => {
+const useAuthRequired = (required = true) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (!user) {
+      if (!user && required) {
         navigate('/login');
       }
       setUser(user);
     });
 
     return () => unsubscribe();
-  }, [navigate]);
+  }, [navigate, required]);
 
   return user;
 };
