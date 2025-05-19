@@ -43,7 +43,11 @@ export const CurrentOpnings = () => {
                     {job.location && (
                       <div className="flex items-center">
                         <FaMapMarkerAlt className="mr-1 text-[#ad954f]"/>
-                        {job.location}
+                        <p>
+    {Array.isArray(job.location)
+      ? job.location.map((loc) => loc.label).join(', ')
+      : job.location}
+  </p>
                       </div>
                     )}
                     {job.employmentType && (

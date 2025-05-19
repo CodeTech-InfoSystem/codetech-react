@@ -7,6 +7,7 @@ import { db } from '../util/firebaseConfig';
 import { IoLocation } from 'react-icons/io5';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import { FaClock } from 'react-icons/fa';
+import CreatableSelect from 'react-select/creatable';
 
 function Admin() {
   useAuthRequired();
@@ -21,7 +22,7 @@ function Admin() {
     experience: '',
     rolesResponsibilities: '',
     skillsRequired: '',
-    location: '',
+    location: [],
     workingMode: '',
     immediateJoiner: false,
     employmentType: '',
@@ -33,15 +34,6 @@ function Admin() {
     const fieldValue = type === 'checkbox' ? checked : value;
     setFormData((prev) => ({ ...prev, [name]: fieldValue }));
   };
-
-  // const addOrUpdateJob = async job => {
-  //   if (editingJob) {
-  //     await updateDoc(doc(db, 'jobs', editingJob.id), job);
-  //     setEditingJob(null);
-  //   } else {
-  //     await addDoc(collection(db, 'jobs'), { ...job, createdAt: serverTimestamp() });
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,6 +50,7 @@ function Admin() {
 
         await addDoc(collection(db, 'jobs'), {
           ...formData,
+
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp(),
         });
@@ -87,6 +80,11 @@ function Admin() {
   const handleLogout = () => {
     auth.signOut();
   };
+
+  const locationOptions = [
+    { value: 'Hyderabad', label: 'Hyderabad' },
+    { value: 'Indore', label: 'Indore' }
+  ];
 
   const handleEdit = (job) => {
     setEditingJob(job);
@@ -163,6 +161,8 @@ function Admin() {
             />
           </label>
 
+
+
           {/* Experience */}
           <label className="block text-black font-raleway">
             Experience Required
@@ -192,20 +192,7 @@ function Admin() {
           </label>
 
           {/* Location */}
-          <label className="block text-black font-raleway">
-            Location
-            <select
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              className={`w-full border px-4 py-2 rounded mt-1 ${formData.location ? 'text-black' : 'text-gray-500'}`}
-              required
-            >
-              <option value="" disabled hidden>Select Location</option>
-              <option value="Hyderabad">Hyderabad</option>
-              <option value="Indore">Indore</option>
-            </select>
-          </label>
+
 
           {/* Working Mode */}
           <label className="block text-black font-raleway">
@@ -224,6 +211,24 @@ function Admin() {
             </select>
           </label>
 
+
+          <label className="block text-black font-raleway">
+            Location
+            <CreatableSelect
+              isMulti
+              options={locationOptions}
+              value={formData.location}
+              onChange={(selected) => {
+                setFormData((prev) => ({
+                  ...prev,
+                  location: selected
+                }));
+              }}
+              className="mt-1"
+              placeholder="Select or create locations"
+            />
+          </label>
+
           {/* Employment Type */}
           <label className="block text-black font-raleway">
             Employment Type
@@ -237,6 +242,7 @@ function Admin() {
               <option value="" disabled hidden>Select Employment Type</option>
               <option value="Full-time">Full-time</option>
               <option value="Part-time">Part-time</option>
+              <option value="Part-time">Intern</option>
             </select>
           </label>
 
@@ -355,7 +361,11 @@ function Admin() {
 
                 <div className="flex items-center space-x-1 mt-2 text-[#af9854] font-raleway text-sm">
                   <IoLocation />
-                  <p>{job.location}</p>
+                  <p>
+                    {Array.isArray(job.location)
+                      ? job.location.map((loc) => loc.label).join(', ')
+                      : job.location}
+                  </p>
                   <FaClock className="ml-3" />
 
                   <p className=''>{job.employmentType}</p>
