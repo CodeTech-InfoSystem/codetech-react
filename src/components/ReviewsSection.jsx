@@ -5,7 +5,7 @@ export const ReviewsSection = () => {
   const testimonials = [
     {
       name: 'Sanjana verma',
-      photo: '/images/person1.jpg',
+      photo: '/images/sanjanaimg.jpg',
       feedback: "Working at CodeTech has not just been fulfilling, it’s been truly inspiring!",
     },
     {
@@ -19,12 +19,12 @@ export const ReviewsSection = () => {
       feedback: "I’ve had the pleasure of working as a web designer at CodeTech for over 10 years.",
     },
     {
-      name: 'Bhola Gupta',
+      name: 'Saifuddin Siddiqui',
       photo: '/images/person4.webp',
       feedback: "I’m proud to be a part of CodeTech. It’s more than just a job—it’s our company, where we all contribute to its success.",
     },
     {
-      name: 'Sourabh Patware',
+      name: 'Abhay Kumar',
       photo: '/images/person5.webp',
       feedback: "CodeTech infosystems has helped me grow from a developer to a team lead.",
     },

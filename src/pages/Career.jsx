@@ -71,7 +71,7 @@ const Career = () => {
 
           <div className="grid gap-8 md:grid-cols-3">
             {/* Card 1 */}
-            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-md text-center">
+            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-md text-center transform transition duration-300 hover:scale-105 hover:shadow-1xl">
               <div className="flex justify-center mb-4">
                 <div className="bg-white p-4 rounded-full">
                   <FaChartLine className="text-[#ad954f] text-2xl" />
@@ -84,7 +84,7 @@ const Career = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-md text-center">
+            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-md text-center transform transition duration-300 hover:scale-105 hover:shadow-1xl">
               <div className="flex justify-center mb-4">
                 <div className="bg-white p-4 rounded-full">
                   <FaBullseye className="text-[#ad954f] text-2xl" />
@@ -97,7 +97,7 @@ const Career = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-md text-center">
+            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-md text-center transform transition duration-300 hover:scale-105 hover:shadow-1xl">
               <div className="flex justify-center mb-4">
                 <div className="bg-white p-4 rounded-full">
                   <FaCrown className="text-[#ad954f] text-2xl" />

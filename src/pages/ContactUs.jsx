@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import blogVideo from "../assets/blog-video.mp4";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WOW from 'wowjs';
 import 'animate.css';
@@ -160,7 +160,6 @@ const ContactUs = () => {
               Submit
             </button>
           </form>
-          <ToastContainer position="top-right" autoClose={3000} />
         </div>
       </div>
 

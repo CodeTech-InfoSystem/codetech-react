@@ -1,6 +1,7 @@
-import React, { Suspense, lazy, useRef } from "react";
+import { Suspense, lazy, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import { ToastContainer } from 'react-toastify';
 
 const Navbar = lazy(() => import("./components/Navbar"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -11,7 +12,10 @@ const Blog = lazy(() => import("./pages/Blog"));
 const Service = lazy(() => import("./pages/Service"));
 const Clients = lazy(() => import("./pages/Clients"));
 const Careers = lazy(()=>import("./pages/Career"));
-const JobListing = lazy(()=>import("./components/JobListing"))
+const JobListing = lazy(()=>import("./components/JobListing"));
+const Admin = lazy(() => import("./pages/Admin"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const ResumeViewer = lazy(() => import("./pages/ResumeViewer"));
 
 function App() {
   const testimonialsRef = useRef(null);
@@ -40,10 +44,14 @@ function App() {
           <Route path="/services" element={<Service />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/joblisting" element={<JobListing />} />
+          <Route path="/jobs/:id" element={<JobListing />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/login" element={<LoginPage/>} />
+          <Route path="/admin/resume/:filename" element={<ResumeViewer />} />
         </Routes>
       </Suspense>
       <Footer />
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }
