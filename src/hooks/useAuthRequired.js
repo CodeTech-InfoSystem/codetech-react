@@ -15,7 +15,7 @@ const useAuthRequired = (required = true) => {
     });
 
     return () => unsubscribe();
-  }, [navigate]);
+  }, [navigate, required]);
 
   return user;
 };
