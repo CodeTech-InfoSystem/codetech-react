@@ -1,25 +1,29 @@
-import React, { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  
+  const AdminPages = useMemo(() => {
+    return location.pathname === '/admin' || location.pathname === '/login'
+  }, [location.pathname]);
 
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Clients", path: "/clients" },
-    { name: "About Us", path: "/about-us" },
-    { name: "Services", path: "/services" },
-    { name: "Blog", path: "/blog" },
-    { name: "Careers", path: "/careers" },
-    { name: "Contact Us", path: "/contact-us" },
-    
-  ];
+  const navItems = useMemo(() => {
+    return [
+      { name: "Home", path: "/" },
+      { name: "Clients", path: "/clients", if: !AdminPages },
+      { name: "About Us", path: "/about-us", if: !AdminPages },
+      { name: "Services", path: "/services", if: !AdminPages },
+      { name: "Blog", path: "/blog", if: !AdminPages },
+      { name: "Careers", path: "/careers" },
+      { name: "Contact Us", path: "/contact-us", if: !AdminPages },
+    ]
+  }, [AdminPages]);
 
   return (
     <div className="bg-[#242423] px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 pt-4">
-
       <nav className="bg-[#545454] rounded-lg border border-[#FFFFFF]">
         <div className="container mx-auto flex justify-between items-center px-4 md:py-1 sm:py-0 h-[72px]">
           {/* Logo - remains consistent */}
@@ -45,7 +49,7 @@ const Navbar = () => {
             className={`${isOpen ? "block" : "hidden"
               } lg:flex lg:space-x-4 md:space-x-6 text-white font-raleway font-medium items-center space-y-6 lg:space-y-0 bg-[#545454] lg:bg-transparent p-6 lg:p-0 absolute lg:static top-16 left-[5%] z-10 rounded-lg w-[90%] lg:w-auto transition-all duration-300`}
           >
-            {navItems.map((item) => (
+            {navItems.filter((item) => item.if === undefined || item.if === true).map((item) => (
               <li key={item.name} className="relative">
                 {item.onClick ? (
                   <button

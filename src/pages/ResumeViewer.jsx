@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 const ResumeViewer = () => {
   const { filename } = useParams();
   const [url, setUrl] = useState(null);
-  const user =  useAuthRequired();
+  const user = useAuthRequired();
 
   useEffect(() => {
     if (user && filename) {
@@ -19,7 +19,7 @@ const ResumeViewer = () => {
   if (!url) return <p>Loading Resume...</p>;
 
   return (
-    <iframe src={url} width="100%" height="600px" title="PDF Viewer" />
+    <iframe src={url} className='resume-iframe' title="PDF Viewer" allow="fullscreen *" />
   );
 };
 
