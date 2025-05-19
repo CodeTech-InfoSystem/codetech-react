@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { auth } from '../util/firebaseConfig';
 import useAuthRequired from '../hooks/useAuthRequired';
@@ -7,11 +7,12 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
   const location = useLocation();
-  const user = useAuthRequired({ required: true })
+  const user = useAuthRequired(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const menuRef = useRef(null);
+  const navigate = useNavigate();
 
   const isAdminPage = useMemo(() => {
     return location.pathname.startsWith('/admin') || location.pathname === '/login';
@@ -108,7 +109,7 @@ const Navbar = () => {
             ))}
 
             {/* Admin user dropdown */}
-            {isAdminPage && user && (
+            {user && (
               <div className="relative">
                 <button
                   onClick={() => setShowDropdown(!showDropdown)}
@@ -128,9 +129,20 @@ const Navbar = () => {
                 </button>
                 {showDropdown && (
                   <div className="absolute mt-2 w-40 bg-white shadow-md rounded-md text-black z-50" ref={dropdownRef}>
+                    {!isAdminPage && (
+                      <>
+                        <button
+                          onClick={() => {navigate('/admin'); setShowDropdown(false);}}
+                          className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-md"
+                        >
+                          Go To Admin
+                        </button>
+                        <hr/>
+                      </>
+                    )}
                     <button
                       onClick={onLogout}
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-md"
                     >
                       Logout
                     </button>
