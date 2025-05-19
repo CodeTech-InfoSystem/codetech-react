@@ -21,43 +21,44 @@ exports.handler = async function () {
       <url>
         <loc>https://codetechinfosystem.com/jobs/${doc.id}</loc>
         <lastmod>${(doc.data().updatedAt?.toDate() || new Date()).toISOString().slice(0, 10)}</lastmod>
+        <priority>1.0</priority>
       </url>`).join("");
 
     const static_urls = `
       <url>
         <loc>https://codetechinfosystem.com/</loc>
-        <lastmod>2025-02-20</lastmod> 
+        <lastmod>2025-05-19</lastmod> 
         <priority>1.0</priority>
       </url>
       <url>
         <loc>https://codetechinfosystem.com/about-us</loc>
-        <lastmod>2025-03-05</lastmod> 
+        <lastmod>2025-05-19</lastmod> 
         <priority>1.0</priority>
       </url>
       <url>
         <loc>https://codetechinfosystem.com/contact-us</loc>
-        <lastmod>2025-03-05</lastmod> 
+        <lastmod>2025-05-19</lastmod> 
         <priority>1.0</priority>
       </url>
       <url>
         <loc>https://codetechinfosystem.com/services</loc>
-        <lastmod>2025-04-08</lastmod> 
+        <lastmod>2025-05-19</lastmod> 
         <priority>1.0</priority>
       </url>
       <url>
         <loc>https://codetechinfosystem.com/blog</loc>
-        <lastmod>2025-04-08</lastmod> 
+        <lastmod>2025-05-19</lastmod> 
         <priority>1.0</priority>
       </url>
       <url>
         <loc>https://codetechinfosystem.com/clients</loc>
-        <lastmod>2025-04-08</lastmod> 
+        <lastmod>2025-05-19</lastmod> 
         <priority>1.0</priority>
       </url>
       <url>
-      <loc>https://codetechinfosystem.com/careers</loc>
-      <lastmod>2025-04-08</lastmod>
-      <priority>1.0</priority>
+        <loc>https://codetechinfosystem.com/careers</loc>
+        <lastmod>2025-05-19</lastmod>
+        <priority>1.0</priority>
       </url>
     `
 

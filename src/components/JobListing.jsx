@@ -1,12 +1,30 @@
-import React from 'react'
-import JobListingForm from './JobApplyForm'
-import { useParams, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../util/firebaseConfig';
+import JobListingForm from './JobApplyForm';
+
 const JobListing = () => {
   const { id } = useParams();
-  const location = useLocation();
-  const job = location.state?.job;
-  console.log(id)
-  console.log(job, "job")
+  const [job, setJob] = useState(null);
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      const docRef = doc(db, 'jobs', id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setJob(docSnap.data());
+      }
+    };
+
+    fetchJob();
+  }, [id]);
+
+  if (!job) {
+    return <div className="text-white p-6">Loading...</div>;
+  }
+
   return (
     <div className="text-white min-h-screen py-20 px-6 bg-[#242423] pb-[8.5rem]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -33,25 +51,19 @@ const JobListing = () => {
               .map(s => s.trim())
               .filter(s => s.length > 0)
               .map((sentence, idx) => (
-                <li key={idx}>
-                  {sentence}.
-                </li>
-              ))
-            }
+                <li key={idx}>{sentence}.</li>
+              ))}
           </ul>
 
           <h2 className="text-xl font-semibold text-[#af9854]">Skill Required:</h2>
           <ul className="list-disc list-inside space-y-1 font-raleway">
-          {job.skillsRequired
+            {job.skillsRequired
               .split('. ')
               .map(s => s.trim())
               .filter(s => s.length > 0)
               .map((sentence, idx) => (
-                <li key={idx}>
-                  {sentence}.
-                </li>
-              ))
-            }
+                <li key={idx}>{sentence}.</li>
+              ))}
           </ul>
         </div>
 
@@ -61,6 +73,7 @@ const JobListing = () => {
         </div>
       </div>
     </div>
-  )
-}
-export default JobListing
+  );
+};
+
+export default JobListing;

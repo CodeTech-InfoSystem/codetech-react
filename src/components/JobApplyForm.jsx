@@ -126,7 +126,7 @@ const JobApplyForm = () => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         >
-          <option value="" className='font-raleway'>Select Preferabl Working Mode</option>
+          <option value="" className='font-raleway'>Select preferable Working Mode</option>
           <option value="Remote">Remote</option>
           <option value="Onsite">Onsite</option>
           <option value="Hybrid">Hybrid</option>
