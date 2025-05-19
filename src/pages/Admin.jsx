@@ -9,7 +9,7 @@ import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import { FaClock } from 'react-icons/fa';
 
 function Admin() {
-  const user = useAuthRequired();
+  useAuthRequired();
   const [jobs, setJobs] = useState([]);
   const [editingJob, setEditingJob] = useState(null);
 
