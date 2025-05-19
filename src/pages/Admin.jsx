@@ -25,7 +25,7 @@ function Admin() {
     workingMode: '',
     immediateJoiner: false,
     employmentType: '',
-    qualification :'',
+    qualification: '',
   });
 
   const handleChange = (e) => {
@@ -45,9 +45,9 @@ function Admin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      try {
+    try {
       if (editingJob) {
-        
+
         await updateDoc(doc(db, 'jobs', editingJob.id), {
           ...formData,
           updatedAt: serverTimestamp(),
@@ -55,15 +55,16 @@ function Admin() {
         toast.success("Job updated successfully!");
         setEditingJob(null);
       } else {
-        
+
         await addDoc(collection(db, 'jobs'), {
           ...formData,
           createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp(),
         });
         toast.success("Job created successfully!");
       }
 
-       
+
       setFormData({
         title: '',
         shortDescription: '',
@@ -75,10 +76,10 @@ function Admin() {
         workingMode: '',
         immediateJoiner: false,
         employmentType: '',
-        qualification :'',
+        qualification: '',
       });
     } catch (error) {
-      
+
       toast.error("Failed to save job. Try again.");
     }
   };
@@ -100,7 +101,7 @@ function Admin() {
       workingMode: job.workingMode || '',
       immediateJoiner: job.immediateJoiner || false,
       employmentType: job.employmentType || '',
-      qualification:job.qualification ||'',
+      qualification: job.qualification || '',
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -119,7 +120,7 @@ function Admin() {
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'jobs'), snapshot => {
       const jobList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      
+
       setJobs(jobList);
     });
     return () => unsubscribe();
@@ -134,118 +135,152 @@ function Admin() {
           onSubmit={handleSubmit}
           className="bg-white p-6 rounded-xl space-y-4 shadow-lg max-w-3xl mx-auto"
         >
-          <input
-            type="text"
-            name="title"
-            placeholder="Job Title"
-            value={formData.title}
-            onChange={handleChange}
-            className="w-full text-black border px-4 py-2 rounded font-raleway"
-            required
-          />
+          {/* Job Title */}
+          <label className="block text-black font-raleway">
+            Job Title
+            <input
+              type="text"
+              name="title"
+              placeholder="Job Title"
+              value={formData.title}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded mt-1"
+              required
+            />
+          </label>
 
-          <input
-            name="shortDescription"
-            type="text"
-            placeholder="Short Description"
-            value={formData.shortDescription}
-            onChange={handleChange}
-            className="w-full text-black border px-4 py-2 rounded font-raleway"
-            required
-          />
-          
+          {/* Short Description */}
+          <label className="block text-black font-raleway">
+            Short Description
+            <input
+              name="shortDescription"
+              type="text"
+              placeholder="Short Description"
+              value={formData.shortDescription}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded mt-1"
+              required
+            />
+          </label>
 
-          <input
-            type="text"
-            name="experience"
-            placeholder="Experience Required (e.g. 3 years)"
-            value={formData.experience}
-            onChange={handleChange}
-            className="w-full text-black border px-4 py-2 rounded font-raleway"
-            required
-          />
-          <input
-            name="qualification"
-            type="text"
-            placeholder="Qualification"
-            value={formData.qualification}
-            onChange={handleChange}
-            className="w-full text-black border px-4 py-2 rounded font-raleway"
-            required
-          />
+          {/* Experience */}
+          <label className="block text-black font-raleway">
+            Experience Required
+            <input
+              type="text"
+              name="experience"
+              placeholder="e.g. 3 years"
+              value={formData.experience}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded mt-1"
+              required
+            />
+          </label>
+
+          {/* Qualification */}
+          <label className="block text-black font-raleway">
+            Qualification
+            <input
+              name="qualification"
+              type="text"
+              placeholder="Qualification"
+              value={formData.qualification}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded mt-1"
+              required
+            />
+          </label>
+
           {/* Location */}
-          <select
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            className={`w-full border px-4 py-2 rounded font-raleway ${formData.location ? 'text-black' : 'text-gray-500'
-              }`}
-            required
-          >
-            <option value="" disabled hidden>Select Location</option>
-            <option value="Hyderabad">Hyderabad</option>
-            <option value="Indore">Indore</option>
-          </select>
+          <label className="block text-black font-raleway">
+            Location
+            <select
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              className={`w-full border px-4 py-2 rounded mt-1 ${formData.location ? 'text-black' : 'text-gray-500'}`}
+              required
+            >
+              <option value="" disabled hidden>Select Location</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Indore">Indore</option>
+            </select>
+          </label>
 
           {/* Working Mode */}
-          <select
-            name="workingMode"
-            value={formData.workingMode}
-            onChange={handleChange}
-            className={`w-full border px-4 py-2 rounded font-raleway ${formData.workingMode ? 'text-black' : 'text-gray-500'
-              }`}
-            required
-          >
-            <option value="" disabled hidden>Select Working Mode</option>
-            <option value="Remote">Remote</option>
-            <option value="Onsite">Onsite</option>
-            <option value="Hybrid">Hybrid</option>
-          </select>
+          <label className="block text-black font-raleway">
+            Working Mode
+            <select
+              name="workingMode"
+              value={formData.workingMode}
+              onChange={handleChange}
+              className={`w-full border px-4 py-2 rounded mt-1 ${formData.workingMode ? 'text-black' : 'text-gray-500'}`}
+              required
+            >
+              <option value="" disabled hidden>Select Working Mode</option>
+              <option value="Remote">Remote</option>
+              <option value="Onsite">Onsite</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </label>
 
           {/* Employment Type */}
-          <select
-            name="employmentType"
-            value={formData.employmentType}
-            onChange={handleChange}
-            className={`w-full border px-4 py-2 rounded font-raleway ${formData.employmentType ? 'text-black' : 'text-gray-500'
-              }`}
-            required
-          >
-            <option value="" disabled hidden>Select Employment Type</option>
-            <option value="Full-time">Full-time</option>
-            <option value="Part-time">Part-time</option>
-          </select>
+          <label className="block text-black font-raleway">
+            Employment Type
+            <select
+              name="employmentType"
+              value={formData.employmentType}
+              onChange={handleChange}
+              className={`w-full border px-4 py-2 rounded mt-1 ${formData.employmentType ? 'text-black' : 'text-gray-500'}`}
+              required
+            >
+              <option value="" disabled hidden>Select Employment Type</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+            </select>
+          </label>
 
-          <textarea
-            name="skillsRequired"
-            placeholder="Skills Required"
-            value={formData.skillsRequired}
-            onChange={handleChange}
-            className="w-full text-black border px-4 py-2 rounded font-raleway"
-            rows={3}
-            required
-          />
+          {/* Skills Required */}
+          <label className="block text-black font-raleway">
+            Skills Required
+            <textarea
+              name="skillsRequired"
+              placeholder="Skills Required"
+              value={formData.skillsRequired}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded mt-1"
+              rows={3}
+              required
+            />
+          </label>
 
-          <textarea
-            name="rolesResponsibilities"
-            placeholder="Roles & Responsibilities"
-            value={formData.rolesResponsibilities}
-            onChange={handleChange}
-            className="w-full text-black border px-4 py-2 rounded font-raleway"
-            rows={3}
-            required
-          />
+          {/* Roles & Responsibilities */}
+          <label className="block text-black font-raleway">
+            Roles & Responsibilities
+            <textarea
+              name="rolesResponsibilities"
+              placeholder="Roles & Responsibilities"
+              value={formData.rolesResponsibilities}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded mt-1"
+              rows={3}
+              required
+            />
+          </label>
 
-          <textarea
-            name="details"
-            placeholder="Job Details"
-            value={formData.details}
-            onChange={handleChange}
-            className="w-full text-black border px-4 py-2 rounded font-raleway"
-            rows={4}
-            required
-          />
-
+          {/* Job Details */}
+          <label className="block text-black font-raleway">
+            Job Details
+            <textarea
+              name="details"
+              placeholder="Job Details"
+              value={formData.details}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded mt-1"
+              rows={4}
+              required
+            />
+          </label>
 
           {/* Immediate Joiner */}
           <label className="flex items-center space-x-2 text-black">
@@ -256,15 +291,18 @@ function Admin() {
               onChange={handleChange}
               className="text-black"
             />
-            <span className="text-black font-raleway">Immediate Joiner Required</span>
+            <span className="font-raleway">Immediate Joiner Required</span>
           </label>
 
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-[#af9854] text-white font-bold py-2 rounded mt-4"
           >
             {editingJob ? "Update Job" : "Create Job"}
           </button>
+
+          {/* Cancel Edit Button */}
           {editingJob && (
             <button
               type="button"
@@ -290,10 +328,15 @@ function Admin() {
           )}
         </form>
 
-        <button onClick={handleLogout} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">
+        {/* Logout Button */}
+        <button
+          onClick={handleLogout}
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+        >
           Logout
         </button>
-         </div>
+      </div>
+
 
 
       <div className="mt-10 max-w-4xl mx-auto py-10">
@@ -342,7 +385,7 @@ function Admin() {
           ))}
         </div>
       </div>
-     </>
+    </>
   );
 }
 

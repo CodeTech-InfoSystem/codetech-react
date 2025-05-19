@@ -20,7 +20,7 @@ exports.handler = async function () {
     const urls = snapshot.docs.map(doc => `
       <url>
         <loc>https://codetechinfosystem.com/jobs/${doc.id}</loc>
-        <lastmod>${doc.data().updated_at.toDate().toISOString().slice(0, 10)}</lastmod>
+        <lastmod>${(doc.data().updatedAt?.toDate() || new Date()).toISOString().slice(0, 10)}</lastmod>
       </url>`).join("");
 
     const static_urls = `
