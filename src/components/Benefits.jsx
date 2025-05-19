@@ -48,11 +48,11 @@ export const Benefits = () => {
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-12 font-Baloo">Employee Benefits and Perks</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 .text-gray-600">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 .text-gray-600 ">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-[#f7f7f7] rounded-2xl p-6 shadow-md text-center flex flex-col items-center font-raleway min-h-[300px]"
+              className="bg-[#f7f7f7] rounded-2xl p-6 shadow-md text-center flex flex-col items-center font-raleway min-h-[300px] transform transition duration-300 hover:scale-105 hover:shadow-1xl"
             >
               {/* Icon */}
               <div className="mb-4">{benefit.icon}</div>

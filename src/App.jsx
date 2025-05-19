@@ -44,7 +44,7 @@ function App() {
           <Route path="/services" element={<Service />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/joblisting" element={<JobListing />} />
+          <Route path="/jobs/:id" element={<JobListing />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/admin/resume/:filename" element={<ResumeViewer />} />
