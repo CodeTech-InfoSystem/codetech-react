@@ -1,4 +1,3 @@
-import { auth } from '../util/firebaseConfig';
 import useAuthRequired from '../hooks/useAuthRequired';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -77,10 +76,6 @@ function Admin() {
     }
   };
 
-  const handleLogout = () => {
-    auth.signOut();
-  };
-
   const locationOptions = [
     { value: 'Hyderabad', label: 'Hyderabad' },
     { value: 'Indore', label: 'Indore' }
@@ -123,8 +118,6 @@ function Admin() {
     });
     return () => unsubscribe();
   }, []);
-
-
 
   return (
     <>
@@ -333,17 +326,7 @@ function Admin() {
             </button>
           )}
         </form>
-
-        {/* Logout Button */}
-        <button
-          onClick={handleLogout}
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-        >
-          Logout
-        </button>
       </div>
-
-
 
       <div className="mt-10 max-w-4xl mx-auto py-10">
         <h1 className="text-3xl font-bold text-black mb-6 font-raleway text-center">
