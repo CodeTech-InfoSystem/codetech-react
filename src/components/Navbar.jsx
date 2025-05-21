@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { auth } from '../util/firebaseConfig';
 import useAuthRequired from '../hooks/useAuthRequired';
 import { FaUserCircle } from 'react-icons/fa';
@@ -112,7 +112,7 @@ const Navbar = () => {
             {user && (
               <div className="relative">
                 <button
-                  onClick={() => setShowDropdown(!showDropdown)}
+                  onClick={() => !showDropdown && setShowDropdown(!showDropdown)}
                   className="text-white flex items-center gap-2 bg-[#3a3a3a] px-4 py-2 rounded-md hover:bg-[#4a4a4a]"
                 >
                   {user.photoURL ? (
@@ -125,19 +125,19 @@ const Navbar = () => {
                     <FaUserCircle size={24} />
                   )}
                   {user.displayName}
-                  <ChevronDown size={16} />
+                  {showDropdown ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </button>
                 {showDropdown && (
                   <div className="absolute mt-2 w-40 bg-white shadow-md rounded-md text-black z-50" ref={dropdownRef}>
                     {!isAdminPage && (
                       <>
                         <button
-                          onClick={() => {navigate('/admin'); setShowDropdown(false);}}
+                          onClick={() => { navigate('/admin'); setShowDropdown(false); }}
                           className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-md"
                         >
                           Go To Admin
                         </button>
-                        <hr/>
+                        <hr />
                       </>
                     )}
                     <button
