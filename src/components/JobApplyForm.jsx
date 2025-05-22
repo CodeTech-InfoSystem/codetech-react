@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { ref, uploadBytes } from "firebase/storage";
+import { storage } from '../util/firebaseConfig';
 
 const JobApplyForm = ({ location, workingMode }) => {
   const [errors, setErrors] = useState({});
@@ -26,10 +28,29 @@ const JobApplyForm = ({ location, workingMode }) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-
     setFormData((prev) => ({ ...prev, cv: file }));
     setCvFileName(file ? file.name : 'No file chosen');
   };
+
+  async function uploadResumeFile(file) {
+    try {
+      const originalFileName = file.name;
+      const lastDotIndex = originalFileName.lastIndexOf('.');
+      const fileNameWithoutExtension = originalFileName.substring(0, lastDotIndex);
+      const fileExtension = originalFileName.substring(lastDotIndex);
+      const hexCode = Math.random().toString(16).substring(2, 8);
+      const newFileName = `${fileNameWithoutExtension.replace(/\s+/g, '_')}_${hexCode}${fileExtension}`;
+      const storagePath = `resume/${newFileName}`;
+      const storageRef = ref(storage, storagePath);
+
+      await uploadBytes(storageRef, file);
+      return storagePath;
+    } catch (err) {
+      console.error('Upload failed:', err);
+      toast.error("Resume upload failed!");
+      return null;
+    }
+  }
 
   const validate = () => {
     const newErrors = {};
@@ -56,20 +77,21 @@ const JobApplyForm = ({ location, workingMode }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validate()) {
       return;
     }
+    const resumePath = await uploadResumeFile(formData.cv);
+    if (!resumePath) return
 
     const data = new FormData();
     data.append("form-name", "jobApply");
+    data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`)
 
     Object.entries(formData).forEach(([key, value]) => {
-      if (key === 'cv' && value) {
-        data.append('cv', value);
-      } else if (value) {
+      if (key !== 'cv' && value) {
         data.append(key, value);
       }
     });
@@ -78,26 +100,26 @@ const JobApplyForm = ({ location, workingMode }) => {
       method: "POST",
       body: data
     })
-      .then(() => {
-        toast.success("Your request has been sent successfully!");
-        setFormData({
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
-          location: '',
-          workingMode: '',
-          totalExp: '',
-          jobRole: '',
-          currentCompany: '',
-          noticePeriod: '',
-          cv: null,
-        });
-        setCvFileName("No file chosen");
-      })
-      .catch(() => {
-        toast.error("Internal server error");
+    .then(() => {
+      toast.success("Your application submitted successfully!");
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        location: '',
+        workingMode: '',
+        totalExp: '',
+        jobRole: '',
+        currentCompany: '',
+        noticePeriod: '',
+        cv: null,
       });
+      setCvFileName("No file chosen");
+    })
+    .catch(() => {
+      toast.error("Something Went Wrong!");
+    });
   };
 
 
@@ -155,7 +177,7 @@ const JobApplyForm = ({ location, workingMode }) => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
-         <input
+        <input
           type="text"
           name="totalExp"
           placeholder="Total Experience (e.g. 3 years)"
