@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-const JobApplyForm = () => {
+const JobApplyForm = ({ location, workingMode }) => {
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     phone: '',
     email: '',
     location: '',
-    workingMode: '',
     totalExp: '',
     jobRole: '',
     currentCompany: '',
     noticePeriod: '',
+    relocated: false,
     cv: null,
   });
 
@@ -25,14 +26,43 @@ const JobApplyForm = () => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    console.log(file)
+
     setFormData((prev) => ({ ...prev, cv: file }));
     setCvFileName(file ? file.name : 'No file chosen');
   };
 
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) newErrors.firstName = "First Name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last Name is required";
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Mobile No. is required";
+    } else if (!/^\d{10}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Invalid Mobile No.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email Address is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email Address is invalid";
+    }
+
+    if (!formData.cv) newErrors.cv = "Resume is required";
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-     console.log(formData)
+
+    if (!validate()) {
+      return;
+    }
+
     const data = new FormData();
     data.append("form-name", "jobApply");
 
@@ -88,6 +118,7 @@ const JobApplyForm = () => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
+        {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
         <input
           type="text"
           name="lastName"
@@ -96,6 +127,8 @@ const JobApplyForm = () => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
+        {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
+
         <input
           type="tel"
           name="phone"
@@ -104,6 +137,7 @@ const JobApplyForm = () => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
+        {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
         <input
           type="email"
           name="email"
@@ -112,6 +146,7 @@ const JobApplyForm = () => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
+        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         <input
           type="text"
           name="location"
@@ -120,18 +155,7 @@ const JobApplyForm = () => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
-        <select
-          name="workingMode"
-          value={formData.workingMode}
-          onChange={handleChange}
-          className="w-full text-black border px-4 py-2 rounded font-raleway"
-        >
-          <option value="" className='font-raleway'>Select preferable Working Mode</option>
-          <option value="Remote">Remote</option>
-          <option value="Onsite">Onsite</option>
-          <option value="Hybrid">Hybrid</option>
-        </select>
-        <input
+         <input
           type="text"
           name="totalExp"
           placeholder="Total Experience (e.g. 3 years)"
@@ -179,8 +203,34 @@ const JobApplyForm = () => {
             onChange={handleFileChange}
             className="hidden"
           />
+          {errors.cv && <p className="text-red-500 text-sm mt-1">{errors.cv}</p>}
         </div>
 
+        {(workingMode === 'Hybrid' || workingMode === 'Onsite') && (
+          <label className="flex items-center space-x-2 text-black mt-2">
+            <input
+              type="checkbox"
+              name="relocated"
+              checked={formData.relocated || false}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  relocated: e.target.checked,
+                }))
+              }
+              className="text-black"
+            />
+            <span className="font-raleway">
+              Are you ready to relocate to&nbsp;
+              <strong>
+                {Array.isArray(location)
+                  ? location.map((loc) => loc.label).join(' or ')
+                  : location || 'the specified location'}
+              </strong>
+              ?
+            </span>
+          </label>
+        )}
         <button
           type="submit"
           className="w-full bg-[#af9854] text-white font-bold py-2 rounded mt-4"
