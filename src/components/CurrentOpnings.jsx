@@ -18,7 +18,7 @@ export const CurrentOpnings = () => {
     return () => unsubscribe();
   }, []);
 
-  
+
 
   const handleReadMore = (job) => {
     navigate(`/jobs/${job.id}`, { state: { job } });
@@ -38,16 +38,16 @@ export const CurrentOpnings = () => {
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 h-full flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="text-xl font-bold mb-2 font-Baloo">{job.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 font-Baloo">{job.title.charAt(0).toUpperCase() + job.title.slice(1)}</h3>
                   <div className="flex flex-wrap items-center text-sm text-gray-700 gap-4 mb-3 font-raleway min-h-[3.5rem]">
                     {job.location && (
                       <div className="flex items-center">
-                        <FaMapMarkerAlt className="mr-1 text-[#ad954f]"/>
+                        <FaMapMarkerAlt className="mr-1 text-[#ad954f]" />
                         <p>
-    {Array.isArray(job.location)
-      ? job.location.map((loc) => loc.label).join(', ')
-      : job.location}
-  </p>
+                          {Array.isArray(job.location)
+                            ? job.location.map((loc) => loc.label).join(', ')
+                            : job.location}
+                        </p>
                       </div>
                     )}
                     {job.employmentType && (

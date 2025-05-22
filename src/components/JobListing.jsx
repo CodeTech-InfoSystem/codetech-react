@@ -31,9 +31,20 @@ const JobListing = () => {
 
         <div>
           <h1 className="text-4xl font-bold mb-6 font-Baloo 2">
-            {job.title}
+          {job.title.charAt(0).toUpperCase() + job.title.slice(1)}
           </h1>
-
+          
+          <h2 className="text-xl font-semibold text-[#af9854]">Job Details:</h2>
+          <ul className="list-disc list-inside space-y-1 font-raleway">
+            {job.details
+              .split('. ')
+              .map(s => s.trim())
+              .filter(s => s.length > 0)
+              .map((sentence, idx) => (
+                <li key={idx}>{sentence}.</li>
+              ))}
+          </ul>
+          <br />
           <h2 className="text-xl font-semibold text-[#af9854] font-Baloo 2">Experience</h2>
           <p className="mb-4 font-raleway">
             {job.experience}
@@ -69,8 +80,8 @@ const JobListing = () => {
 
         {/* Form */}
         <div>
-          <JobListingForm />
-        </div>
+        <JobListingForm location={job.location} workingMode={job.workingMode} />
+      </div>
       </div>
     </div>
   );
