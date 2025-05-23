@@ -59,7 +59,6 @@ const JobApplyForm = ({ location, workingMode }) => {
       const hexCode = Math.random().toString(16).substring(2, 8);
       const date = new Date().toLocaleDateString('en-GB').replace(/\//g, '');
       const newFileName = `${fileNameWithoutExtension.replace(/\s+/g, '_')}_${hexCode}_${date}${fileExtension}`;
-      console.log(newFileName)
       const storagePath = `resume/${newFileName}`;
       const storageRef = ref(storage, storagePath);
 
@@ -108,6 +107,7 @@ const JobApplyForm = ({ location, workingMode }) => {
 
     const data = new FormData();
     data.append("form-name", "jobApply");
+    data.append("subject" , "Job Application - %{submissionId}")
     data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`)
 
     Object.entries(formData).forEach(([key, value]) => {
