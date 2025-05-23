@@ -107,7 +107,7 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
 
     const data = new FormData();
     data.append("form-name", "jobApply");
-    data.append("subject" , "Job Application - %{submissionId}");
+    data.append("subject" , `Job Application - ${formData.firstName} ${formData.lastName}`);
     data.append('jobTitle', jobRole);
     data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`);
 
