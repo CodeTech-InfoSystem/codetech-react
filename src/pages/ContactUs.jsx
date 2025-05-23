@@ -26,6 +26,7 @@ const ContactUs = () => {
     formData.append("email", email);
     formData.append("message", message);
     formData.append("form-name", "contact");
+    formData.append('subject', `New Contact Us Request from ${name}`);
 
     fetch("/", {
       method: "POST",

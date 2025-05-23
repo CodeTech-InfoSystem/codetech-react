@@ -32,6 +32,8 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="subject" data-remove-prefix
+      value="New Contact Us Request" />
     <input type="text" name="name" />
     <input type="email" name="email" />
     <textarea name="message"></textarea>
