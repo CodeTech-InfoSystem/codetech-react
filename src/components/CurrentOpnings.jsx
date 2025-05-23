@@ -4,6 +4,7 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../util/firebaseConfig';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { MdLocationOn } from "react-icons/md";
 
 export const CurrentOpnings = () => {
   const navigate = useNavigate()
@@ -13,7 +14,9 @@ export const CurrentOpnings = () => {
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'jobs'), snapshot => {
       const jobData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      console.log(jobData)
       setJobData(jobData);
+
     });
     return () => unsubscribe();
   }, []);
@@ -54,6 +57,15 @@ export const CurrentOpnings = () => {
                       <div className="flex items-center">
                         <FaUserClock className="mr-1 text-[#ad954f]" />
                         {job.employmentType}
+                      </div>
+                    )}
+
+
+                    {job.workingMode && (
+                      <div className="flex items-center">
+                        <MdLocationOn className="mr-1 text-[#ad954f]" />
+                        {job.workingMode
+                        }
                       </div>
                     )}
                     {job.experience && (
