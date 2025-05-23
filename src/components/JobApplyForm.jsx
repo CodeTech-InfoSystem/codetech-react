@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from '../util/firebaseConfig';
 
-const JobApplyForm = ({ location, workingMode }) => {
+const JobApplyForm = ({ location, workingMode, jobRole }) => {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     firstName: '',
@@ -107,8 +107,9 @@ const JobApplyForm = ({ location, workingMode }) => {
 
     const data = new FormData();
     data.append("form-name", "jobApply");
-    data.append("subject" , "Job Application - %{submissionId}")
-    data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`)
+    data.append("subject" , "Job Application - %{submissionId}");
+    data.append('jobTitle', jobRole);
+    data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`);
 
     Object.entries(formData).forEach(([key, value]) => {
       if (key !== 'cv' && value) {
