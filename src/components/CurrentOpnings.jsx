@@ -10,18 +10,14 @@ export const CurrentOpnings = () => {
   const navigate = useNavigate()
   const [jobData, setJobData] = useState([])
 
-
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'jobs'), snapshot => {
       const jobData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      console.log(jobData)
       setJobData(jobData);
 
     });
     return () => unsubscribe();
   }, []);
-
-
 
   const handleReadMore = (job) => {
     navigate(`/jobs/${job.id}`, { state: { job } });
@@ -32,7 +28,6 @@ export const CurrentOpnings = () => {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-Baloo">Current Openings</h2>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {jobData.length > 0 ? (
             jobData.map((job, index) => (
@@ -59,8 +54,6 @@ export const CurrentOpnings = () => {
                         {job.employmentType}
                       </div>
                     )}
-
-
                     {job.workingMode && (
                       <div className="flex items-center">
                         <MdLocationOn className="mr-1 text-[#ad954f]" />
@@ -101,7 +94,7 @@ export const CurrentOpnings = () => {
             </div>
           )}
         </div>
-
+        
         <div className="text-center mb-3">
           <p className="text-gray-600 mt-14 font-raleway">
             For any information regarding career opportunities email us:{" "}
@@ -112,6 +105,5 @@ export const CurrentOpnings = () => {
         </div>
       </div>
     </section>
-
   );
 };

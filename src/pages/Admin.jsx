@@ -56,8 +56,6 @@ const Admin = () => {
     const { name, value, type, checked } = e.target;
     const fieldValue = type === 'checkbox' ? checked : value;
 
-
-
     if (['shortDescription', 'experience'].includes(name)) {
       const words = fieldValue.trim().split(/\s+/).filter(Boolean);
       if (words.length > 20) {
@@ -95,7 +93,6 @@ const Admin = () => {
         });
       }
     }
-
 
     setFormData((prev) => ({ ...prev, [name]: fieldValue }));
   };
