@@ -57,7 +57,9 @@ const JobApplyForm = ({ location, workingMode }) => {
       const fileNameWithoutExtension = originalFileName.substring(0, lastDotIndex);
       const fileExtension = originalFileName.substring(lastDotIndex);
       const hexCode = Math.random().toString(16).substring(2, 8);
-      const newFileName = `${fileNameWithoutExtension.replace(/\s+/g, '_')}_${hexCode}${fileExtension}`;
+      const date = new Date().toLocaleDateString('en-GB').replace(/\//g, '');
+      const newFileName = `${fileNameWithoutExtension.replace(/\s+/g, '_')}_${hexCode}_${date}${fileExtension}`;
+      console.log(newFileName)
       const storagePath = `resume/${newFileName}`;
       const storageRef = ref(storage, storagePath);
 
@@ -118,26 +120,26 @@ const JobApplyForm = ({ location, workingMode }) => {
       method: "POST",
       body: data
     })
-    .then(() => {
-      toast.success("Your application submitted successfully!");
-      setFormData({
-        firstName: '',
-        lastName: '',
-        phone: '',
-        email: '',
-        location: '',
-        workingMode: '',
-        totalExp: '',
-        jobRole: '',
-        currentCompany: '',
-        noticePeriod: '',
-        cv: null,
+      .then(() => {
+        toast.success("Your application submitted successfully!");
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          email: '',
+          location: '',
+          workingMode: '',
+          totalExp: '',
+          jobRole: '',
+          currentCompany: '',
+          noticePeriod: '',
+          cv: null,
+        });
+        setCvFileName("No file chosen");
+      })
+      .catch(() => {
+        toast.error("Something Went Wrong!");
       });
-      setCvFileName("No file chosen");
-    })
-    .catch(() => {
-      toast.error("Something Went Wrong!");
-    });
   };
 
 

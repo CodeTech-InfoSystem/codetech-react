@@ -93,7 +93,6 @@ const Admin = () => {
         });
       }
     }
-
     setFormData((prev) => ({ ...prev, [name]: fieldValue }));
   };
 
