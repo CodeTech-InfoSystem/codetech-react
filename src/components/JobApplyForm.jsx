@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from '../util/firebaseConfig';
 
-const JobApplyForm = ({ location, workingMode }) => {
+const JobApplyForm = ({ location, workingMode, jobRole }) => {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     firstName: '',
@@ -57,7 +57,8 @@ const JobApplyForm = ({ location, workingMode }) => {
       const fileNameWithoutExtension = originalFileName.substring(0, lastDotIndex);
       const fileExtension = originalFileName.substring(lastDotIndex);
       const hexCode = Math.random().toString(16).substring(2, 8);
-      const newFileName = `${fileNameWithoutExtension.replace(/\s+/g, '_')}_${hexCode}${fileExtension}`;
+      const date = new Date().toLocaleDateString('en-GB').replace(/\//g, '');
+      const newFileName = `${fileNameWithoutExtension.replace(/\s+/g, '_')}_${hexCode}_${date}${fileExtension}`;
       const storagePath = `resume/${newFileName}`;
       const storageRef = ref(storage, storagePath);
 
@@ -106,7 +107,9 @@ const JobApplyForm = ({ location, workingMode }) => {
 
     const data = new FormData();
     data.append("form-name", "jobApply");
-    data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`)
+    data.append("subject" , `Job Application - ${formData.firstName} ${formData.lastName}`);
+    data.append('jobTitle', jobRole);
+    data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`);
 
     Object.entries(formData).forEach(([key, value]) => {
       if (key !== 'cv' && value) {
@@ -118,26 +121,26 @@ const JobApplyForm = ({ location, workingMode }) => {
       method: "POST",
       body: data
     })
-    .then(() => {
-      toast.success("Your application submitted successfully!");
-      setFormData({
-        firstName: '',
-        lastName: '',
-        phone: '',
-        email: '',
-        location: '',
-        workingMode: '',
-        totalExp: '',
-        jobRole: '',
-        currentCompany: '',
-        noticePeriod: '',
-        cv: null,
+      .then(() => {
+        toast.success("Your application submitted successfully!");
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          email: '',
+          location: '',
+          workingMode: '',
+          totalExp: '',
+          jobRole: '',
+          currentCompany: '',
+          noticePeriod: '',
+          cv: null,
+        });
+        setCvFileName("No file chosen");
+      })
+      .catch(() => {
+        toast.error("Something Went Wrong!");
       });
-      setCvFileName("No file chosen");
-    })
-    .catch(() => {
-      toast.error("Something Went Wrong!");
-    });
   };
 
 

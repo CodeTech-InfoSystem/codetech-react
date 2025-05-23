@@ -80,7 +80,7 @@ const JobListing = () => {
 
         {/* Form */}
         <div>
-          <JobApplyForm location={job.location} workingMode={job.workingMode} />
+          <JobApplyForm location={job.location} workingMode={job.workingMode} jobRole={job.title} />
         </div>
       </div>
     </div>

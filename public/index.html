@@ -11,9 +11,10 @@
   <meta name="keywords" content="Software, Web Development, Codetech Infosystem, IT Solutions">
   <meta property="og:title" content="Codetech Infosystem">
   <meta property="og:description" content="We help build and manage software solutions for businesses.">
-  <meta property="og:image" content="https://codetechinfosystem.com/images/logo.svg">
+  <meta property="og:image" content="https://codetechinfosystem.com/images/cd_logo_og.png">
   <meta property="og:url" content="https://codetechinfosystem.com/">
-
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Codetech Infosystem">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -23,9 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-
   <link rel="manifest" href="/manifest.json" />
-
   <title>Codetech Infosystem</title>
 </head>
 
@@ -39,6 +38,9 @@
   </form>
 
   <form name="jobApply" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="subject" data-remove-prefix
+      value="Job Application" />
+    <input type="text" name="jobTitle" />
     <input type="text" name="firstName" />
     <input type="text" name="lastName" />
     <input type="tel" name="phone" />
