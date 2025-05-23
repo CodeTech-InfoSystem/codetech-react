@@ -23,6 +23,24 @@ const JobApplyForm = ({ location, workingMode }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === 'firstName' || name === 'lastName') {
+      const trimmedValue = value.trim();
+      if (trimmedValue.length > 0 && trimmedValue.length < 3) {
+        setErrors((prev) => ({
+          ...prev,
+          [name]: `${name === 'firstName' ? 'First Name' : 'Last Name'} must be at least 3 characters long.`,
+        }));
+      } else {
+
+        setErrors((prev) => {
+          const newErrors = { ...prev };
+          delete newErrors[name];
+          return newErrors;
+        });
+      }
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -224,6 +242,7 @@ const JobApplyForm = ({ location, workingMode }) => {
             name="cv"
             onChange={handleFileChange}
             className="hidden"
+            accept=".pdf"
           />
           {errors.cv && <p className="text-red-500 text-sm mt-1">{errors.cv}</p>}
         </div>

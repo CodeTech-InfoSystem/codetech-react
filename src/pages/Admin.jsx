@@ -8,6 +8,8 @@ import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import { FaClock, FaEye } from 'react-icons/fa';
 import CreatableSelect from 'react-select/creatable';
 import { Link } from 'react-router-dom';
+import { MdLocationOn } from 'react-icons/md';
+import { RxCross2 } from "react-icons/rx";
 
 const Admin = () => {
   useAuthRequired();
@@ -70,6 +72,28 @@ const Admin = () => {
         });
       }
     }
+
+    if (name === 'title') {
+      const titleLength = fieldValue.trim().length;
+      if (titleLength > 50) {
+        setFormErrors((prev) => ({
+          ...prev,
+          title: "Job Title cannot exceed 50 characters."
+        }));
+      } else if (titleLength < 3 && titleLength > 0) {
+        setFormErrors((prev) => ({
+          ...prev,
+          title: "Job Title must be at least 3 characters long."
+        }));
+      } else {
+        setFormErrors((prev) => {
+          const newErrors = { ...prev };
+          delete newErrors.title;
+          return newErrors;
+        });
+      }
+    }
+
     setFormData((prev) => ({ ...prev, [name]: fieldValue }));
   };
 
@@ -141,6 +165,9 @@ const Admin = () => {
   };
 
   const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this job?");
+    if (!confirmDelete) return;
+
     try {
       await deleteDoc(doc(db, 'jobs', id));
       toast.success("Job Deleted successfully!");
@@ -179,7 +206,7 @@ const Admin = () => {
   return (
     <>
       <div className="p-8 bg-[#242423]">
-        <div className="mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-8">
+        <div className="mt-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-8">
           {/* Job List */}
           <div className={`flex-1 max-w-8xl`}>
             <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
@@ -203,7 +230,7 @@ const Admin = () => {
                 No jobs available.
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {jobs.map((job) => (
                   <div
                     key={job.id}
@@ -217,19 +244,19 @@ const Admin = () => {
 
                         <div className="flex space-x-4">
                           <Link to={`/jobs/${job.id}`}>
-                            <FaEye className="text-[#af9854]" size={22} />
+                            <FaEye className="text-[#af9854] hover:text-[#d5c38e]" size={26} />
                           </Link>
                           <button
                             onClick={() => handleEdit(job)}
                             aria-label="Edit Job"
-                            className="text-[#af9854] hover:text-black focus:outline-none"
+                            className="text-[#af9854] hover:text-[#d5c38e] focus:outline-none"
                           >
                             <FiEdit size={22} />
                           </button>
                           <button
                             onClick={() => handleDelete(job.id)}
                             aria-label="Delete Job"
-                            className="text-[#af9854] hover:text-black focus:outline-none"
+                            className="text-[#af9854] hover:text-[#d5c38e] focus:outline-none"
                           >
                             <FiTrash2 size={22} />
                           </button>
@@ -251,10 +278,10 @@ const Admin = () => {
                         </p>
                         <FaClock className="ml-3" />
                         <p>{job.employmentType}</p>
+                        <MdLocationOn className="ml-3" />
+                        <p>{job.workingMode}</p>
                       </div>
                     </div>
-
-
                   </div>
                 ))}
               </div>
@@ -263,12 +290,16 @@ const Admin = () => {
 
           {/* Job Form */}
           {showForm && (
-            <div className="flex-1 max-4xl bg-white p-6 rounded-lg shadow-lg font-raleway text-[#242423]">
+            <div className="flex-1 max-4x p-6 rounded-lg  text-[#242423]">
               <h2 className="text-2xl font-bold mb-4">{editingJob ? 'Edit Job' : 'Create Job'}</h2>
               <form
                 onSubmit={handleSubmit}
-                className="bg-white p-6 rounded-xl space-y-4 shadow-lg max-w-3xl mx-auto "
+                className="bg-white p-6 rounded-xl space-y-4 shadow-lg max-w-3xl mx-auto relative  "
               >
+                <div className="absolute top-4 right-4 cursor-pointer">
+                  <RxCross2 onClick={() => setShowForm(false)} />
+                </div>
+
                 {/* Job Title */}
                 <label className="block text-black font-raleway">
                   Job Title
@@ -282,7 +313,7 @@ const Admin = () => {
 
                   />
                 </label>
-                {formErrors.title && <p className="text-red-500 text-sm">{formErrors.title}</p>}
+                {formErrors.title && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.title}</p>}
 
                 {/* Short Description */}
                 <label className="block text-black font-raleway">
@@ -294,12 +325,9 @@ const Admin = () => {
                     value={formData.shortDescription}
                     onChange={handleChange}
                     className="w-full text-black border px-4 py-2 rounded mt-1"
-
                   />
                 </label>
-                {formErrors.shortDescription && <p className="text-red-500 text-sm">{formErrors.shortDescription}</p>}
-
-
+                {formErrors.shortDescription && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.shortDescription}</p>}
 
                 {/* Experience */}
                 <label className="block text-black font-raleway">
@@ -314,7 +342,7 @@ const Admin = () => {
 
                   />
                 </label>
-                {formErrors.experience && <p className="text-red-500 text-sm">{formErrors.experience}</p>}
+                {formErrors.experience && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.experience}</p>}
 
                 {/* Qualification */}
                 <label className="block text-black font-raleway">
@@ -329,7 +357,7 @@ const Admin = () => {
 
                   />
                 </label>
-                {formErrors.qualification && <p className="text-red-500 text-sm">{formErrors.qualification}</p>}
+                {formErrors.qualification && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.qualification}</p>}
 
                 {/* Location */}
 
@@ -350,7 +378,7 @@ const Admin = () => {
                     <option value="Hybrid">Hybrid</option>
                   </select>
                 </label>
-                {formErrors.workingMode && <p className="text-red-500 text-sm">{formErrors.workingMode}</p>}
+                {formErrors.workingMode && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.workingMode}</p>}
 
 
                 <label className="block text-black font-raleway">
@@ -369,7 +397,7 @@ const Admin = () => {
                     placeholder="Select or create locations"
                   />
                 </label>
-                {formErrors.location && <p className="text-red-500 text-sm">{formErrors.location}</p>}
+                {formErrors.location && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.location}</p>}
 
                 {/* Employment Type */}
                 <label className="block text-black font-raleway">
@@ -384,10 +412,10 @@ const Admin = () => {
                     <option value="" disabled hidden>Select Employment Type</option>
                     <option value="Full-time">Full-time</option>
                     <option value="Part-time">Part-time</option>
-                    <option value="Part-time">Intern</option>
+                    <option value="Intern">Intern</option>
                   </select>
                 </label>
-                {formErrors.employmentType && <p className="text-red-500 text-sm">{formErrors.employmentType}</p>}
+                {formErrors.employmentType && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.employmentType}</p>}
 
                 {/* Skills Required */}
                 <label className="block text-black font-raleway">
@@ -402,7 +430,7 @@ const Admin = () => {
 
                   />
                 </label>
-                {formErrors.skillsRequired && <p className="text-red-500 text-sm">{formErrors.skillsRequired}</p>}
+                {formErrors.skillsRequired && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.skillsRequired}</p>}
 
                 {/* Roles & Responsibilities */}
                 <label className="block text-black font-raleway">
@@ -417,7 +445,7 @@ const Admin = () => {
 
                   />
                 </label>
-                {formErrors.rolesResponsibilities && <p className="text-red-500 text-sm">{formErrors.rolesResponsibilities}</p>}
+                {formErrors.rolesResponsibilities && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.rolesResponsibilities}</p>}
 
                 {/* Job Details */}
                 <label className="block text-black font-raleway">
@@ -432,7 +460,7 @@ const Admin = () => {
 
                   />
                 </label>
-                {formErrors.details && <p className="text-red-500 text-sm">{formErrors.details}</p>}
+                {formErrors.details && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.details}</p>}
 
                 {/* Immediate Joiner */}
                 <label className="flex items-center space-x-2 text-black">
@@ -460,6 +488,7 @@ const Admin = () => {
                     type="button"
                     onClick={() => {
                       setEditingJob(null);
+                      setShowForm(false)
                       setFormData({
                         title: '',
                         shortDescription: '',
@@ -473,7 +502,7 @@ const Admin = () => {
                         employmentType: '',
                       });
                     }}
-                    className="w-full bg-gray-400 text-white font-bold py-2 rounded mt-2"
+                    className="w-full bg-gray-400 text-white font-bold py-2 rounded mt-2 "
                   >
                     Cancel
                   </button>
