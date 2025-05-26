@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../util/firebaseConfig';
 import JobApplyForm from './JobApplyForm';
+import useAuthRequired from '../hooks/useAuthRequired';
 
 const JobListing = () => {
   const { id } = useParams();
+  const user = useAuthRequired(false);
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [notAvailable, setNotAvailable] = useState(false);
@@ -22,7 +24,7 @@ const JobListing = () => {
         const jobData = docSnap.data();
 
         // If job is inactive, show not available
-        if (jobData.status === "Draft") {
+        if (jobData.status === "Draft" && !user) {
           setNotAvailable(true);
           setJob(null);
         } else {
@@ -37,7 +39,7 @@ const JobListing = () => {
     };
 
     fetchJob();
-  }, [id]);
+  }, [id, user]);
 
   if (loading) {
     return <div className="text-white p-6">Loading...</div>;
