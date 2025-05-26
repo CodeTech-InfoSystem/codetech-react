@@ -1,5 +1,6 @@
 const { initializeApp } = require("firebase/app");
 const { getDocs, getFirestore, collection } = require('firebase/firestore');
+import {query, where } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -16,7 +17,7 @@ const db = getFirestore(app);
 
 exports.handler = async function () {
   try {
-    const snapshot = await getDocs(collection(db, 'jobs'));
+    const snapshot = await getDocs(query(collection(db, 'jobs'), where('status', '==', 'Active')));
     const urls = snapshot.docs.map(doc => `
       <url>
         <loc>https://codetechinfosystem.com/jobs/${doc.id}</loc>
