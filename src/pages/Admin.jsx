@@ -1,7 +1,7 @@
 import useAuthRequired from '../hooks/useAuthRequired';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, onSnapshot, doc, updateDoc, serverTimestamp, query, where } from 'firebase/firestore';
 import { db } from '../util/firebaseConfig';
 import { IoLocation } from 'react-icons/io5';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
@@ -30,6 +30,7 @@ const Admin = () => {
     immediateJoiner: false,
     employmentType: '',
     qualification: '',
+    status: 'Draft',
   });
 
   const validateForm = () => {
@@ -132,6 +133,7 @@ const Admin = () => {
         immediateJoiner: false,
         employmentType: '',
         qualification: '',
+        status: '',
       });
       setShowForm(false);
     } catch (error) {
@@ -158,6 +160,7 @@ const Admin = () => {
       immediateJoiner: job.immediateJoiner || false,
       employmentType: job.employmentType || '',
       qualification: job.qualification || '',
+      status: job.status || '',
     });
     setShowForm(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -168,19 +171,32 @@ const Admin = () => {
     if (!confirmDelete) return;
 
     try {
-      await deleteDoc(doc(db, 'jobs', id));
-      toast.success("Job Deleted successfully!");
-    }
-    catch (err) {
+      const jobRef = doc(db, "jobs", id);
+      await updateDoc(jobRef, { status: "Inactive" });
+
+      setJobs((prevJobs) =>
+        prevJobs.map((job) =>
+          job.id === id ? { ...job, status: "Inactive" } : job
+        )
+      );
+
+      toast.success("Job deleted successfully!");
+    } catch (error) {
       toast.error("Failed to delete job. Try again.");
     }
   };
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, 'jobs'), snapshot => {
+    const q = query(
+      collection(db, 'jobs'),
+      where('status', 'in', ['Active', 'Draft'])
+    );
+
+    const unsubscribe = onSnapshot(q, snapshot => {
       const jobList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setJobs(jobList);
     });
+
     return () => unsubscribe();
   }, []);
 
@@ -198,6 +214,7 @@ const Admin = () => {
       immediateJoiner: false,
       employmentType: '',
       qualification: '',
+      status: '',
     });
     setShowForm(true);
   }
@@ -242,6 +259,9 @@ const Admin = () => {
                         </h3>
 
                         <div className="flex space-x-4">
+                          {job.status && job.status.trim() === 'Draft' && (
+                            <p className="text-green-500">{job.status}</p>
+                          )}
                           <Link to={`/jobs/${job.id}`}>
                             <FaEye className="text-[#af9854] hover:text-[#d5c38e]" size={26} />
                           </Link>
@@ -415,6 +435,22 @@ const Admin = () => {
                   </select>
                 </label>
                 {formErrors.employmentType && <p className="text-red-500 text-sm font-Baloo 2">{formErrors.employmentType}</p>}
+
+
+                {/* Employment Type */}
+                <label className="block text-black font-raleway">
+                  Job Status
+                  <select
+                    name="status"
+                    value={formData.status}
+                    onChange={handleChange}
+                    className={`w-full border px-4 py-2 rounded mt-1 ${formData.status ? 'text-black' : 'text-gray-500'}`}
+                  >
+                    <option value="">Select Job Status</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Active">Active</option>
+                  </select>
+                </label>
 
                 {/* Skills Required */}
                 <label className="block text-black font-raleway">

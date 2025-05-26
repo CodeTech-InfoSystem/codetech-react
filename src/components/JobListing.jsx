@@ -7,28 +7,54 @@ import JobApplyForm from './JobApplyForm';
 const JobListing = () => {
   const { id } = useParams();
   const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notAvailable, setNotAvailable] = useState(false);
 
   useEffect(() => {
     const fetchJob = async () => {
+      setLoading(true);
+      setNotAvailable(false);
+
       const docRef = doc(db, 'jobs', id);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setJob(docSnap.data());
+        const jobData = docSnap.data();
+
+        // If job is inactive, show not available
+        if (jobData.status === "Draft") {
+          setNotAvailable(true);
+          setJob(null);
+        } else {
+          setJob(jobData);
+        }
+      } else {
+        // Job not found
+        setNotAvailable(true);
+        setJob(null);
       }
+      setLoading(false);
     };
 
     fetchJob();
   }, [id]);
 
-  if (!job) {
+  if (loading) {
     return <div className="text-white p-6">Loading...</div>;
   }
 
+  if (notAvailable) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-[#242423] text-white text-2xl font-bold font-raleway">
+        Job is not available
+      </div>
+    );
+  }
+
+  // job.status is active or inactive here
   return (
     <div className="text-white min-h-screen py-20 px-6 bg-[#242423] pb-[8.5rem]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-
         <div>
           <h1 className="text-4xl font-bold mb-6 font-Baloo 2">
             {job.title.charAt(0).toUpperCase() + job.title.slice(1)}
@@ -36,51 +62,53 @@ const JobListing = () => {
 
           <h2 className="text-xl font-semibold text-[#af9854]">Job Details:</h2>
           <ul className="list-disc list-inside space-y-1 font-raleway">
-            {job.details
-              .split('. ')
+            {(job.details
+              ?.split(/\n|(?:^|\s)[•\--\d]+\)?\.?\s+/g) || [])
               .map(s => s.trim())
               .filter(s => s.length > 0)
-              .map((sentence, idx) => (
-                <li key={idx}>{sentence}.</li>
+              .map((point, idx) => (
+                <li key={idx}>{point.replace(/^-+/, '').trim()}</li>
               ))}
           </ul>
           <br />
           <h2 className="text-xl font-semibold text-[#af9854] font-Baloo 2">Experience</h2>
-          <p className="mb-4 font-raleway">
-            {job.experience}
-          </p>
+          <p className="mb-4 font-raleway">{job.experience}</p>
 
           <h2 className="text-xl font-semibold text-[#af9854] font-Baloo 2">Qualification</h2>
-          <p className="mb-4 font-raleway">
-            {job.qualification}
-          </p>
+          <p className="mb-4 font-raleway">{job.qualification}</p>
 
           <h2 className="text-xl font-semibold text-[#af9854]">Roles and Responsibilites:</h2>
           <ul className="list-disc list-inside mb-4 space-y-1 font-raleway">
-            {job.rolesResponsibilities
-              .split('. ')
+            {(job.rolesResponsibilities
+              ?.split(/\n|(?:^|\s)[•\--\d]+\)?\.?\s+/g) || [])
               .map(s => s.trim())
               .filter(s => s.length > 0)
-              .map((sentence, idx) => (
-                <li key={idx}>{sentence}.</li>
+              .map((point, idx) => (
+                <li key={idx}>{point.replace(/^-+/, '').trim()}</li>
               ))}
           </ul>
 
           <h2 className="text-xl font-semibold text-[#af9854]">Skill Required:</h2>
           <ul className="list-disc list-inside space-y-1 font-raleway">
-            {job.skillsRequired
-              .split('. ')
+            {(job.skillsRequired
+              ?.split(/\n|(?:^|\s)[•\--\d]+\)?\.?\s+/g) || [])
               .map(s => s.trim())
               .filter(s => s.length > 0)
-              .map((sentence, idx) => (
-                <li key={idx}>{sentence}.</li>
+              .map((point, idx) => (
+                <li key={idx}>{point.replace(/^-+/, '').trim()}</li>
               ))}
           </ul>
         </div>
 
-        {/* Form */}
+        {/* Show form only if job status is Active */}
         <div>
-          <JobApplyForm location={job.location} workingMode={job.workingMode} jobRole={job.title} />
+          {job.status === "Active" ? (
+            <JobApplyForm location={job.location} workingMode={job.workingMode} />
+          ) : job.status.trim() === "Inactive" ? (
+            <div className="text-red-600 text-center text-xl font-bold p-8 border border-red-600 rounded-md font-raleway">
+              job is no longer accepting applications
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

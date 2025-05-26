@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaUserClock, FaMapMarkerAlt } from "react-icons/fa";
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from '../util/firebaseConfig';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -11,10 +11,9 @@ export const CurrentOpnings = () => {
   const [jobData, setJobData] = useState([])
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, 'jobs'), snapshot => {
+    const unsubscribe = onSnapshot(query(collection(db, 'jobs'), where('status', '==', 'Active')), snapshot => {
       const jobData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setJobData(jobData);
-
     });
     return () => unsubscribe();
   }, []);
