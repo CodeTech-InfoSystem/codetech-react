@@ -28,6 +28,7 @@ const JobListing = () => {
           setNotAvailable(true);
           setJob(null);
         } else {
+          setNotAvailable(false);
           setJob(jobData);
         }
       } else {
