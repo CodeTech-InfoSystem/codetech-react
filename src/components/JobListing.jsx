@@ -106,7 +106,7 @@ const JobListing = () => {
         {/* Show form only if job status is Active */}
         <div>
           {job.status === "Active" ? (
-            <JobApplyForm location={job.location} workingMode={job.workingMode} />
+            <JobApplyForm location={job.location} workingMode={job.workingMode} jobRole={job.title} />
           ) : job.status.trim() === "Inactive" ? (
             <div className="text-red-600 text-center text-xl font-bold p-8 border border-red-600 rounded-md font-raleway">
               job is no longer accepting applications
