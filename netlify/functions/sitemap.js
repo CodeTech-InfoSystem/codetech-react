@@ -1,6 +1,5 @@
 const { initializeApp } = require("firebase/app");
-const { getDocs, getFirestore, collection } = require('firebase/firestore');
-import {query, where } from 'firebase/firestore';
+const { getDocs, getFirestore, collection, query, where } = require('firebase/firestore');
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
