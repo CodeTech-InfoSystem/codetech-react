@@ -152,7 +152,6 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
     }
   };
 
-
   return (
     <>
       <form
@@ -286,10 +285,11 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
         )}
         <button
           type="submit"
-          className="w-full bg-[#af9854] text-white font-bold py-2 rounded mt-4"
+          className={`w-full text-white font-bold py-2 rounded mt-4 ${
+            loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#af9854]'}`}
           disabled={loading}
         >
-          Submit
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
       <ToastContainer position="top-right" autoClose={3000} />
