@@ -59,7 +59,7 @@ const Admin = () => {
 
     if (['shortDescription', 'experience'].includes(name)) {
       const words = fieldValue.trim().split(/\s+/).filter(Boolean);
-      if (words.length > 20) {
+      if (words.length > 30) {
         setFormErrors((prev) => ({
           ...prev,
           [name]: `${name === 'shortDescription' ? 'Short description' : 'Experience required'} must be 30 words or fewer.`,
