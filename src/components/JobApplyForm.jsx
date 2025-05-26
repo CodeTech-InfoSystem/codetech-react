@@ -5,6 +5,7 @@ import { storage } from '../util/firebaseConfig';
 
 const JobApplyForm = ({ location, workingMode, jobRole }) => {
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -97,52 +98,59 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
-    if (!validate()) {
-      return;
-    }
-    const resumePath = await uploadResumeFile(formData.cv);
-    if (!resumePath) return
-
-    const data = new FormData();
-    data.append("form-name", "jobApply");
-    data.append("subject" , `Job Application - ${formData.firstName} ${formData.lastName}`);
-    data.append('jobTitle', jobRole);
-    data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`);
-
-    Object.entries(formData).forEach(([key, value]) => {
-      if (key !== 'cv' && value) {
-        data.append(key, value);
+    try {
+      if (!validate()) {
+        return;
       }
-    });
+      const resumePath = await uploadResumeFile(formData.cv);
+      if (!resumePath) return;
 
-    fetch("/", {
-      method: "POST",
-      body: data
-    })
-      .then(() => {
-        toast.success("Your application submitted successfully!");
-        setFormData({
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
-          location: '',
-          workingMode: '',
-          totalExp: '',
-          jobRole: '',
-          currentCompany: '',
-          noticePeriod: '',
-          cv: null,
-        });
-        setCvFileName("No file chosen");
-      })
-      .catch(() => {
-        toast.error("Something Went Wrong!");
+      const data = new FormData();
+      data.append("form-name", "jobApply");
+      data.append("subject", `Job Application - ${formData.firstName} ${formData.lastName}`);
+      data.append('jobTitle', jobRole);
+      data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`);
+
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key !== 'cv' && value) {
+          data.append(key, value);
+        }
       });
-  };
 
+      const response = await fetch("/", {
+        method: "POST",
+        body: data,
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      toast.success("Your application submitted successfully!");
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        location: '',
+        workingMode: '',
+        totalExp: '',
+        jobRole: '',
+        currentCompany: '',
+        noticePeriod: '',
+        cv: null,
+      });
+      setCvFileName("No file chosen");
+
+    } catch (error) {
+      toast.error("Something Went Wrong!");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -277,9 +285,11 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
         )}
         <button
           type="submit"
-          className="w-full bg-[#af9854] text-white font-bold py-2 rounded mt-4"
+          className={`w-full text-white font-bold py-2 rounded mt-4 ${
+            loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#af9854]'}`}
+          disabled={loading}
         >
-          Submit
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
       <ToastContainer position="top-right" autoClose={3000} />
