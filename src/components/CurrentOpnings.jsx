@@ -68,7 +68,7 @@ export const CurrentOpnings = () => {
                     )}
                     {job.immediateJoiner && (
                       <p className="text-green-600 text-sm font-semibold font-raleway">
-                        Immediate Joiner Requierd
+                        Immediate Joiner Required
                       </p>
                     )}
                   </div>
