@@ -132,6 +132,7 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
   };
 
   const handleSubmit = async (e) => {
+    console.log('Form data before sending:', formData);
     setLoading(true);
     e.preventDefault();
 
@@ -162,6 +163,7 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
+      
 
       toast.success("Your application submitted successfully!");
       setFormData({
