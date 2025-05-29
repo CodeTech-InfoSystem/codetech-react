@@ -18,6 +18,8 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
     noticePeriod: '',
     relocated: false,
     cv: null,
+    currentCtc: '',
+    expectedCtc: '',
   });
 
   const [cvFileName, setCvFileName] = useState('No file chosen');
@@ -84,11 +86,24 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
       newErrors.phone = "Invalid Mobile No.";
     }
 
+
     if (!formData.email.trim()) {
       newErrors.email = "Email Address is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email Address is invalid";
     }
+
+    if (!formData.noticePeriod.trim()) {
+      newErrors.noticePeriod = "Notice period is required";
+    }
+
+    if (!formData.currentCtc.trim()) {
+      newErrors.currentCtc = "Current Ctc is required";
+    }
+    if (!formData.expectedCtc.trim()) {
+      newErrors.expectedCtc = "Expected Ctc is required";
+    }
+
 
     if (!formData.cv) newErrors.cv = "Resume is required";
 
@@ -142,6 +157,8 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
         currentCompany: '',
         noticePeriod: '',
         cv: null,
+        currentCtc: '',
+        expectedCtc: '',
       });
       setCvFileName("No file chosen");
 
@@ -238,7 +255,25 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
-
+        {errors.noticePeriod && <p className="text-red-500 text-sm mt-1">{errors.noticePeriod}</p>}
+        <input
+          type="text"
+          name="currentCtc"
+          placeholder="Current Ctc"
+          value={formData.currentCtc}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        {errors.currentCtc && <p className="text-red-500 text-sm mt-1">{errors.currentCtc}</p>}
+        <input
+          type="text"
+          name="expectedCtc"
+          placeholder="Expected Ctc"
+          value={formData.expectedCtc}
+          onChange={handleChange}
+          className="w-full text-black border px-4 py-2 rounded font-raleway"
+        />
+        {errors.expectedCtc && <p className="text-red-500 text-sm mt-1">{errors.expectedCtc}</p>}
         <div className="flex items-center gap-2">
           <label
             htmlFor="cv-upload"
@@ -285,8 +320,7 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
         )}
         <button
           type="submit"
-          className={`w-full text-white font-bold py-2 rounded mt-4 ${
-            loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#af9854]'}`}
+          className={`w-full text-white font-bold py-2 rounded mt-4 ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#af9854]'}`}
           disabled={loading}
         >
           {loading ? 'Submitting...' : 'Submit'}
