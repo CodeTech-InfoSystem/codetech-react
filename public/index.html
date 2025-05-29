@@ -32,16 +32,14 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="hidden" name="subject" data-remove-prefix
-      value="New Contact Us Request" />
+    <input type="hidden" name="subject" data-remove-prefix value="New Contact Us Request" />
     <input type="text" name="name" />
     <input type="email" name="email" />
     <textarea name="message"></textarea>
   </form>
 
   <form name="jobApply" netlify netlify-honeypot="bot-field" hidden>
-    <input type="hidden" name="subject" data-remove-prefix
-      value="Job Application" />
+    <input type="hidden" name="subject" data-remove-prefix value="Job Application" />
     <input type="text" name="jobTitle" />
     <input type="text" name="firstName" />
     <input type="text" name="lastName" />
@@ -52,10 +50,11 @@
     <input type="text" name="jobRole" />
     <input type="text" name="currentCompany" />
     <input type="text" name="noticePeriod" />
-    <input type="text" name="currentCtc" />
-    <input type="text" name="expectedCtc" />
+    <input type="number" name="currentCtc" />
+    <input type="number" name="expectedCtc" />
     <input type="text" name="resumeURL" />
     <input type="checkbox" name="relocated" />
+    <input type="text" name="experienceType" />
   </form>
 </body>
 

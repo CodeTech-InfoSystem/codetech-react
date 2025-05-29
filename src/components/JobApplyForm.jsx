@@ -20,12 +20,13 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
     cv: null,
     currentCtc: '',
     expectedCtc: '',
+    experienceType: '',
   });
 
   const [cvFileName, setCvFileName] = useState('No file chosen');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
 
     if (name === 'firstName' || name === 'lastName') {
       const trimmedValue = value.trim();
@@ -44,7 +45,10 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
       }
     }
 
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const handleFileChange = (e) => {
@@ -93,17 +97,32 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
       newErrors.email = "Email Address is invalid";
     }
 
-    if (!formData.noticePeriod.trim()) {
-      newErrors.noticePeriod = "Notice period is required";
+    if (formData.experienceType === "experienced") {
+      if (!formData.noticePeriod.trim()) {
+        newErrors.noticePeriod = "Notice period is required";
+      }
+
+      if (!formData.currentCtc.trim()) {
+        newErrors.currentCtc = "Current CTC is required";
+      }
+
+      if (!formData.expectedCtc.trim()) {
+        newErrors.expectedCtc = "Expected CTC is required";
+      }
+
+      if (!formData.totalExp.trim()) {
+        newErrors.totalExp = "Total experience is required";
+      }
+
+      if (!formData.currentCompany.trim()) {
+        newErrors.currentCompany = "Current company is required";
+      }
     }
 
-    if (!formData.currentCtc.trim()) {
-      newErrors.currentCtc = "Current Ctc is required";
-    }
-    if (!formData.expectedCtc.trim()) {
-      newErrors.expectedCtc = "Expected Ctc is required";
-    }
 
+    if (!formData.experienceType) {
+      newErrors.experienceType = "Please select either Fresher or Experienced.";
+    }
 
     if (!formData.cv) newErrors.cv = "Resume is required";
 
@@ -159,6 +178,7 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
         cv: null,
         currentCtc: '',
         expectedCtc: '',
+        experienceType: '',
       });
       setCvFileName("No file chosen");
 
@@ -223,14 +243,7 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
-        <input
-          type="text"
-          name="totalExp"
-          placeholder="Total Experience (e.g. 3 years)"
-          value={formData.totalExp}
-          onChange={handleChange}
-          className="w-full text-black border px-4 py-2 rounded font-raleway"
-        />
+
         <input
           type="text"
           name="jobRole"
@@ -239,41 +252,86 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
           onChange={handleChange}
           className="w-full text-black border px-4 py-2 rounded font-raleway"
         />
-        <input
-          type="text"
-          name="currentCompany"
-          placeholder="Current Company"
-          value={formData.currentCompany}
-          onChange={handleChange}
-          className="w-full text-black border px-4 py-2 rounded font-raleway"
-        />
-        <input
-          type="text"
-          name="noticePeriod"
-          placeholder="Notice Period (e.g. 15 days)"
-          value={formData.noticePeriod}
-          onChange={handleChange}
-          className="w-full text-black border px-4 py-2 rounded font-raleway"
-        />
-        {errors.noticePeriod && <p className="text-red-500 text-sm mt-1">{errors.noticePeriod}</p>}
-        <input
-          type="text"
-          name="currentCtc"
-          placeholder="Current Ctc"
-          value={formData.currentCtc}
-          onChange={handleChange}
-          className="w-full text-black border px-4 py-2 rounded font-raleway"
-        />
-        {errors.currentCtc && <p className="text-red-500 text-sm mt-1">{errors.currentCtc}</p>}
-        <input
-          type="text"
-          name="expectedCtc"
-          placeholder="Expected Ctc"
-          value={formData.expectedCtc}
-          onChange={handleChange}
-          className="w-full text-black border px-4 py-2 rounded font-raleway"
-        />
-        {errors.expectedCtc && <p className="text-red-500 text-sm mt-1">{errors.expectedCtc}</p>}
+        <div className="flex flex-col space-y-2">
+
+          <label className="flex items-center space-x-2 text-base font-raleway">
+            <input
+              type="radio"
+              name="experienceType"
+              value="fresher"
+              checked={formData.experienceType === "fresher"}
+              onChange={handleChange}
+            />
+            <span className='text-gray-600'>Fresher</span>
+          </label>
+          <label className="flex items-center space-x-2 text-base font-raleway">
+            <input
+              type="radio"
+              name="experienceType"
+              value="experienced"
+              checked={formData.experienceType === "experienced"}
+              onChange={handleChange}
+            />
+            <span className='text-gray-600'>Experienced</span>
+          </label>
+          {errors.experienceType && <p className="text-red-500 text-sm mt-1">{errors.experienceType}</p>}
+        </div>
+        {formData.experienceType === 'experienced' && (
+          <>
+            <input
+              type="text"
+              name="totalExp"
+              placeholder="Total Experience (e.g. 3 years)"
+              value={formData.totalExp}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded font-raleway"
+            />
+            {errors.totalExp && <p className="text-red-500 text-sm mt-1">{errors.totalExp}</p>}
+
+            <input
+              type="text"
+              name="currentCompany"
+              placeholder="Current Company"
+              value={formData.currentCompany}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded font-raleway"
+            />
+            {errors.currentCompany && <p className="text-red-500 text-sm mt-1">{errors.currentCompany}</p>}
+
+            <input
+              type="text"
+              name="noticePeriod"
+              placeholder="Notice Period (e.g. 15 days)"
+              value={formData.noticePeriod}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded font-raleway"
+            />
+            {errors.noticePeriod && <p className="text-red-500 text-sm mt-1">{errors.noticePeriod}</p>}
+
+            <input
+              type="number"
+              name="currentCtc"
+              min="0"
+              placeholder="Current CTC (in LPA)"
+              value={formData.currentCtc}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded font-raleway"
+            />
+            {errors.currentCtc && <p className="text-red-500 text-sm mt-1">{errors.currentCtc}</p>}
+
+            <input
+              type="number"
+              name="expectedCtc"
+              min="0"
+              placeholder="Expected CTC (in LPA)"
+              value={formData.expectedCtc}
+              onChange={handleChange}
+              className="w-full text-black border px-4 py-2 rounded font-raleway"
+            />
+            {errors.expectedCtc && <p className="text-red-500 text-sm mt-1">{errors.expectedCtc}</p>}
+          </>
+        )}
+
         <div className="flex items-center gap-2">
           <label
             htmlFor="cv-upload"
@@ -332,3 +390,4 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
 };
 
 export default JobApplyForm;
+   
