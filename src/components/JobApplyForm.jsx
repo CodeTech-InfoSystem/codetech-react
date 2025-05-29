@@ -132,7 +132,6 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
   };
 
   const handleSubmit = async (e) => {
-    console.log('Form data before sending:', formData);
     setLoading(true);
     e.preventDefault();
 
