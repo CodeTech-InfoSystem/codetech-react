@@ -149,7 +149,11 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
       data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`);
 
       Object.entries(formData).forEach(([key, value]) => {
-        if (key !== 'cv' && value) {
+        if (key === 'cv') return;
+      
+        if (key === 'relocated') {
+          data.append('relocated', value ? 'Yes' : 'No');
+        } else if (value) {
           data.append(key, value);
         }
       });
