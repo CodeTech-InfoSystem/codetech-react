@@ -142,25 +142,25 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
       const resumePath = await uploadResumeFile(formData.cv);
       if (!resumePath) return;
 
-      const data = new FormData();
-      data.append("form-name", "jobApply");
-      data.append("subject", `Job Application - ${formData.firstName} ${formData.lastName}`);
-      data.append('jobTitle', jobRole);
-      data.append("resumeURL", `https://codetechinfosystem.com/admin/${resumePath}`);
+      const data = {
+        jobTitle: jobRole,
+        resumeURL: `https://codetechinfosystem.com/admin/${resumePath}`,
+        workingMode: workingMode,
+      };
 
       Object.entries(formData).forEach(([key, value]) => {
         if (key === 'cv') return;
-      
+
         if (key === 'relocated') {
-          data.append('relocated', value ? 'Yes' : 'No');
+          data.relocated = value ? 'Yes' : 'No';
         } else if (value) {
-          data.append(key, value);
+          data[key] = value;
         }
       });
 
-      const response = await fetch("/", {
+      const response = await fetch("/submit-job-application", {
         method: "POST",
-        body: data,
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -175,7 +175,6 @@ const JobApplyForm = ({ location, workingMode, jobRole }) => {
         phone: '',
         email: '',
         location: '',
-        workingMode: '',
         totalExp: '',
         jobRole: '',
         currentCompany: '',

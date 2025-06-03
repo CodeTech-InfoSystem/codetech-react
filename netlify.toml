@@ -5,6 +5,12 @@
   force = true
 
 [[redirects]]
+  from = "/submit-job-application"
+  to = "/.netlify/functions/submit-job-application"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
