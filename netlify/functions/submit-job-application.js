@@ -52,7 +52,7 @@ exports.handler = async (event) => {
             <p style="margin: 10px 0;"><strong style="color: #af9854;">Email:</strong> ${email}</p>
             <p style="margin: 10px 0;"><strong style="color: #af9854;">Phone:</strong> ${phone}</p>
             <p style="margin: 10px 0;"><strong style="color: #af9854;">Current Location:</strong> ${location || 'N/A'}</p>
-            <p style="margin: 10px 0;"><strong style="color: #af9854;">jobRole:</strong> ${jobRole || 'N/A'}</p>
+            <p style="margin: 10px 0;"><strong style="color: #af9854;">Job Role:</strong> ${jobRole || 'N/A'}</p>
             <p style="margin: 10px 0;"><strong style="color: #af9854;">Experience Type:</strong> ${experienceType}</p>
           </div>
 
