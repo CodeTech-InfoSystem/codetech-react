@@ -3,37 +3,37 @@ const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.handler = async (event) => {
-    try {
-        const formData = JSON.parse(event.body);
-        const {
-            firstName,
-            lastName,
-            email,
-            phone,
-            location,
-            jobTitle,
-            jobRole,
-            workingMode,
-            experienceType,
-            totalExp,
-            currentCompany,
-            noticePeriod,
-            currentCtc,
-            expectedCtc,
-            relocated,
-            resumeURL
-        } = formData;
+  try {
+    const formData = JSON.parse(event.body);
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      location,
+      jobTitle,
+      jobRole,
+      workingMode,
+      experienceType,
+      totalExp,
+      currentCompany,
+      noticePeriod,
+      currentCtc,
+      expectedCtc,
+      relocated,
+      resumeURL
+    } = formData;
 
-        // Validate required fields
-        if (!firstName || !lastName || !email || !phone || !jobTitle) {
-            return {
-                statusCode: 400,
-                body: JSON.stringify({ error: 'Missing required fields' }),
-            };
-        }
+    // Validate required fields
+    if (!firstName || !lastName || !email || !phone || !jobTitle) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Missing required fields' }),
+      };
+    }
 
-        // HR notification email
-        const hrEmailHtml = `
+    // HR notification email
+    const hrEmailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
         <div style="background-color: #242423; color: white; padding: 20px; border-radius: 8px 8px 0 0;">
           <h1 style="margin: 0; color: #af9854;">New Job Application Received</h1>
@@ -80,8 +80,8 @@ exports.handler = async (event) => {
       </div>
     `;
 
-        // Candidate thank you email
-        const candidateEmailHtml = `
+    // Candidate thank you email
+    const candidateEmailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
         <div style="background-color: #242423; color: white; padding: 20px; border-radius: 8px 8px 0 0;">
           <h1 style="margin: 0; color: #af9854;">Thank You for Your Application!</h1>
@@ -114,44 +114,44 @@ exports.handler = async (event) => {
       </div>
     `;
 
-        // Send email to HR
-        const hrEmail = await resend.emails.send({
-            from: 'noreply@codetechinfosystem.com', // Replace with your verified domain
-            to: ['job-apply@codetechinfosystem.com'], // Replace with actual HR email
-            reply_to: email,
-            subject: `New Job Application: ${jobTitle} - ${firstName} ${lastName}`,
-            html: hrEmailHtml,
-        });
+    // Send email to HR
+    const hrEmail = await resend.emails.send({
+      from: process.env.MAIL_FORM, // Replace with your verified domain
+      to: [process.env.JOB_APPLY_MAIL_SEND_TO], // Replace with actual HR email
+      reply_to: email,
+      subject: `New Job Application: ${jobTitle} - ${firstName} ${lastName}`,
+      html: hrEmailHtml,
+    });
 
-        // Send thank you email to candidate
-        const candidateEmail = await resend.emails.send({
-            from: 'noreply@codetechinfosystem.com', // Replace with your verified domain
-            to: [email],
-            subject: `Thank you for your application - ${jobTitle}`,
-            html: candidateEmailHtml,
-        });
+    // Send thank you email to candidate
+    const candidateEmail = await resend.emails.send({
+      from: process.env.MAIL_FORM, // Replace with your verified domain
+      to: [email],
+      subject: `Thank you for your application - ${jobTitle}`,
+      html: candidateEmailHtml,
+    });
 
-        console.log('HR Email sent:', hrEmail);
-        console.log('Candidate Email sent:', candidateEmail);
+    console.log('HR Email sent:', hrEmail);
+    console.log('Candidate Email sent:', candidateEmail);
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                message: 'Application submitted successfully',
-                hrEmailId: hrEmail.id,
-                candidateEmailId: candidateEmail.id,
-            }),
-        };
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        message: 'Application submitted successfully',
+        hrEmailId: hrEmail.id,
+        candidateEmailId: candidateEmail.id,
+      }),
+    };
 
-    } catch (error) {
-        console.error('Error processing application:', error);
+  } catch (error) {
+    console.error('Error processing application:', error);
 
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: 'Failed to process application',
-                details: error.message,
-            }),
-        };
-    }
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: 'Failed to process application',
+        details: error.message,
+      }),
+    };
+  }
 };
