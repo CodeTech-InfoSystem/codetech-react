@@ -118,7 +118,7 @@ exports.handler = async (event) => {
     const hrEmail = await resend.emails.send({
       from: process.env.MAIL_FORM, // Replace with your verified domain
       to: [process.env.JOB_APPLY_MAIL_SEND_TO], // Replace with actual HR email
-      reply_to: email,
+      replyTo: email,
       subject: `New Job Application: ${jobTitle} - ${firstName} ${lastName}`,
       html: hrEmailHtml,
     });
